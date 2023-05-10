@@ -1,1 +1,50 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+// COLORS
+$light-clr-1: #ffffff;
+$light-clr-2: #eac645;
+$dark-clr-1: #111111;
+$dark-clr-2: #202024;
+
+$accent-clr: #4f2ee8;
+$bck-clr-home: #d0d0d0;
+
+// ANIMATION
+$animation-fast: 400ms ease;
+$animation-slow: 800ms ease;
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// SMOOTH SCROLL
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: DM Sans, sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+button {
+  cursor: pointer;
+}
