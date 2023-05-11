@@ -5,16 +5,16 @@ const refModal = document.querySelector('.backdrop');
 
 btnClose.addEventListener('click', onBtnClose);
 
-for (let refBtnOpen of refsBtnOpen) {
-  refBtnOpen.addEventListener('click', onClickBtn);
-}
-
 function onClickBtn(e) {
   refModal.classList.add('is-block');
 }
 
 function onBtnClose(e) {
   refModal.classList.remove('is-block');
+}
+
+for (let refBtnOpen of refsBtnOpen) {
+  refBtnOpen.addEventListener('click', onClickBtn);
 }
 
 //================================КОД ДЛЯ ВІДКРИТТЯ ТА ЗАКРИТЯ МОДАЛЬНОГО ВІКНА REMOVE=============================================
@@ -24,14 +24,14 @@ const refModalRemove = document.querySelector('.backdrop-remove');
 
 btnCloseRemove.addEventListener('click', onBtnClose);
 
-for (let refBtnOpenRemove of refsBtnOpenRemove) {
-  refBtnOpenRemove.addEventListener('click', onClickBtn);
-}
-
-function onClickBtn(e) {
+function onClickBtnRemove(e) {
   refModalRemove.classList.add('is-block');
 }
 
 function onBtnClose(e) {
   refModalRemove.classList.remove('is-block');
+}
+
+for (let refBtnOpenRemove of refsBtnOpenRemove) {
+  refBtnOpenRemove.addEventListener('click', onClickBtnRemove);
 }
