@@ -10,12 +10,10 @@ for (let refBtnOpen of refsBtnOpen) {
 }
 
 function onClickBtn(e) {
-  e.preventDefault();
   refModal.classList.add('is-block');
 }
 
 function onBtnClose(e) {
-  e.preventDefault();
   refModal.classList.remove('is-block');
 }
 
@@ -31,11 +29,9 @@ for (let refBtnOpenRemove of refsBtnOpenRemove) {
 }
 
 function onClickBtn(e) {
-  e.preventDefault();
   refModalRemove.classList.add('is-block');
 }
 
 function onBtnClose(e) {
-  e.preventDefault();
   refModalRemove.classList.remove('is-block');
 }
