@@ -1,37 +1,33 @@
 //====================================КОД ДЛЯ ВІДКРИТТЯ ТА ЗАКРИТЯ МОДАЛЬНОГО ВІКНА===========================================
-const refsBtnOpen = document.querySelectorAll('.js-open');
+const btnOpen = document.querySelector('.js-open');
 const btnClose = document.querySelector('.js-close');
-const refModal = document.querySelector('.backdrop');
+const modal = document.querySelector('.backdrop');
 
 btnClose.addEventListener('click', onBtnClose);
+btnOpen.addEventListener('click', onBtnOpen);
 
-function onClickBtn(e) {
-  refModal.classList.add('is-block');
+function onBtnOpen() {
+  modal.classList.add('is-block');
+  console.log("click")
 }
 
-function onBtnClose(e) {
-  refModal.classList.remove('is-block');
-}
-
-for (let refBtnOpen of refsBtnOpen) {
-  refBtnOpen.addEventListener('click', onClickBtn);
+function onBtnClose() {
+  modal.classList.remove('is-block');
 }
 
 //================================КОД ДЛЯ ВІДКРИТТЯ ТА ЗАКРИТЯ МОДАЛЬНОГО ВІКНА REMOVE=============================================
-const refsBtnOpenRemove = document.querySelectorAll('.js-open-remove');
+const btnOpenRemove = document.querySelector('.js-open-remove');
 const btnCloseRemove = document.querySelector('.js-close-remove');
-const refModalRemove = document.querySelector('.backdrop-remove');
+const modalRemove = document.querySelector('.backdrop-remove');
 
-btnCloseRemove.addEventListener('click', onBtnClose);
+btnCloseRemove.addEventListener('click', onBtnCloseRemove);
+btnOpenRemove.addEventListener('click', onBtnOpenRemove);
 
-function onClickBtnRemove(e) {
-  refModalRemove.classList.add('is-block');
+function onBtnOpenRemove() {
+  modalRemove.classList.add('is-block');
 }
 
-function onBtnCloseRemove(e) {
-  refModalRemove.classList.remove('is-block');
+function onBtnCloseRemove() {
+  modalRemove.classList.remove('is-block');
 }
 
-for (let refBtnOpenRemove of refsBtnOpenRemove) {
-  refBtnOpenRemove.addEventListener('click', onClickBtnRemove);
-}
