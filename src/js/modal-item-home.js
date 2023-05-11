@@ -8,7 +8,7 @@ btnOpen.addEventListener('click', onBtnOpen);
 
 function onBtnOpen() {
   modal.classList.add('is-block');
-  console.log("click")
+  console.log('click');
 }
 
 function onBtnClose() {
@@ -30,4 +30,3 @@ function onBtnOpenRemove() {
 function onBtnCloseRemove() {
   modalRemove.classList.remove('is-block');
 }
-

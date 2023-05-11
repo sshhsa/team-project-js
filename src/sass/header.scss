@@ -1,10 +1,6 @@
-.container {
-  width: 1440px;
-}
-
 .header {
-  background: #ffffff;
-  border: 1.5px solid #111111;
+  background: $light-clr-1;
+  border: 1.5px solid $dark-clr-1;
   border-radius: 0px 0px 8px 8px;
   position: absolute;
   width: 1440px;
@@ -21,7 +17,7 @@
 .header-logo {
   font-family: 'DM Sans';
   text-decoration: none;
-  color: #000000;
+  color: $dark-clr-1;
   height: 13.27px;
   margin-left: 24px;
   margin-top: 22px;
@@ -46,7 +42,7 @@
   background: #eac645;
   border-radius: 36px;
   padding: 8px 16px;
-  color: #000000;
+  color: $dark-clr-1;
 }
 
 .header-link {
@@ -56,7 +52,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 1.28px;
-  color: #000000;
+  color: $dark-clr-1;
 }
 
 .page-nav {
@@ -69,9 +65,9 @@
   width: 20px;
   height: 20px;
   stroke-width: 0;
-  fill: white;
+  fill: $light-clr-1;
   vertical-align: bottom;
-  stroke: #000000;
+  stroke: $dark-clr-1;
   display: inline-block;
 }
 
@@ -80,7 +76,7 @@
   width: 20px;
   height: 20px;
   stroke-width: 0;
-  color: #000000;
+  color: $dark-clr-1;
   fill: currentColor;
   padding-right: 4px;
 }
@@ -100,7 +96,7 @@
   font-weight: 700;
   font-size: 48px;
   line-height: 1.08px;
-  color: #000000;
+  color: $dark-clr-1;
 }
 
 .list {
@@ -110,7 +106,7 @@
   font-weight: 700;
   font-size: 48px;
   line-height: 1.08px;
-  color: #4f2ee8;
+  color: $accent-clr;
 }
 
 .empty {
@@ -127,10 +123,6 @@
 }
 
 @media screen and (max-width: 769px) {
-  .container {
-    width: 768px;
-  }
-
   .header-logo {
     margin-left: 32px;
   }
@@ -144,11 +136,7 @@
   }
 }
 
-@media screen and (min-width: 319px) and (max-width: 769px) {
-  .container {
-    width: 320px;
-  }
-
+@media screen and (max-width: 769px) {
   .header-link {
     display: none;
   }

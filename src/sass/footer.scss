@@ -1,26 +1,18 @@
 .footer {
   text-align: center;
-  max-width: 1440px;
-  background: #d0d0d0;
-  color: #000;
+  background: $bck-clr-home;
+  color: $dark-clr-1;
   padding: 30px;
   font-size: 16px;
-  border: 1.5px solid #111111;
+  border: 1.5px solid $dark-clr-1;
   border-radius: 8px 8px 0px 0px;
   line-height: 1.19;
-  bottom: 0px;
   position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  
-
+  bottom: 0px;
 }
 
 .footer-title {
   display: flex;
-  padding-top: 8px;
   justify-content: center;
+  padding-top: 8px;
 }
-
-
-
