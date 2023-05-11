@@ -1,0 +1,131 @@
+.shopping-list__page {
+  @media screen and(min-width: $desktop) {
+    flex-grow: 2;
+    padding-top: 40px;
+        display: flex;
+    gap: 40px;
+  }
+}
+
+.shopping-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  list-style: none;
+
+  margin-bottom: 20px;
+
+//   @media screen and (min-width: $tablet) {
+//     margin-bottom: 40px;
+//   }
+}
+
+.on-empty-container {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  justify-content: space-between;
+  gap: 14;
+  z-index: -1;
+  width: 100%;
+
+  transform: translateY(22vh);
+  & > img {
+    width: 100%;
+  }
+  @media screen and (min-width: $mobile) {
+    width: 265px;
+    height: 248px;
+  }
+
+  @media screen and(min-width: $tablet) {
+    transform: translateY(24.5vh);
+    gap: 20;
+    width: 349px;
+    height: 309px;
+  }
+}
+
+.empty-bookshelf__text {
+  font-family: 'DMSans';
+  letter-spacing: -0.02em;
+  color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  width: 100%;
+  .dark-theme & {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  @media screen and (min-width: $mobile) {
+    font-size: 18px;
+    line-height: 1.33;
+    width: 244;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+.shopping-list__title {
+  font-family: 'DMSans';
+  font-style: normal;
+  font-weight: 700;
+  text-transform: capitalize;
+
+  display: block;
+  text-align: center;
+
+  letter-spacing: -0.04em;
+
+  color: #111111;
+
+  font-size: 32px;
+  line-height: 1.19;
+
+  margin-top: 60px;
+  margin-bottom: 40px;
+  .dark-theme & {
+    color: white;
+  }
+  .shopping-list__blue-title {
+    color: #4f2ee8;
+  }
+
+  @media screen and (min-width: $tablet) {
+    font-size: 48px;
+    line-height: 1.08;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 0;
+  }
+
+  &:after {
+    content: attr(data-text);
+    color: #4f2ee8;
+    transform: translateX(-100%);
+    position: absolute;
+  }
+}
+
+.btn-pagination__list {
+  display: flex;
+
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 28px;
+
+  @media screen and (min-width: $tablet) {
+    gap: 24px;
+    margin-bottom: 0;
+  }
+}

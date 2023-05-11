@@ -1,1 +1,25 @@
-<h1>Shopping list</h1>
+ <section class="shopping-list__page">
+          <h1 class="shopping-list__title" data-text="list">shopping <span class="shopping-list__blue-title">list</span></h1>
+          <!-- basket to render cards -->
+          <ul class="shopping-list">
+            <!-- card -->
+            <!-- empty basket styles -->
+            <li class="on-empty-container">
+              <p class="empty-bookshelf__text">This page is empty, add some books and proceed to order.</p>
+              <img
+                srcset="
+                  images/png/empty-shop-list.png        265w,
+                  images/png/empty-shop-list.png        320w,
+                  images/png/empty-shop-list.png        530w,
+                  images/png/empty-shop-list.png        644w
+                "
+                sizes="(max-width: 768px) 265px,
+            (max-width: 1440px) 320px,
+            644px"
+                src="images/png/empty-shop-list.png"
+                alt="Book Illustration"
+              />
+            </li>
+          </ul>
+          <ul class="btn-pagination__list"></ul>
+</section>
