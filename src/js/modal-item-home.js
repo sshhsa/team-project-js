@@ -28,7 +28,7 @@ function onClickBtnRemove(e) {
   refModalRemove.classList.add('is-block');
 }
 
-function onBtnClose(e) {
+function onBtnCloseRemove(e) {
   refModalRemove.classList.remove('is-block');
 }
 
