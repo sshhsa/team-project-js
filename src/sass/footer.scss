@@ -9,10 +9,29 @@
   line-height: 1.19;
   position: absolute;
   bottom: 0px;
+  width: 1440px;
 }
 
 .footer-title {
   display: flex;
   justify-content: center;
   padding-top: 8px;
+}
+
+@media screen and (min-width: 319px) and (max-width: 769px){
+  .footer {
+    width: 319px;
+  }
+}
+
+@media screen and (max-width: 769px){
+  .footer {
+    width: 768px;
+  }
+}
+
+@media screen and (max-width: 1440px){
+  .footer {
+    width: 1440px;
+  }
 }
