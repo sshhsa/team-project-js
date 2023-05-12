@@ -7,9 +7,10 @@
   border: 1.5px solid $dark-clr-1;
   border-radius: 8px 8px 0px 0px;
   line-height: 1.19;
-  position: absolute;
-  bottom: 0px;
-  width: 1440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 
 .footer-title {
