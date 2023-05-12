@@ -11,8 +11,6 @@
   display: flex;
 }
 
-
-
 .header-logo {
   font-family: 'DM Sans';
   text-decoration: none;
@@ -35,7 +33,7 @@
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  margin-left:auto;
+  margin-left: auto;
 }
 
 .active {
@@ -128,115 +126,114 @@
   margin-top: 140px;
 }
 
-  .btn-header {
-    min-width: 184px;
-    text-transform: none;
-    letter-spacing: -0.04em;
-    color: $light-clr-1;
-    background: $accent-clr;
-    border: 1.5px solid $dark-clr-1;
-    border-radius: 18px;
-    justify-content: space-between;
-    margin-left: 24px;
-    padding: 13px;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.28;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: DMSans;
-    font-style: normal;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
+.btn-header {
+  min-width: 184px;
+  text-transform: none;
+  letter-spacing: -0.04em;
+  color: $light-clr-1;
+  background: $accent-clr;
+  border: 1.5px solid $dark-clr-1;
+  border-radius: 18px;
+  justify-content: space-between;
+  margin-left: 24px;
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: DMSans;
+  font-style: normal;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 
-  .btn-header:hover,
-  .btn-header:focus {
-    color: $dark-clr-1;
-    background: $light-clr-1;
-  }
+.btn-header:hover,
+.btn-header:focus {
+  color: $dark-clr-1;
+  background: $light-clr-1;
+}
 
-  .btn-singin {
-    min-width: 184px;
-    text-transform: none;
-    letter-spacing: -0.02em;
-    color: #fff;
-    background: #4f2ee8;
-    border: 1.5px solid #111;
-    border-radius: 18px;
-    gap: 0;
-    margin-left: 24px;
-    padding: 3px 7px;
-    font-size: 22px;
-    line-height: 1.31;
-    transition: all 0.3s;
-    align-items: center;
-    display: flex;
-    font-family: 'DM Sans';
-    font-weight: 700;
-  }
+.btn-singin {
+  min-width: 184px;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  color: #fff;
+  background: #4f2ee8;
+  border: 1.5px solid #111;
+  border-radius: 18px;
+  gap: 0;
+  margin-left: 24px;
+  padding: 3px 7px;
+  font-size: 22px;
+  line-height: 1.31;
+  transition: all 0.3s;
+  align-items: center;
+  display: flex;
+  font-family: 'DM Sans';
+  font-weight: 700;
+}
 
-  .btn-singin:hover,
-  .btn-singin:focus {
-    color: $dark-clr-1;
-    background: $light-clr-1;
-  }
+.btn-singin:hover,
+.btn-singin:focus {
+  color: $dark-clr-1;
+  background: $light-clr-1;
+}
 
-  .header-singin-down-icon {
-    fill: #fff;
-    margin-left: 4px;
-  }
+.header-singin-down-icon {
+  fill: #fff;
+  margin-left: 4px;
+}
 
-  .header-singin-icon {
-    width: 37px;
-    height: 37px;
-    fill: $accent-clr;
-    background: $light-clr-1;
-    border-radius: 50%;
-    margin-right: 9px;
-    padding: 9px;
-  }
+.header-singin-icon {
+  width: 37px;
+  height: 37px;
+  fill: $accent-clr;
+  background: $light-clr-1;
+  border-radius: 50%;
+  margin-right: 9px;
+  padding: 9px;
+}
 
-  .btn-header-logout {
-    letter-spacing: -0.01em;
-    color: $dark-clr-1;
-    cursor: pointer;
-    text-transform: uppercase;
-    background-color: rgba(0, 0, 0, 0);
-    border: 2px solid $accent-clr;
-    border-radius: 40px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 24px;
-    font-family: DMSans;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.28;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    width: 184px;
-    height: 48px;
-    margin-left: 10px;
-    justify-content: space-between;
-  }
+.btn-header-logout {
+  letter-spacing: -0.01em;
+  color: $dark-clr-1;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid $accent-clr;
+  border-radius: 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  font-family: DMSans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  width: 184px;
+  height: 48px;
+  margin-left: 10px;
+  justify-content: space-between;
+}
 
-  .btn-header-logout:hover,
-  .btn-header-logout:focus {
-    color: $light-clr-1;
-    background: $accent-clr;
-  }
-
+.btn-header-logout:hover,
+.btn-header-logout:focus {
+  color: $light-clr-1;
+  background: $accent-clr;
+}
 
 .sign-up-icon {
   stroke: $light-clr-2;
   position: relative;
 }
 
-.menu-burger{
+.menu-burger {
   display: none;
 }
 
@@ -270,7 +267,7 @@
   .btn-header-logout {
     max-width: fit-content;
     text-transform: none;
-    letter-spacing: -.04em;
+    letter-spacing: -0.04em;
     color: $dark-clr-1;
     background: $light-clr-1;
     border: 1.5px solid $dark-clr-1;
@@ -280,40 +277,39 @@
     padding: 13px 17px;
     font-size: 14px;
     line-height: 1.28;
-    transition: all .3s;
+    transition: all 0.3s;
     display: none;
-}
   }
+}
 
-@media screen and (min-width: 319px) and (max-width: 769px){
-  .header-menu-mob{
+@media screen and (min-width: 319px) and (max-width: 769px) {
+  .header-menu-mob {
     stroke: $dark-clr-1;
-      transition: all .3s;
-      width: 28px;
-      height: 28px;
+    transition: all 0.3s;
+    width: 28px;
+    height: 28px;
   }
-  
-  .menu-burger{
+
+  .menu-burger {
     cursor: pointer;
-      background-color: rgba(0,0,0,0);
-      border: none;
-      border-radius: 50%;
-      outline: none;
-      justify-content: center;
-      align-items: flex-end;
-      margin-left: 14px;
-      padding: 0;
-      animation: all .3s;
-      display: flex;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    justify-content: center;
+    align-items: flex-end;
+    margin-left: 14px;
+    padding: 0;
+    animation: all 0.3s;
+    display: flex;
   }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1440px){
-  .menu-burger{
+@media screen and (min-width: 769px) and (max-width: 1440px) {
+  .menu-burger {
     display: none;
   }
-  .header-menu-mob{
+  .header-menu-mob {
     display: none;
   }
 }
-
