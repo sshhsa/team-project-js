@@ -31,6 +31,13 @@
   gap: 24px;
 }
 
+.header-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  margin-left:auto;
+}
+
 .active {
   font-family: 'DM Sans';
   text-decoration: none;
@@ -140,8 +147,6 @@
     gap: 10px;
     font-family: DMSans;
     font-style: normal;
-    position: absolute;
-    right: 24px;
     cursor: pointer;
     transition: all 0.3s;
   }
