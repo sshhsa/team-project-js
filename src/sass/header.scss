@@ -13,7 +13,7 @@
   }
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
   .header {
     width: 100%;
   }
@@ -255,6 +255,10 @@
   display: none;
 }
 
+.mobile-menu-close-button {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .header-logo {
     margin-left: 32px;
@@ -358,10 +362,16 @@
     outline: none;
     justify-content: center;
     align-items: flex-end;
-    margin-left: 14px;
+    margin-left: auto;
     padding: 0;
     animation: all 0.3s;
     display: flex;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    margin-right: 18px;
   }
 
   .header-menu-mob-close {
@@ -385,6 +395,9 @@
     display: none;
   }
   .mobile-menu-burger {
+    display: none;
+  }
+  .header-menu-mob-close {
     display: none;
   }
 }
