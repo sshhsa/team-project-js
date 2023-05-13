@@ -25,6 +25,18 @@
       margin-bottom: 100px;
     }
   }
+
+  @media screen and (max-width: 688px) {
+    .align-left {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .div-support {
+      margin-top: 40px;
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
