@@ -29,7 +29,40 @@ function createBooklistMarcup (data) {
         const booksArr = data[i].books;
         const bookCards = []; 
 
+
         booksArr.forEach(({_id, book_image, title, author}) => {
+
+            // Перевірка кількості символів у назві книги і обрізка до необхідного значення //
+            const numberOfSymbol = 16;
+            if (title.length > numberOfSymbol) {
+                title = title.slice(0, numberOfSymbol) + "...";
+            }
+
+            //  Перевірка чи пришла обложка книги з бекенду і заміна її на заглушку в разі необхідності //
+            if (!book_image) {
+                book_image = "../images/book_plug.jpg";
+            }
+
+            const bookCardsMarcup =  
+            `<li id="${_id}" class="book-cards">
+              <div class="book-cover-wraper">
+                <img class="book-cover" src="${book_image}" alt="${title}">
+              </div>
+              <h2>${title}</h2>
+              <p>${author}</p>
+            </li>`;
+
+            bookCards.push(bookCardsMarcup);
+        });
+
+        booksArr.forEach(({_id, book_image, title, author}) => {
+
+        marcup.push(`<li class="category-block">
+        <p class="gallery-category-title">${data[i].list_name}</p>
+        <ul class="category-block-list">${bookCards.join('')}</ul>
+        ${btnSeeMore}
+        </li>`);
+    }
 
             // Перевірка кількості символів у назві книги і обрізка до необхідного значення //
             const numberOfSymbol = 16;
