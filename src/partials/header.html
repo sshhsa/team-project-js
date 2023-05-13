@@ -25,7 +25,7 @@
     </nav>
     <div class="header-buttons">
       <button
-        class="menu-burger"
+        class="menu-burger-open js-open-menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
@@ -37,6 +37,17 @@
           ></use>
         </svg>
       </button>
+      <div class="mobile-menu-burger js-menu-container">
+        <div class="modal is-hidden mobile-menu-container">
+          <button class="mobile-menu-close-button js-close-menu">
+            <svg class="header-menu-mob-close" width="28" height="28">
+              <use
+                href="./images/svg-sprite/symbol-defs.svg#icon-x-close"
+              ></use>
+            </svg>
+          </button>
+        </div>
+      </div>
       <button type="button" class="btn-header">
         Sign up
         <svg class="sign-up-icon" width="20" height="20">

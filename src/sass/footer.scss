@@ -10,9 +10,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1440px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 }
 
 .footer-title {
@@ -21,20 +21,20 @@
   padding-top: 8px;
 }
 
-@media screen and (min-width: 319px) and (max-width: 769px){
-  .footer {
-    width: 319px;
-  }
-}
-
-@media screen and (max-width: 769px){
-  .footer {
-    width: 768px;
-  }
-}
-
-@media screen and (max-width: 1440px){
+@media screen and (max-width: 1440px) {
   .footer {
     width: 1440px;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .footer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    width: 100%;
   }
 }
