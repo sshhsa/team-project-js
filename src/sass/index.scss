@@ -10,3 +10,25 @@
 @import './modal-item-home';
 
 @import './footer';
+
+.align-home-sect {
+  display: flex;
+  margin: 40px 0px 72px 0px;
+
+  @media screen and (max-width: 1440px) {
+    flex-wrap: wrap;
+
+    .align-left {
+      display: flex;
+      justify-content: center;
+
+      margin-bottom: 100px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .shop-list-none {
+    display: none;
+  }
+}
