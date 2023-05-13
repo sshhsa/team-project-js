@@ -2,7 +2,7 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: $light-clr-1;
 }
 ::-webkit-scrollbar-thumb {
   background: #e0e0e0;
@@ -36,8 +36,10 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   top: 10px;
   right: 10px;
   cursor: pointer;
+  stroke: $dark-clr-1;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
-    fill: #4f2ee8;
+    stroke: $accent-clr;
   }
 }
 .modal__container {
@@ -45,8 +47,8 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 335px;
   margin: 0 auto;
   padding: 40px 25px;
-  background: #ffffff;
-  border: 2px solid #111111;
+  background: $light-clr-1;
+  border: 2px solid $dark-clr-1;
   border-radius: 18px;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -67,7 +69,7 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 700;
   line-height: 18px;
   letter-spacing: -0.04em;
-  color: #111111;
+  color: $dark-clr-1;
   text-transform: uppercase;
 }
 .modal__subtitle {
@@ -78,7 +80,7 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 400;
   line-height: 14px;
   letter-spacing: -0.04em;
-  color: #b4afaf;
+  color: $add-text-clr;
 }
 .modal__text {
   margin-bottom: 14px;
@@ -87,7 +89,7 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.04em;
-  color: #111111;
+  color: $dark-clr-1;
   height: 75px;
   overflow-y: scroll;
 }
@@ -132,17 +134,17 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   line-height: 18px;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: #111111;
-  border: 2px solid #4f2ee8;
+  color: $dark-clr-1;
+  border: 2px solid $accent-clr;
   border-radius: 40px;
   &:hover {
-    color: #ffffff;
-    background-color: #4f2ee8;
+    color: $light-clr-1;
+    background-color: $accent-clr;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   &:focus {
-    color: #ffffff;
-    background-color: #4f2ee8;
+    color: $light-clr-1;
+    background-color: $accent-clr;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
@@ -172,7 +174,7 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 700;
     line-height: 28px;
     letter-spacing: -0.04em;
-    color: #111111;
+    color: $dark-clr-1;
     text-transform: uppercase;
   }
   .modal__subtitle {
@@ -183,7 +185,7 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 400;
     line-height: 18px;
     letter-spacing: -0.04em;
-    color: #b4afaf;
+    color: $add-text-clr;
   }
   .modal__button {
     padding: 20px 146px;
@@ -193,8 +195,8 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     line-height: 24px;
     letter-spacing: -0.01em;
     text-transform: uppercase;
-    color: #111111;
-    border: 2px solid #4f2ee8;
+    color: $dark-clr-1;
+    border: 2px solid $accent-clr;
     border-radius: 40px;
   }
 }
@@ -228,8 +230,10 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   top: 10px;
   right: 10px;
   cursor: pointer;
+  stroke: $dark-clr-1;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
-    fill: #4f2ee8;
+    stroke: $accent-clr;
   }
 }
 .modal__container-remove {
@@ -237,8 +241,8 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 335px;
   margin: 0 auto;
   padding: 40px 25px;
-  background: #ffffff;
-  border: 2px solid #111111;
+  background: $light-clr-1;
+  border: 2px solid $dark-clr-1;
   border-radius: 18px;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -258,7 +262,7 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 700;
   line-height: 18px;
   letter-spacing: -0.04em;
-  color: #111111;
+  color: $dark-clr-1;
   text-transform: uppercase;
 }
 .modal__subtitle-remove {
@@ -269,7 +273,7 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 400;
   line-height: 14px;
   letter-spacing: -0.04em;
-  color: #b4afaf;
+  color: $add-text-clr;
 }
 .modal__text-remove {
   margin-bottom: 14px;
@@ -278,7 +282,7 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 400;
   line-height: 18px;
   letter-spacing: -0.04em;
-  color: #111111;
+  color: $dark-clr-1;
   height: 75px;
   overflow-y: scroll;
 }
@@ -324,17 +328,17 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   line-height: 18px;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: #111111;
-  border: 2px solid #4f2ee8;
+  color: $dark-clr-1;
+  border: 2px solid $accent-clr;
   border-radius: 40px;
   &:hover {
-    color: #ffffff;
-    background-color: #4f2ee8;
+    color: $light-clr-1;
+    background-color: $accent-clr;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   &:focus {
-    color: #ffffff;
-    background-color: #4f2ee8;
+    color: $light-clr-1;
+    background-color: $accent-clr;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
