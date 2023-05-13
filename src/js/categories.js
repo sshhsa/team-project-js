@@ -6,27 +6,30 @@ const filterListEl = document.querySelector('.filter__list');
 let varWithActiveValueFilter = document.querySelector('.filter__item--active');
 
 let varWithCurrentCategoryValue = 'ALL CATEGORIES';
+const bookApi = getCategoryList();
 
-fetch(`https://books-backend.p.goit.global/books/category-list`)
-.then((response) => {
-    return response.json();
-})
+
+getCategoryList()
+// .then((response) => {
+//     return response.json();
+// })
 .then((categorie) => {
+    if (!categorie.length) {
+        Notify.failure("Oops something going wrong.");
+        return;
+    }
     console.log(categorie);
     filterListEl.insertAdjacentHTML('beforeend', createMarkup(categorie));;
-})
-.catch((error) => {
-    Notify.info(`Oops something going wrong`, notifyOptions);
-    filterListEl.innerHTML=`Oops something going wrong. Error 404`;
 });
+// .catch((error) => {
+//     Notify.info(`Oops something going wrong`, notifyOptions);
+//     filterListEl.innerHTML=`Oops something going wrong. Error 404`;
+// });
 
 
 function createMarkup (arr){
     return arr.map(value => `<li class="filter__item" data-mark-active="${value.list_name}">${value.list_name}</li>`).join('');
  }
-
-
-
 
 filterListEl.addEventListener('click', event => {
     
