@@ -1,70 +1,65 @@
 import {getTopBooks, getBooksCategory} from './api-books';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const bestBooksList = document.querySelector('.js-gallery-best-books');
 const galleryTitle = document.querySelector('.gallery-title');
 
-// console.log(getTopBooks());
-
 getTopBooks().then((data) => {
+    if (!data.length) {
+        Notify.failure("Sorry, there are no best sellers books. Please choose a category.");
+        return;
+    }
     galleryTitle.insertAdjacentHTML('beforeend', createTitleMarcup());
-    bestBooksList.insertAdjacentHTML('beforeend', createBooklistMarcup(data))
+    bestBooksList.insertAdjacentHTML('beforeend', createBooklistMarcup(data));
 });
-
-
-
 
 function createTitleMarcup() {
     return 'Best Sellers <span class="gallery-title-span">Books</span>';
 }
 
+
 function createBooklistMarcup (data) {
     const marcup = [];
 
-    //////////////////////////////////////////////////    ДЛЯ ВІДОБРАЖЕННЯ НЕОБХІДНОЇ КІЛЬКОСТІ КАТЕГОРІЙ        ///////////////////////////////////
+    // Відображення необхідної кількості категорій  //
 
-    for (let i = 0; i < 4; i += 1) {
-        
+    const numberOfCategory = 4;
+    for (let i = 0; i < numberOfCategory; i += 1) {
                
-        const bookCards = data[i].books.map(({_id, book_image, title, author}) => 
-            `<div id="${_id}" class = "book-cards">
-            <img src="${book_image}" alt="${title}" >
-            <h2>${title.slice(0,17)}</h2>
-            <p>${author}</p>
-            </div>`).join('');
-    
-            
+        const booksArr = data[i].books;
+        const bookCards = []; 
+
+        booksArr.forEach(({_id, book_image, title, author}) => {
+
+            // Перевірка кількості символів у назві книги і обрізка до необхідного значення //
+            const numberOfSymbol = 16;
+            if (title.length > numberOfSymbol) {
+                title = title.slice(0, numberOfSymbol) + "...";
+            }
+
+            //  Перевірка чи пришла обложка книги з бекенду і заміна її на заглушку в разі необхідності //
+            if (!book_image) {
+                book_image = "../images/book_plug.jpg";
+            }
+
+            const bookCardsMarcup =  
+                `<div id="${_id}" class = "book-cards">
+                <img src="${book_image}" alt="${title}" >
+                <h2>${title}</h2>
+                <p>${author}</p>
+                </div>`;
+
+            bookCards.push(bookCardsMarcup);
+        });
 
         const btnSeeMore = `<button type="button" id="${data[i].list_name}" class="book-class-more">see more</button>`
 
         marcup.push(`<div class = "category-block">
-        <p class = "gallery-category-title">${data[i].list_name}</p>
-        <div class = "category-block-list">${bookCards}</div>
-        ${btnSeeMore}
-        </div>`);
-
-        
-        
+            <p class = "gallery-category-title">${data[i].list_name}</p>
+            <div class = "category-block-list">${bookCards.join('')}</div>
+            ${btnSeeMore}
+            </div>`);
     }
 
-    //////////////////////////////////////////////////    АЛЬТЕРНАТИВА ДЛЯ ВІДОБРАЖЕННЯ ВСІХ КАТЕГОРІЙ        ///////////////////////////////////
-
-    // data.forEach(element => {
-
-    //     const bookCards = element.books.map(({_id, book_image, title, author}) => 
-    //         `<div id="${_id}" class = "book-cards">
-    //             <img src="${book_image}" alt="${title}" >
-    //             <h2>${title}</h2>
-    //             <p>${author}</p>
-    //             </div>`).join('');
-
-    //     const btnSeeMore = `<button type="button" id="${element.list_name}" class="book-class-more">see more</button>`
-
-    //     marcup.push(`<div class = "category-block">
-    //     <p class = "gallery-category-title">${element.list_name}</p>
-    //     <div class = "category-block-list">${bookCards}</div>
-    //     ${btnSeeMore}
-    //     </div>`);
-
-    // });
     return marcup.join('')
 }
