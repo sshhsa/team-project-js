@@ -16,6 +16,8 @@
 @media screen and (max-width: 768px) {
   .header {
     width: 100%;
+    top: 0;
+    position: fixed;
   }
 }
 
@@ -61,7 +63,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 1.28px;
-  background: #eac645;
+  background: $light-clr-2;
   border-radius: 36px;
   padding: 8px 16px;
   color: $dark-clr-1;
@@ -177,9 +179,9 @@
   min-width: 184px;
   text-transform: none;
   letter-spacing: -0.02em;
-  color: #fff;
-  background: #4f2ee8;
-  border: 1.5px solid #111;
+  color: $light-clr-1;
+  background: $accent-clr;
+  border: 1.5px solid $dark-clr-1;
   border-radius: 18px;
   gap: 0;
   margin-left: 24px;
@@ -200,7 +202,7 @@
 }
 
 .header-singin-down-icon {
-  fill: #fff;
+  fill: $light-clr-1;
   margin-left: 4px;
 }
 
@@ -342,7 +344,7 @@
     transition: all 0.3s;
     display: flex;
     position: fixed;
-    top: 0;
+    top: 58px;
     left: 0;
     transform: translate(100%);
   }
@@ -381,6 +383,92 @@
 
   .header-menu-mob-close:hover {
     stroke: $accent-clr;
+  }
+
+  .user-info-bar {
+    height: 37px;
+    align-items: center;
+    gap: 9px;
+    margin-top: 20px;
+    margin-left: 20px;
+    display: inline-flex;
+  }
+
+  .user-info-bar > .user-name {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.31;
+    color: $light-clr-1;
+  }
+
+  .nav-mob-menu {
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .nav-list-mob-menu {
+    flex-direction: column;
+    align-items: start;
+    margin-top: 15.5vh;
+    list-style: none;
+  }
+
+  .nav .nav-active {
+    background-color: #eac645;
+    border-radius: 36px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    transition: all 0.3s;
+    display: flex;
+  }
+
+  .nav .nav-item {
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .nav-link {
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    display: flex;
+  }
+
+  .nav-list-mob-menu {
+    flex-direction: column;
+    align-items: start;
+    margin-top: 15.5vh;
+  }
+  .btn-header-mob-logout {
+    max-width: fit-content;
+    text-transform: none;
+    letter-spacing: -0.04em;
+    color: $dark-clr-1;
+    background: $light-clr-1;
+    border: 1.5px solid $dark-clr-1;
+    border-radius: 18px;
+    gap: 4px;
+    margin-left: 20px;
+    padding: 13px 17px;
+    font-size: 14px;
+    line-height: 1.28;
+    transition: all 0.3s;
+    display: flex;
+  }
+  .btn-header-mob-logout:hover,
+  .btn-header-mob-logout:focus {
+    color: $light-clr-1;
+    background: $accent-clr;
   }
 }
 

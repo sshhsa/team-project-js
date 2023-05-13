@@ -29,6 +29,7 @@
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
+        <span class="burger-icon"></span>
         <svg class="header-menu-mob" width="28" heigth="28">
           <use
             class="mobile-menu"
@@ -43,6 +44,38 @@
             <svg class="header-menu-mob-close" width="28" height="28">
               <use
                 href="./images/svg-sprite/symbol-defs.svg#icon-x-close"
+              ></use>
+            </svg>
+          </button>
+          <div class="user-info-bar">
+            <svg class="header-singin-icon" width="19" height="19">
+              <use href="./images/svg-sprite/symbol-defs.svg#icon-user"></use>
+            </svg>
+            <p class="user-name">Stephen</p>
+          </div>
+          <nav class="list nav-list nav-list-mob-menu">
+            <ul class="list nav-list nav-list-mob-menu">
+              <li class="nav-active nav-item">
+                <a class="active link nav-link" href="./index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="link mobile-inactive-link nav-link"
+                  href="./shop-list.html"
+                  >ShoppingList
+                  <svg class="header-link-icon" width="20" height="20">
+                    <use
+                      href="./images/svg-sprite/symbol-defs.svg#icon-lock-02"
+                    ></use>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <button type="button" class="btn-header-mob-logout">
+            Log out<svg class="sign-up-icon" width="20" height="20">
+              <use
+                href="./images/svg-sprite/symbol-defs.svg#arrow-right-icon"
               ></use>
             </svg>
           </button>
