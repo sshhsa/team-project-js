@@ -259,6 +259,10 @@
   display: none;
 }
 
+.mobile-menu-container{
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .header-logo {
     margin-left: 32px;
@@ -342,8 +346,8 @@
     transition: all 0.3s;
     display: flex;
     position: fixed;
-    top: 58px;
-    left: 0;
+    top: 0px;
+    left: 0px;
     transform: translate(100%);
   }
 
@@ -484,6 +488,10 @@
     display: none;
   }
   .header-menu-mob-close {
+    display: none;
+  }
+
+  .mobile-menu-container{
     display: none;
   }
 }
