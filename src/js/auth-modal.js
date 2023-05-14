@@ -14,7 +14,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // Notify Options
 const notifyOptions = {
-  fontFamily: 'DMSans',
+  fontFamily: 'DM Sans',
   zindex: 1010,
   clickToClose: true,
   position: 'center-top',
@@ -56,8 +56,7 @@ const user = {
   auth: getAuth(),
 };
 
-// firebase class
-
+// Handle Authentication form Modal window
 const authForm = document.querySelector('.js-auth-form');
 const inputName = document.querySelector('.auth-name');
 const buttonChooseForm = document.querySelector('.button-form-choose');
@@ -65,7 +64,7 @@ const buttonChooseForm = document.querySelector('.button-form-choose');
 authForm.addEventListener('submit', onSubmitAuthForm);
 buttonChooseForm.addEventListener('click', onClickButtonChooseForm);
 
-//Choosing SignUp or SignIn metod autorization
+//Choosing SignUp or SignIn method autorization
 function onClickButtonChooseForm(event) {
   if (
     !event.target.classList.contains('auth-link') ||
@@ -95,6 +94,7 @@ function onClickButtonChooseForm(event) {
   authForm.lastElementChild.textContent = 'sign up';
 }
 
+//Submit authentication form
 function onSubmitAuthForm(event) {
   event.preventDefault();
   const {
@@ -232,6 +232,7 @@ async function getUserData({ userId }) {
 // Открытие и закрытие модального окна авторизации
 //==================================================================
 const refs = {
+  bodySelector: document.body,
   backDropAuth: document.querySelector('.js-overlay-modal'),
   authModalClose: document.querySelector('.js-modal-close'),
   authModalOpen: document.querySelector('.btn-header'),
@@ -239,6 +240,7 @@ const refs = {
 refs.authModalClose.addEventListener('click', onCrossAuthClose);
 refs.authModalOpen.addEventListener('click', onClickOpenAuthModal);
 function onClickOpenAuthModal() {
+  document.body.style.position = 'fixed';
   refs.backDropAuth.classList.toggle('is-hidden');
   refs.backDropAuth.addEventListener('click', onBackDropClickClose);
   document.addEventListener('keydown', exitViaEsc);
@@ -257,6 +259,7 @@ function exitViaEsc(event) {
   }
 }
 function backDropClosing() {
+  document.body.style.position = '';
   refs.backDropAuth.classList.toggle('is-hidden');
   refs.backDropAuth.removeEventListener('click', onBackDropClickClose);
   document.removeEventListener('keydown', exitViaEsc);

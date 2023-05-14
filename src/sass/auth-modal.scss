@@ -6,12 +6,14 @@
 }
 
 .backdrop-auth {
+  z-index: 1010;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   visibility: visible;
   opacity: 1;
+  transition: opacity $animation-fast;
   background: linear-gradient(329deg, #4f2ee8 40%, #7e75e8 80%, #ccece7 100%);
   align-items: center;
   justify-content: center;
@@ -26,7 +28,7 @@
   border-radius: 18px;
   margin: 0 auto;
   padding: 40px 20px;
-  animation: all 0.3s;
+  animation: width $animation-fast;
   position: relative;
   text-align: center;
   width: 335px;
@@ -40,7 +42,7 @@
   z-index: 10;
   stroke: $dark-clr-1;
   fill: transparent;
-  transition: all 0.3s;
+  transition: all $animation-fast;
   position: absolute;
   cursor: pointer;
   border: none;
@@ -74,7 +76,7 @@
   z-index: 10;
   stroke: $dark-clr-1;
   fill: transparent;
-  transition: all 0.3s;
+  transition: all $animation-fast;
   position: absolute;
   top: 19px;
   right: 20px;
@@ -88,7 +90,7 @@
 .auth-input {
   width: 100%;
   letter-spacing: -0.01em;
-  z-index: 1;
+  z-index: 5;
   border: none;
   border-radius: 40px;
   outline: 3px solid $dark-clr-1;
@@ -98,7 +100,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 1.13;
-  transition: all 0.3s;
+  transition: all $animation-fast;
   position: relative;
   color: $dark-clr-1;
   &:hover {
@@ -125,7 +127,7 @@
   border-radius: 40px;
   padding: 16px;
   font-size: 16px;
-  transition: all 0.3s;
+  transition: all $animation-fast;
   position: relative;
   overflow: hidden;
   @media screen and (min-width: 768px) {
@@ -141,7 +143,8 @@
   padding: 0;
   border: none;
   font: inherit;
-  color: rgba(17, 17, 17, 0.5);
+  transition: all $animation-fast;
+  color: $category-clr;
   background-color: transparent;
   text-transform: uppercase;
   font-size: 18px;
