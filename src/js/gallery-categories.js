@@ -13,6 +13,11 @@ getTopBooks().then(data => {
   }
   galleryTitle.insertAdjacentHTML('beforeend', createTitleMarcup());
   bestBooksList.insertAdjacentHTML('beforeend', createBooklistMarcup(data));
+
+  const gleryList = document.querySelectorAll('.book-cards');
+  gleryList.forEach(element => {
+    element.addEventListener('click', onBtnOpen);
+  });
 });
 
 function createTitleMarcup() {
@@ -41,11 +46,16 @@ function createBooklistMarcup(data) {
         book_image = '../images/book_plug.jpg';
       }
 
-      const bookCardsMarcup = `<div id="${_id}" class = "book-cards">
-                <img src="${book_image}" alt="${title}" >
+      const bookCardsMarcup = `<a id="${_id}" class = "book-cards">
+              <div class = "card-container">
+                <img src="${book_image}" alt="${title}">
+                  <div class="port-overlay">
+                    <p>quick view</p>
+                  </div>
+              </div>
                 <h2>${title}</h2>
                 <p>${author}</p>
-                </div>`;
+                </a>`;
 
       bookCards.push(bookCardsMarcup);
     });
@@ -62,4 +72,18 @@ function createBooklistMarcup(data) {
   }
 
   return marcup.join('');
+}
+
+const btnClose = document.querySelector('.js-close');
+const modal = document.querySelector('.backdrop');
+
+btnClose.addEventListener('click', onBtnClose);
+
+function onBtnOpen() {
+  modal.classList.add('is-block');
+  console.log('click');
+}
+
+function onBtnClose() {
+  modal.classList.remove('is-block');
 }
