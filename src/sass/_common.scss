@@ -6,8 +6,10 @@ $light-clr-2: #eac645;
 $dark-clr-1: #111111;
 $dark-clr-2: #202024;
 
+$add-text-clr: #b4afaf;
 $accent-clr: #4f2ee8;
 $bck-clr-home: #d0d0d0;
+$category-clr: rgba(17, 17, 17, 0.6);
 
 // ANIMATION
 $animation-fast: 400ms ease;
@@ -50,28 +52,29 @@ button {
 }
 
 // mobile screen
-.container {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 100%;
+
+@media screen and (max-width: 375px) {
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+  }
 }
 
 // tablet screen
-@media screen and (min-width: 768.98px) {
+@media screen and (max-width: 768.98px) {
   .container {
-    width: 768px;
     padding-right: 32px;
     padding-left: 32px;
+    width: 768px;
   }
 }
 
 // desktop screen
-@media screen and (min-width: 1440px) {
-  .container {
-    width: 1440px;
-    padding-right: 24px;
-    padding-left: 24px;
-  }
+.container {
+  padding-right: 24px;
+  padding-left: 24px;
+  width: 100%;
 }
