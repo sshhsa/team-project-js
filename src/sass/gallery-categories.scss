@@ -201,6 +201,7 @@
     width: 100%;
     height: 70px;
     padding: 26px;
+    text-align: center;
     background-color: $light-clr-2;
     background-blend-mode: soft-light;
     mix-blend-mode: normal;
@@ -214,7 +215,6 @@
 }
 
 .port-overlay p {
-    margin: 0;
     font-weight: 500;
     font-style: normal;
     font-size: 14px;
