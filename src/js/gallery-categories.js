@@ -1,5 +1,6 @@
 import { getTopBooks, getBooksCategory } from './api-books';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import {modalOpen} from './modal-item-home';
 
 const bestBooksList = document.querySelector('.js-gallery-best-books');
 const galleryTitle = document.querySelector('.gallery-title');
@@ -14,8 +15,8 @@ getTopBooks().then(data => {
   galleryTitle.insertAdjacentHTML('beforeend', createTitleMarcup());
   bestBooksList.insertAdjacentHTML('beforeend', createBooklistMarcup(data));
 
-  const gleryList = document.querySelectorAll('.book-cards');
-  gleryList.forEach(element => {
+  const galeryList = document.querySelectorAll('.book-cards');
+  galeryList.forEach(element => {
     element.addEventListener('click', onBtnOpen);
   });
 });
@@ -29,8 +30,7 @@ function createBooklistMarcup(data) {
 
   // Відображення необхідної кількості категорій  //
 
-  const numberOfCategory = 4;
-  for (let i = 0; i < numberOfCategory; i += 1) {
+  for (let i = 0; i < data.length; i += 1) {
     const booksArr = data[i].books;
     const bookCards = [];
 
@@ -74,16 +74,7 @@ function createBooklistMarcup(data) {
   return marcup.join('');
 }
 
-const btnClose = document.querySelector('.js-close');
-const modal = document.querySelector('.backdrop');
-
-btnClose.addEventListener('click', onBtnClose);
-
-function onBtnOpen() {
-  modal.classList.add('is-block');
-  console.log('click');
-}
-
-function onBtnClose() {
-  modal.classList.remove('is-block');
+function onBtnOpen(evt) {
+  const bookId = evt.currentTarget.id;
+  modalOpen(bookId);
 }
