@@ -1,8 +1,8 @@
-import { getTopBooks, getBooksCategory } from './api-books';
+import { getTopBooks, getCategoryList, getBooksCategory } from './api-books';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import {modalOpen} from './modal-item-home';
+import { modalOpen } from './modal-item-home';
 
-const bestBooksList = document.querySelector('.js-gallery-best-books');
+const booksList = document.querySelector('.js-gallery-best-books');
 const galleryTitle = document.querySelector('.gallery-title');
 
 getTopBooks().then(data => {
@@ -13,7 +13,7 @@ getTopBooks().then(data => {
     return;
   }
   galleryTitle.insertAdjacentHTML('beforeend', createTitleMarcup());
-  bestBooksList.insertAdjacentHTML('beforeend', createBooklistMarcup(data));
+  booksList.insertAdjacentHTML('beforeend', createBooklistMarcup(data));
 
   const galeryList = document.querySelectorAll('.book-cards');
   galeryList.forEach(element => {
@@ -46,7 +46,7 @@ function createBooklistMarcup(data) {
         book_image = '../images/book_plug.jpg';
       }
 
-      const bookCardsMarcup = `<a id="${_id}" class = "book-cards">
+      const bookCardsMarcup = `<li id="${_id}" class = "book-cards">
               <div class = "card-container">
                 <img src="${book_image}" alt="${title}">
                   <div class="port-overlay">
@@ -55,7 +55,7 @@ function createBooklistMarcup(data) {
               </div>
                 <h2>${title}</h2>
                 <p>${author}</p>
-                </a>`;
+                </li>`;
 
       bookCards.push(bookCardsMarcup);
     });
@@ -64,11 +64,11 @@ function createBooklistMarcup(data) {
         see more
       </button>`;
 
-    marcup.push(`<div class = "category-block">
+    marcup.push(`<li class = "category-block">
             <p class = "gallery-category-title">${data[i].list_name}</p>
-            <div class = "category-block-list">${bookCards.join('')}</div>
+            <ul class = "category-block-list">${bookCards.join('')}</ul>
             ${btnSeeMore}
-            </div>`);
+            </li>`);
   }
 
   return marcup.join('');
@@ -77,4 +77,62 @@ function createBooklistMarcup(data) {
 function onBtnOpen(evt) {
   const bookId = evt.currentTarget.id;
   modalOpen(bookId);
+}
+
+/////=================== ВІДОБРАЖЕННЯ КНИГ ПО КАТЕГОРІЯМ =============================////
+
+let categoryValue = 'ALL CATEGORIES';
+const eventLister = document.querySelector('.books-gallery');
+
+//// Рендер списку книг по категорії при події на "see more" кнопці
+eventLister.addEventListener('click', onMoreBtnClick);
+function onMoreBtnClick(e) {
+  if (e.target.localName === 'button') {
+    categoryValue = e.target.getAttribute('id');
+
+    addCardsByCategory();
+  }
+}
+
+//// Рендер карток книжок по категоріям
+function addCardsByCategory() {
+  getBooksCategory(categoryValue).then(booksArr => {
+    galleryTitle.innerHTML = categoryValue;
+    booksList.innerHTML = createMoreBooks(booksArr);
+
+    addColorToTitle();
+  });
+}
+
+//// Створення карток книжок по категоріям
+function createMoreBooks(booksArr) {
+  const bookCard = booksArr
+    .map(({ _id, book_image, title, author }) => {
+      //  Перевірка чи пришла обложка книги з бекенду і заміна її на заглушку в разі необхідності //
+      if (!book_image) {
+        book_image = '../images/book_plug.jpg';
+      }
+
+      const markup = `<li id="${_id}" class="books-gallery__card">
+        <img class="books-gallery__card-img"src="${book_image}" alt="${title}" width="200">
+        <h2 class="books-gallery__card-title">${title}</h2>
+        <p class="books-gallery__card-author">${author}</p>
+        </li>`;
+
+      return markup;
+    })
+    .join('');
+
+  return bookCard;
+}
+
+//// Додавання акцентного кольолру до заголовку з назвою категорії списку книг
+function addColorToTitle() {
+  const textgalleryTitle = galleryTitle.innerHTML;
+
+  let wordsArray = categoryValue.split(' ');
+  let lastWord = wordsArray.pop();
+  let firstPart = wordsArray.join(' ');
+
+  galleryTitle.innerHTML = `${firstPart} <span class="books-gallery__title-accent">${lastWord}</span>`;
 }
