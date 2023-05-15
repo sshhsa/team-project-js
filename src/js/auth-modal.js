@@ -42,7 +42,7 @@ const dbRef = ref(
 );
 
 // нужно экспортировать функция логаут и функция апдейта базы
-
+//
 const user = {
   name: '',
   photoUrl: './images/png/user.png',
@@ -105,7 +105,7 @@ function onSubmitAuthForm(event) {
   user.password = password.value;
   if (inputName.style.display === 'none') {
     // Check for empty fields
-    if (user.email.trim() === '' || user.password.trim() === '') {
+    if (!user.email.trim() || !user.password.trim) {
       Notify.failure(`Please complete all fields!`, notifyOptions);
     }
     // console.log('signin');
@@ -113,11 +113,7 @@ function onSubmitAuthForm(event) {
     return;
   }
   // Check for empty fields
-  if (
-    user.name.trim() === '' ||
-    user.email.trim() === '' ||
-    user.password.trim() === ''
-  ) {
+  if (!user.name.trim() || !user.email.trim || !user.password.trim) {
     Notify.failure(`Please complete all fields!`, notifyOptions);
     return;
   }
@@ -235,10 +231,16 @@ const refs = {
   bodySelector: document.body,
   backDropAuth: document.querySelector('.js-overlay-modal'),
   authModalClose: document.querySelector('.js-modal-close'),
+  //from header
+  authUserLogout: document.querySelector('.btn-header-logout'),
   authModalOpen: document.querySelector('.btn-header'),
 };
 refs.authModalClose.addEventListener('click', onCrossAuthClose);
 refs.authModalOpen.addEventListener('click', onClickOpenAuthModal);
+refs.authUserLogout.addEventListener('click', onClickOpenAuthLogout);
+function onClickOpenAuthLogout() {
+  signOutUser(user);
+}
 function onClickOpenAuthModal() {
   document.body.style.position = 'fixed';
   refs.backDropAuth.classList.toggle('is-hidden');
@@ -263,6 +265,11 @@ function backDropClosing() {
   refs.backDropAuth.classList.toggle('is-hidden');
   refs.backDropAuth.removeEventListener('click', onBackDropClickClose);
   document.removeEventListener('keydown', exitViaEsc);
+  // Reseting Authentication form to SignUp state
+  buttonChooseForm.firstElementChild.classList.add('button-selected');
+  buttonChooseForm.lastElementChild.classList.remove('button-selected');
+  inputName.style.display = 'inline-block';
+  authForm.lastElementChild.textContent = 'sign up';
 }
 //------------------------------------------------------------------
 
