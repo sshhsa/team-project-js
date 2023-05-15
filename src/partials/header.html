@@ -15,9 +15,7 @@
           <a class="header-link" href="./shop-list.html"
             >ShoppingList
             <svg class="header-link-icon" width="20" height="20">
-              <use
-                href="./images/svg-sprite/symbol-defs.svg#icon-lock-02"
-              ></use>
+              <use href="./images/svg-sprite/symbol-defs.svg#bag"></use>
             </svg>
           </a>
         </li>
@@ -29,7 +27,6 @@
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
-        <span class="burger-icon"></span>
         <svg class="header-menu-mob" width="28" heigth="28">
           <use
             class="mobile-menu"
@@ -37,16 +34,16 @@
             href="./images/svg-sprite/symbol-defs.svg#icon-burger"
           ></use>
         </svg>
+        <svg
+          class="header-menu-mob-close burger-toggle-hidden"
+          width="28"
+          height="28"
+        >
+          <use href="./images/svg-sprite/symbol-defs.svg#icon-x-close"></use>
+        </svg>
       </button>
       <div class="mobile-menu-burger js-menu-container">
         <div class="modal is-hidden mobile-menu-container">
-          <button class="mobile-menu-close-button js-close-menu">
-            <svg class="header-menu-mob-close" width="28" height="28">
-              <use
-                href="./images/svg-sprite/symbol-defs.svg#icon-x-close"
-              ></use>
-            </svg>
-          </button>
           <div class="user-info-bar">
             <svg class="header-singin-icon" width="19" height="19">
               <use href="./images/svg-sprite/symbol-defs.svg#icon-user"></use>
@@ -63,10 +60,8 @@
                   class="link mobile-inactive-link nav-link"
                   href="./shop-list.html"
                   >Shopping List
-                  <svg class="header-link-icon" width="20" height="20">
-                    <use
-                      href="./images/svg-sprite/symbol-defs.svg#icon-lock-02"
-                    ></use>
+                  <svg class="header-link-icon-mob" width="20" height="20">
+                    <use href="./images/svg-sprite/symbol-defs.svg#bag"></use>
                   </svg>
                 </a>
               </li>
