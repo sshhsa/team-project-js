@@ -9,26 +9,26 @@
   border-radius: 12px;
 }
 .backdrop {
-display: none;
-position: fixed;
-z-index: 60;
-top: 0;
-left: 0;
-height: 100%;
-width: 100%;
-background-color: rgba(17, 17, 17, 0.4);
+  display: none;
+  position: fixed;
+  z-index: 60;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(17, 17, 17, 0.4);
 
-opacity: 1;
-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-user-select: none;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
 }
 
 .modal-window {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%) scale(1);
-transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modul__icon-cross {
   width: 28px;
@@ -204,25 +204,25 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop-remove {
-display: none;
-position: fixed;
-z-index: 60;
-top: 0;
-left: 0;
-height: 100%;
-width: 100%;
-background-color: rgba(17, 17, 17, 0.4);
+  display: none;
+  position: fixed;
+  z-index: 60;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(17, 17, 17, 0.4);
 
-opacity: 1;
-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-window-remove {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%) scale(1);
-transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modul__icon-cross-remove {
@@ -396,4 +396,8 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .is-block {
   display: block;
+}
+
+.bu {
+  display: none;
 }
