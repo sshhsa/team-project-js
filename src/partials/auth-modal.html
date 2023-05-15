@@ -1,1 +1,38 @@
-<div></div>
+<!-- <button type="button" class="js-auth-open-modal">open modal</button> -->
+<div class="backdrop-auth js-overlay-modal is-hidden">
+    <div class="modal-auth booking-table-mobile" data-modal="3">
+        <svg class="modal-cross js-modal-close" width="20" height="20">
+            <use href="./images/svg-sprite/symbol-defs.svg#icon-x-close"></use>
+        </svg>
+
+        <form name="user-auth" class="auth-form model-box js-auth-form">
+            <label class="form-label auth-name" style="display: inline-block;">
+                <input class="auth-input" type="text" name="name" placeholder="name" pattern="[a-zA-Z]*"
+                    title="Use only symbols">
+            </label>
+            <label class="form-label auth-email">
+                <input class="auth-input" type="email" name="email" placeholder="email" required
+                    pattern="[^@\s]+@[^@\s]+"
+                    title="The number of characters should not be less than 10 and should not exceed 40">
+                <svg class="modal-icon" width="18" height="18">
+                    <use href="./images/svg-sprite/symbol-defs.svg#icon-mail"></use>
+                </svg>
+            </label>
+            <label class="form-label auth-password">
+                <input class="auth-input" type="password" name="password" placeholder="password" minlength="8" required
+                    title="The password length must be not less thn 8">
+                <svg class="modal-icon" width="18" height="18">
+                    <use href="./images/svg-sprite/symbol-defs.svg#icon-lock-02"></use>
+
+                </svg>
+            </label>
+            <button type="submit" class="button-submit">sign up</button>
+        </form>
+        <div class="button-form-choose">
+            <button type="button" class="auth-link signup button-selected">sign up</button>
+            <button type="button" class="auth-link signin">sign in</button>
+        </div>
+    </div>
+</div>
+
+</div>
