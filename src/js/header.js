@@ -1,5 +1,5 @@
 const openMenuBtnHeader = document.querySelector('.menu-burger-open');
-const closeMenuBtnHeader = document.querySelector('.mobile-menu-close-button');
+const closeMenuBtnHeader = document.querySelector('.header-menu-mob-close');
 const mobileMenuContainerHeader = document.querySelector(
   '.mobile-menu-container'
 );
