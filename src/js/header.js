@@ -1,18 +1,20 @@
-const openMenuBtn = document.querySelector('.menu-burger-open');
-const closeMenuBtn = document.querySelector('.mobile-menu-close-button');
-const mobileMenuContainer = document.querySelector('.mobile-menu-container');
+const openMenuBtnHeader = document.querySelector('.menu-burger-open');
+const closeMenuBtnHeader = document.querySelector('.mobile-menu-close-button');
+const mobileMenuContainerHeader = document.querySelector(
+  '.mobile-menu-container'
+);
 const body = document.body;
 
-openMenuBtn.addEventListener('click', function() {
-  mobileMenuContainer.classList.toggle('is-open');
-  openMenuBtn.firstElementChild.classList.toggle('burger-toggle-hidden');
-  openMenuBtn.lastElementChild.classList.toggle('burger-toggle-hidden');
+openMenuBtnHeader.addEventListener('click', function () {
+  mobileMenuContainerHeader.classList.toggle('is-open');
+  openMenuBtnHeader.firstElementChild.classList.toggle('burger-toggle-hidden');
+  openMenuBtnHeader.lastElementChild.classList.toggle('burger-toggle-hidden');
   body.classList.add('lock');
 });
 
-closeMenuBtn.addEventListener('click', function() {
-  mobileMenuContainer.classList.toggle('is-open');
-  openMenuBtn.firstElementChild.classList.toggle('burger-toggle-hidden');
-  openMenuBtn.lastElementChild.classList.toggle('burger-toggle-hidden');
+closeMenuBtnHeader.addEventListener('click', function () {
+  mobileMenuContainerHeader.classList.toggle('is-open');
+  openMenuBtnHeader.firstElementChild.classList.toggle('burger-toggle-hidden');
+  openMenuBtnHeader.lastElementChild.classList.toggle('burger-toggle-hidden');
   body.classList.remove('lock');
 });
