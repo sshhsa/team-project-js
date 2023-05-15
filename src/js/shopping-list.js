@@ -53,14 +53,14 @@ export const mainRenderingFunc = () => {
     <span class="support-title-container">
       Support Ukraine
       <svg class="logo-ukr" width="20" height="32">
-        <use href="../images/svg-sprite.svg#ukraine-arms"></use>
+        <use href="../images/svg-sprite/symbol-defs.svg#ukraine-arms"></use>
       </svg>
     </span>
   </h2>
   <ul class="support-companies"></ul>
   <button type="button" class="support__load-more">
     <svg class="button__icon" width="64" height="64">
-      <use href="../images/svg-sprite.svg#arrow-down-icon"></use>
+      <use href="../images/svg-sprite/symbol-defs.svg#user-arrow-down-icon"></use>
     </svg>
   </button>`;
   }

@@ -1,10 +1,10 @@
-import amazon1x from '../images/BookStoreIcons/amazon.png';
-import amazon2x from '../images/BookStoreIcons/amazon-2x.png';
-import appleBooks1x from '../images/BookStoreIcons/apple-books.png';
-import appleBooks2x from '../images/BookStoreIcons/apple-books-2x.png';
-import bookshop1x from '../images/BookStoreIcons/book-shop.png';
-import bookshop2x from '../images/BookStoreIcons/book-shop-2x.png';
-import spriteSvgEls from '../images/svg-sprite.svg';
+import amazon1x from '../images/modal/amazon.png';
+import amazon2x from '../images/modal/amazon.png';
+import appleBooks1x from '../images/modal/apple-book.png';
+import appleBooks2x from '../images/modal/apple-book.png';
+import bookshop1x from '../images/modal/book-shelf.png';
+import bookshop2x from '../images/modal/book-shelf.png';
+import spriteSvgEls from '../images/svg-sprite/symbol-defs.svg';
 
 function isAvailableDescription (description){
   if (description === '') {
