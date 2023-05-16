@@ -6,7 +6,7 @@ import {user} from './auth-modal';
 import { showLoadingIndicator, removeLoader } from './loader';
 import Notiflix from 'notiflix';
 
-const firebase = new user();
+const firebase = new useFirebase();
 
 const paginationBtnEl = document.querySelector('.btn-pagination__list');
 const ulEl = document.querySelector('.shopping-list');
@@ -402,18 +402,18 @@ async function trashTest(r) {
   }, reloadDelay);
 }
 
-// function removeItemFromBasket(title) {
-// 	books.map((b, i) => {
+function removeItemFromBasket(title) {
+	books.map((b, i) => {
 
-// 		if (b.title === title) {
-// 			books.splice(i, 1);
+		if (b.title === title) {
+			books.splice(i, 1);
 
-// 			localStorage.setItem('shopping-list', JSON.stringify(books));
+			localStorage.setItem('shopping-list', JSON.stringify(books));
 
-// 			return;
-// 		}
-// 	});
-// }
+			return;
+		}
+	});
+}
 
 //storring current page number
 function storeCurrentPage(number) {

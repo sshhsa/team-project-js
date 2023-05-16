@@ -5,6 +5,7 @@ import appleBooks2x from '../images/modal/apple-book.png';
 import bookshop1x from '../images/modal/book-shelf.png';
 import bookshop2x from '../images/modal/book-shelf.png';
 import spriteSvgEls from '../images/svg-sprite/symbol-defs.svg';
+import {user} from './auth-modal';
 
 function isAvailableDescription (description){
   if (description === '') {
