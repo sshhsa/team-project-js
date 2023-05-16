@@ -30,7 +30,18 @@ html {
 
 body {
   font-family: DM Sans, sans-serif;
+  --light-clr-1: #ffffff;
+  --light-clr-2: #eac645;
+  --dark-clr-1: #111111;
+  --dark-clr-2: #202024;
+
+  --add-text-clr: #b4afaf;
+  --accent-clr: #4f2ee8;
+  --bck-clr-home: #d0d0d0;
+  --category-clr: rgba(17, 17, 17, 0.6);
+
 }
+
 
 img {
   display: block;
