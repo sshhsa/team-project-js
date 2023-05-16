@@ -1,6 +1,6 @@
 import { getCategoryList, getBooksCategory } from './api-books';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
+import { modalOpen } from './modal-item-home';
 
 const filterListEl = document.querySelector('.filter__list');
 let varWithActiveValueFilter = document.querySelector('.filter__item--active');
@@ -62,8 +62,6 @@ filterListEl.addEventListener('click', event => {
 
 
 
-  
-
 
 //// Рендер карток книжок по категоріям
 function addCardsByCategory() { 
@@ -79,6 +77,7 @@ function addCardsByCategory() {
      booksList.innerHTML = createMoreBooks(booksArr);
 
      addColorToTitle();
+     addModal();
 
     //  bookGalleryCard.forEach((book) => {
     //    book.addEventListener('click', (e) => {
@@ -123,7 +122,17 @@ let firstPart = wordsArray.join(" ");
 
 galleryTitle.innerHTML = `${firstPart} <span class="books-gallery__title-accent">${lastWord}</span>`;
 }
-  
 
+function onBtnOpen(evt) {
+  const bookId = evt.currentTarget.id;
+  modalOpen(bookId);
+}
+//// Відкриття модального вікна при кліку по картці
+function addModal() {
+  const booksGalleryCards = document.querySelectorAll('.books-gallery__card');
 
+  booksGalleryCards.forEach((card) => {
+      card.addEventListener('click', onBtnOpen) 
+  })
+}
 
