@@ -148,6 +148,7 @@ function changeColorTitle(title) {
   const labelCategories = document.querySelectorAll('.filter__item');
   const activeElement = document.querySelector('.filter__item--active');
 
+  
   activeElement.classList.remove('filter__item--active');
   const selectedElement = [...labelCategories].find(({ textContent }) => {
     return textContent === title;
@@ -164,3 +165,5 @@ function addModal() {
     card.addEventListener('click', onBtnOpen);
   });
 }
+
+

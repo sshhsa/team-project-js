@@ -50,12 +50,20 @@ function addGalleryMarkupAndChangeFilter() {
   const targetEl = document.querySelector(
     `[data-mark-active="${varWithCurrentCategoryValue}"]`
   );
+  
+  const activeElement = document.querySelector('.filter__item--active');
+  if (activeElement) {
+  activeElement.classList.remove('filter__item--active');
+  }
 
   varWithActiveValueFilter.classList.remove('filter__item--active');
 
   targetEl.classList.add('filter__item--active');
 
   varWithActiveValueFilter = targetEl;
+
+  
+
 }
 console.log(varWithActiveValueFilter);
 
@@ -127,6 +135,10 @@ function onBtnOpen(evt) {
   const bookId = evt.currentTarget.id;
   modalOpen(bookId);
 }
+
+
+
+
 //// Відкриття модального вікна при кліку по картці
 function addModal() {
   const booksGalleryCards = document.querySelectorAll('.books-gallery__card');
