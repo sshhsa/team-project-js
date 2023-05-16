@@ -1,4 +1,4 @@
-import { getTopBooks, getCategoryList, getBooksCategory } from './api-books';
+import { getTopBooks, getBooksCategory } from './api-books';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { modalOpen } from './modal-item-home';
 
@@ -81,58 +81,75 @@ function onBtnOpen(evt) {
 
 /////=================== ВІДОБРАЖЕННЯ КНИГ ПО КАТЕГОРІЯМ =============================////
 
-let categoryValue = 'ALL CATEGORIES';
 const eventLister = document.querySelector('.books-gallery');
+let categoryValue = 'ALL CATEGORIES';
 
-//// Рендер списку книг по категорії при події на "see more" кнопці
-eventLister.addEventListener('click', onMoreBtnClick);
+//// Рендер списку книг по категорії при кліку на "see more" кнопці
+eventLister.addEventListener('click', onMoreBtnClick)
 function onMoreBtnClick(e) {
-  if (e.target.localName === 'button') {
-    categoryValue = e.target.getAttribute('id');
-
-    addCardsByCategory();
-  }
-}
+    if (e.target.localName === 'button') {
+        categoryValue = e.target.getAttribute('id');
+        
+        addCardsByCategory();
+        // addColorToCategory();
+    } 
+} 
 
 //// Рендер карток книжок по категоріям
-function addCardsByCategory() {
-  getBooksCategory(categoryValue).then(booksArr => {
-    galleryTitle.innerHTML = categoryValue;
-    booksList.innerHTML = createMoreBooks(booksArr);
+function addCardsByCategory() {  
+     getBooksCategory(categoryValue).then((booksArr) => {
+        if (!booksArr.length) {
+            Notify.failure(`Sorry, there are no ${categoryValue} books. Please choose another category.`);
+            return;
+        }
+        
+        galleryTitle.innerHTML = categoryValue;
+        booksList.innerHTML = createMoreBooks(booksArr);
 
-    addColorToTitle();
-  });
+        addColorToTitle();
+        addModal();
+    })
 }
 
 //// Створення карток книжок по категоріям
 function createMoreBooks(booksArr) {
-  const bookCard = booksArr
-    .map(({ _id, book_image, title, author }) => {
-      //  Перевірка чи пришла обложка книги з бекенду і заміна її на заглушку в разі необхідності //
-      if (!book_image) {
-        book_image = '../images/book_plug.jpg';
-      }
+    const bookCard =  booksArr.map(({_id, book_image, title, author}) => {
+        //  Перевірка чи пришла обложка книги з бекенду і заміна її на заглушку в разі необхідності //
+        if (!book_image) {
+            book_image = "../images/book_plug.jpg";
+        }
 
-      const markup = `<li id="${_id}" class="books-gallery__card">
-        <img class="books-gallery__card-img"src="${book_image}" alt="${title}" width="200">
+        const markup = `<li id="${_id}" class="books-gallery__card">
+        <div class="card-container">
+        <img class="books-gallery__card-img" src="${book_image}" alt="${title}" loading="lazy">
+        <div class="port-overlay"><p>quick view</p></div>
+        </div>
         <h2 class="books-gallery__card-title">${title}</h2>
         <p class="books-gallery__card-author">${author}</p>
-        </li>`;
+        </li>`
 
-      return markup;
-    })
-    .join('');
+        return markup
+    }).join('');
 
-  return bookCard;
+    return bookCard;
 }
 
 //// Додавання акцентного кольолру до заголовку з назвою категорії списку книг
 function addColorToTitle() {
   const textgalleryTitle = galleryTitle.innerHTML;
 
-  let wordsArray = categoryValue.split(' ');
+  let wordsArray = categoryValue.split(" ");
   let lastWord = wordsArray.pop();
-  let firstPart = wordsArray.join(' ');
+  let firstPart = wordsArray.join(" ");
 
   galleryTitle.innerHTML = `${firstPart} <span class="books-gallery__title-accent">${lastWord}</span>`;
+}
+
+//// Відкриття модального вікна при кліку по картці
+function addModal() {
+    const booksGalleryCards = document.querySelectorAll('.books-gallery__card');
+
+    booksGalleryCards.forEach((card) => {
+        card.addEventListener('click', onBtnOpen) 
+    })
 }
