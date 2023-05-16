@@ -8,3 +8,5 @@ import './js/shoplist-gallery-categories';
 
 import './js/modal_footer';
 import './js/footer';
+import './js/pagination';
+import './js/storage-methods';
