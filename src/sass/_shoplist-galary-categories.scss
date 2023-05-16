@@ -1,0 +1,281 @@
+// ---------------------------- СТИЛИ ДЛЯ ПУСТОГО ШОПЛИСТА-----------------------------------------
+.shoppinglist {
+    background: #F6F6F6;
+}
+.shoppinglist__container {
+    width: 375px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: #F6F6F6;
+}
+.shoppinglist__title {
+    margin-bottom: 120px;
+    font-family: 'DM Sans';
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: -0.04em;
+    color: $dark-clr-1;
+}
+.shoppinglist__title > span {
+    color: $accent-clr;
+}
+.shoppinglist__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.shoppinglist-text {
+    width: 244px;
+    margin-bottom: 14px;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+}
+@media screen and (min-width:768px) {
+    .shoppinglist__container {
+        width: 768px;
+        padding: 40px 20px;
+    }
+    .shoppinglist__title {
+        margin-bottom: 140px;
+        font-size: 48px;
+        line-height: 52px;
+    }
+    .shoppinglist-text {
+        width: 349px;
+        margin-bottom: 20px;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: -0.02em;
+        text-align: center;
+    }
+}
+@media screen and (min-width:1440px) {
+    .shoppinglist__container {
+        width: 1440px;
+        padding: 40px 24px;
+    }
+    .shoppinglist__title {
+        margin-left: 40px;
+    }
+}
+
+// ---------------------------- СТИЛИ ДЛЯ ПОЛНОГО ШОПЛИСТА-----------------------------------------
+
+
+.shoppinglist-full__container {
+    width: 375px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: #F6F6F6;
+}
+.shoppinglist-full__title {
+    margin-bottom: 40px;
+    font-family: 'DM Sans';
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: -0.04em;
+    color: $dark-clr-1;
+}
+.shoppinglist-full__title > span {
+    color: $accent-clr;
+}
+.shoppinglist-full__list {
+    margin-bottom: 20px;
+}
+.shoppinglist-full__item {
+    display: flex;
+    padding: 14px;
+    background-color: #ffffff;
+    border: 2px solid rgba(79, 46, 232, 0.4);
+    border-radius: 16px;
+}
+.shoppinglist-full__img {
+    margin-right: 14px;
+}
+.shoppinglist-full__wrapper-title {
+    margin-right: 51px;
+}
+.shoppinglist-full__item-title {
+    margin-bottom: 4px;
+    font-family: 'DM Sans';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: $dark-clr-1;
+}
+.shoppinglist-full__subtitle {
+    margin-bottom: 8px;
+    font-family: 'DM Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.03em;
+    color: $add-text-clr;
+}
+.shoppinglist-full__text {
+    margin-bottom: 14px;
+    font-family: 'DM Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    color: $dark-clr-1;
+}
+.shoppinglist-full__wrapper {
+    display: flex;
+}
+.shoppinglist-full__wrapper-list {
+    display: flex;
+}
+.shoppinglist-full__author {
+    margin-right: 42px;
+    font-family: DM Sans;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: -0.04em;
+    color: $add-text-clr;
+}
+.shoppinglist-full__social-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.shoppinglist-full__social-item-amazon {
+}
+.shoppinglist-full__social-link-amazon {
+    background-image: url('../images/png/modal/amazon.png');
+    background-size: cover;
+    display: block;
+    width: 32px;
+    height: 11px;
+    mix-blend-mode: luminosity;
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+}
+.shoppinglist-full__social-item-open-book {
+}
+.shoppinglist-full__social-link-open-book {
+    background-image: url('../images/png/modal/apple-book.png');
+    background-size: cover;
+    display: block;
+    width: 16px;
+    height: 16px;
+    mix-blend-mode: luminosity;
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+}
+.shoppinglist-full__social-item-book-shop {
+}
+.shoppinglist-full__social-link-book-shop {
+    background-image: url('../images/png/modal/book-shelf.png');
+    background-size: cover;
+    display: block;
+    width: 16px;
+    height: 16px;
+    mix-blend-mode: luminosity;
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+}
+.shoppinglist-full__wrapper-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: $accent-clr;
+    border: 2px solid rgba(79, 46, 232, 0.4);
+    border-radius: 16px;
+    cursor: pointer;
+}
+.shoppinglist-full__icon-dump {
+    width: 16px;
+    height: 16px;
+    fill: #ffff;
+}
+.shoppinglist-full__pagination-list {
+}
+.shoppinglist-full__pagination-item {
+}
+
+@media screen and (min-width:768px) {
+    .shoppinglist-full__container {
+        width: 768px;
+        padding: 40px 20px;
+    }
+    .shoppinglist-full__title {
+        margin-bottom: 40px;
+        font-size: 48px;
+        line-height: 52px;
+    }
+    .shoppinglist-full__list {
+        margin-bottom: 40px;
+    }
+    .shoppinglist-full__item {
+        padding: 30px 24px;
+    }
+    .shoppinglist-full__img {
+        margin-right: 24px;
+    }
+    .shoppinglist-full__wrapper-title {
+        margin-right: 360px;
+    }
+    .shoppinglist-full__subtitle {
+        margin-bottom: 14px;
+    }
+    .shoppinglist-full__text {
+        margin-bottom: 32px;
+    }
+    .shoppinglist-full__author {
+        margin-right: 300px;
+    }
+    .shoppinglist-full__social-list {
+        gap: 16px;
+    }
+    .shoppinglist-full__social-link-amazon {
+        width: 48px;
+        height: 15px;
+    }
+    .shoppinglist-full__social-link-open-book {
+        width: 28px;
+        height: 27px;
+    }
+    .shoppinglist-full__social-link-book-shop {
+        width: 32px;
+        height: 30px;
+    }
+    .shoppinglist-full__wrapper-icon {
+        width: 34px;
+        height: 34px;
+    }
+    .shoppinglist-full__icon-dump {
+        width: 18px;
+        height: 18px;
+    }
+}
+@media screen and (min-width:1140px) {
+    .shoppinglist-full__container {
+        width: 1440px;
+        padding: 40px 24px;
+    }
+    .shoppinglist-full__title {
+        margin-left: 40px;
+    }
+    .shoppinglist-full__list {
+        margin-left: 40px;
+    }
+    .shoppinglist-full__wrapper-title {
+        margin-right: 660px;
+    }
+    .shoppinglist-full__author {
+        margin-right: 597px;
+    }
+}
