@@ -121,11 +121,36 @@ function createButtonMarcup({isSignedIn, booksArr} = user, id) {
 
 function openModalWindow() {
   modal.classList.add('is-block');
+  document.body.classList.add('disable-scroll');
+
+  document.addEventListener('keydown', onEscKeyPress);
+
+  const backdrop = document.querySelector('.backdrop');
+  backdrop.addEventListener('click', onBackdropClick);
+
+  function onBackdropClick(evt) {
+    console.dir(evt);
+    if (evt.target.classList.contains('backdrop')) {
+        closeModalWindow();
+        backdrop.removeEventListener('click', onBackdropClick);
+      }
+    return
+  }
+}
+
+function onEscKeyPress(evt) {
+    if (evt.code !== "Escape") {
+        return;
+    }
+
+    closeModalWindow();
+    document.removeEventListener('keydown', onEscKeyPress);  
 }
 
 function closeModalWindow() {
   flag = false;
   modal.classList.remove('is-block');
+  document.body.classList.remove('disable-scroll');
 }
 
 function onButtonAddClick () {
