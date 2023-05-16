@@ -2,10 +2,11 @@ import spriteSvgEls from '../images/svg-sprite/symbol-defs.svg';
 import { books } from './shopping-list__books';
 import murkupForTabletAndDesktop from './render-shopping-card';
 import { useFirebase } from './firebase';
+import {user} from './auth-modal';
 import { showLoadingIndicator, removeLoader } from './loader';
 import Notiflix from 'notiflix';
 
-const firebase = new useFirebase();
+const firebase = new user();
 
 const paginationBtnEl = document.querySelector('.btn-pagination__list');
 const ulEl = document.querySelector('.shopping-list');

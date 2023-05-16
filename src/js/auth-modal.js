@@ -43,7 +43,7 @@ const dbRef = ref(
 
 // нужно экспортировать функция логаут и функция апдейта базы
 
-const user = {
+export const user = {
   name: '',
   photoUrl: './images/png/user.png',
   email: '',
