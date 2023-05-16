@@ -12,21 +12,13 @@ const bookApi = getCategoryList();
 
 
 getCategoryList()
-// .then((response) => {
-//     return response.json();
-// })
 .then((categorie) => {
     if (!categorie.length) {
         Notify.failure("Oops something going wrong.");
         return;
     }
-    console.log(categorie);
     filterListEl.insertAdjacentHTML('beforeend', createMarkup(categorie));;
 });
-// .catch((error) => {
-//     Notify.info(`Oops something going wrong`, notifyOptions);
-//     filterListEl.innerHTML=`Oops something going wrong. Error 404`;
-// });
 
 
 function createMarkup (arr){
@@ -42,6 +34,12 @@ filterListEl.addEventListener('click', event => {
     varWithCurrentCategoryValue = event.target.outerText;
   
     addGalleryMarkupAndChangeFilter();
+
+    
+    if (event.target.textContent === "All categories") {
+      location.reload();
+      return;
+      }
     addCardsByCategory();
   });
   
@@ -54,6 +52,18 @@ filterListEl.addEventListener('click', event => {
   
     varWithActiveValueFilter = targetEl;
   } 
+
+
+
+
+
+
+
+
+
+
+  
+
 
 //// Рендер карток книжок по категоріям
 function addCardsByCategory() { 
@@ -114,3 +124,6 @@ let firstPart = wordsArray.join(" ");
 galleryTitle.innerHTML = `${firstPart} <span class="books-gallery__title-accent">${lastWord}</span>`;
 }
   
+
+
+
