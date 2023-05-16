@@ -18,12 +18,27 @@ function addDarkMode() {
   try {
     if (localStorage.getItem('theme') === 'dark') {
       toggleSwitch.checked = true;
+<<<<<<< Updated upstream
       pageStyle.classList.add('darkMode')
     }
     else {
+=======
+      console.log('hello')
+      pageStyle.classList.add('darkMode')
+    }
+    else {
+        console.log('hello>2')
+>>>>>>> Stashed changes
         pageStyle.classList.remove('darkMode')
     }
   } catch (err) { }
 }
 
+<<<<<<< Updated upstream
 addDarkMode()
+=======
+addDarkMode()
+
+
+
+>>>>>>> Stashed changes

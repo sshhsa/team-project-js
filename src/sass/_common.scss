@@ -1,6 +1,12 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 // COLORS
+
+// :root {
+//   --bgcolor: $light-clr-1;
+
+// }
+
 $light-clr-1: #ffffff;
 $light-clr-2: #eac645;
 $dark-clr-1: #111111;
@@ -30,6 +36,7 @@ html {
 
 body {
   font-family: DM Sans, sans-serif;
+<<<<<<< Updated upstream
   --light-clr-1: #ffffff;
   --light-clr-2: #eac645;
   --dark-clr-1: #111111;
@@ -40,6 +47,17 @@ body {
   --bck-clr-home: #d0d0d0;
   --category-clr: rgba(17, 17, 17, 0.6);
 
+=======
+  --bg: red;
+  background-color: var(--bg);
+  transition: 500ms;
+}
+
+body.darkMode {
+
+  --bg: green;
+  background-color: var(--bg);
+>>>>>>> Stashed changes
 }
 
 

@@ -7,6 +7,7 @@
   margin-right: auto;
 }
 
+<<<<<<< Updated upstream
 // =========== Dark mode button
 
 input.apple-switch {
@@ -14,6 +15,14 @@ input.apple-switch {
   -webkit-appearance: none;
   outline: none;
   margin-right: 24px;
+=======
+// =======Dark Mode button =========
+input.apple-switch {
+  margin-right: 24px;
+  position: relative;
+  -webkit-appearance: none;
+  outline: none;
+>>>>>>> Stashed changes
   width: 40px;
   height: 20px;
   border: transparent;
@@ -44,7 +53,11 @@ input.apple-switch:checked:after {
   box-shadow: -2px 4px 3px rgba(0,0,0,0.05);
 }
 
+<<<<<<< Updated upstream
 // ============================
+=======
+// ==================================
+>>>>>>> Stashed changes
 
 @media screen and (max-width: 1440px) {
   .header {
@@ -58,7 +71,11 @@ input.apple-switch:checked:after {
   }
 
   input.apple-switch {
+<<<<<<< Updated upstream
     margin-right: 0px;
+=======
+    margin-right: 10px;
+>>>>>>> Stashed changes
   }
 }
 
