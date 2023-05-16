@@ -30,17 +30,12 @@ function createBooklistMarcup(data) {
 
   // Відображення необхідної кількості категорій  //
 
-  for (let i = 0; i < data.length; i += 1) {
+  data.forEach((element, i) => {
     const booksArr = data[i].books;
     const bookCards = [];
 
     booksArr.forEach(({ _id, book_image, title, author }) => {
-      // Перевірка кількості символів у назві книги і обрізка до необхідного значення //
-      const numberOfSymbol = 16;
-      if (title.length > numberOfSymbol) {
-        title = title.slice(0, numberOfSymbol) + '...';
-      }
-
+      
       //  Перевірка чи пришла обложка книги з бекенду і заміна її на заглушку в разі необхідності //
       if (!book_image) {
         book_image = '../images/book_plug.jpg';
@@ -48,7 +43,7 @@ function createBooklistMarcup(data) {
 
       const bookCardsMarcup = `<li id="${_id}" class = "book-cards">
               <div class = "card-container">
-                <img src="${book_image}" alt="${title}">
+                <img src="${book_image}" alt="${title}" loading="lazy">
                   <div class="port-overlay">
                     <p>quick view</p>
                   </div>
@@ -69,7 +64,7 @@ function createBooklistMarcup(data) {
             <ul class = "category-block-list">${bookCards.join('')}</ul>
             ${btnSeeMore}
             </li>`);
-  }
+  });
 
   return marcup.join('');
 }
