@@ -137,6 +137,10 @@ $fill-logo-dark-theme: #F3F3F3;
   color: rgba(246, 246, 246, 0.5);
 }
 
+.dark-theme .book-cards h2 {
+  color: $white-text-color;
+}
+
 // .dark-theme .(class-current-category) {
 //   color: $yellow-accent-color;
 //}
