@@ -2,9 +2,12 @@ export {modalOpen};
 
 import { getBooksId } from './api-books';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import {user} from './auth-modal';
+import {updateUserDatabase, setUserInLS, getUserFromLS} from './auth-modal';
+import {loadLS, saveLS} from './storage';
 
 const modal = document.querySelector('.backdrop');
+
+const user = getUserFromLS();
 
 let idBook;
 let btnContainer;
@@ -102,8 +105,8 @@ return `<div class="modal__body">
       </div>`
 }
 
-function createButtonMarcup({isSignedIn, booksArr} = user, id) {
-  if (!isSignedIn) {
+function createButtonMarcup({booksArr} = user, id) {
+  if (!loadLS('logged')) {
     return `<p class="modal__congratulation">
     Sign in to add the book to your shopping list.
         </p>`
@@ -154,7 +157,11 @@ function closeModalWindow() {
 }
 
 function onButtonAddClick () {
+  
   user.booksArr.push(idBook);
+  setUserInLS(user);
+  // updateUserDatabase(user);
+
   btnContainer.innerHTML = createremoveMarcup();
   const buttonRemove = document.querySelector('.modal__button-remove');
   buttonRemove.addEventListener('click', onButtonRemoveClick);
@@ -162,7 +169,11 @@ function onButtonAddClick () {
 }
 
 function onButtonRemoveClick() {
+
   user.booksArr.splice(user.booksArr.indexOf(idBook), 1);
+  setUserInLS(user);
+  // updateUserDatabase(user);
+
   btnContainer.innerHTML = createAddMarcup();
   const btnAdd = document.querySelector('.modal__button');
   btnAdd.addEventListener('click', onButtonAddClick);
