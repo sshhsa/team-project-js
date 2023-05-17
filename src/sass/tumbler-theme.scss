@@ -1,7 +1,8 @@
+
 .theme-switch {
+  
   appearance: none;
   position: relative;
-
   margin-left: auto;
 
   &::before {
@@ -98,8 +99,42 @@ $fill-logo-dark-theme: #F3F3F3;
 }
 
 .dark-theme .btn-header-logout {
-    background: white;
-    color:black;
+  background: white;
+  color:black;
+}
+
+.dark-theme .modal-auth {
+  background-color: $body-bg-color-dark;
+  border: 2px solid $body-bg-color-light;
+}
+
+.dark-theme .modal-cross {
+  stroke: $scrollbar-color-light;
+}
+
+.dark-theme .modal-icon {
+  stroke: $scrollbar-color-light;
+}
+
+
+.dark-theme .auth-input {
+  background-color: $body-bg-color-dark;
+  outline: 3px solid $scrollbar-color-light;
+  color: $scrollbar-color-light;
+}
+
+.dark-theme .auth-input::placeholder {
+  color: $scrollbar-color-light;
+}
+
+
+.dark-theme .button-submit {
+  background-color: $body-bg-color-light;
+  color: $body-bg-color-dark;
+}
+
+.dark-theme .auth-link {
+  color: rgba(246, 246, 246, 0.5);
 }
 
 // .dark-theme .(class-current-category) {
