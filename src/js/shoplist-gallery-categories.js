@@ -9,19 +9,22 @@ import bookshopImage1 from '../images/png/bookshop-1x.png';
 import bookshopImage2 from '../images/png/bookshop-2x.png';
 
 const refs = {
-     //Header
-    navlinks: document.querySelectorAll('.active'),
-    
-      //Shopping-list
+  //Header
+  navlinks: document.querySelectorAll('.active'),
+
+  //Shopping-list
   shoppingListEl: document.querySelector('.shopping__cards'),
   notificationContainerEl: document.querySelector('.shopping__storage'),
   shoppingHeadingEl: document.querySelector('.shopping__heading'),
-  logoTrashPath: new URL('../images/svg-sprite/symbol-defs.svg', import.meta.url),
+  logoTrashPath: new URL(
+    '../images/svg-sprite/symbol-defs.svg',
+    import.meta.url
+  ),
   SHOP_LIST_KEY: 'selected-books',
-  
-      //Pagination
+
+  //Pagination
   paginationEl: document.querySelector('#tui-pagination-container'),
-}
+};
 
 function setActiveState(elements) {
   elements.forEach((item, index) => {
@@ -43,9 +46,10 @@ function setActiveState(elements) {
   });
 }
 
-
 setActiveState(refs.navlinks);
 let bookList = localStoragemethod.load(refs.SHOP_LIST_KEY);
+
+const userShoplist = JSON.parse(localStorage.getItem('user-shop-list')) || [];
 
 let currentPage = 1;
 let itemsPerPage = 3;
@@ -54,10 +58,10 @@ let bookCount = bookList.length;
 let pagination = getPagination(bookCount, itemsPerPage);
 pagination.on('beforeMove', event => {
   currentPage = event.page;
-  renderShoppingList(bookList, event.page);
+  renderShoppingList(userShoplist, event.page);
 });
 
-renderShoppingList(bookList, currentPage);
+renderShoppingList(userShoplist, currentPage);
 
 function renderShoppingList(data, page = 1) {
   const startIndex = (page - 1) * itemsPerPage;
@@ -67,7 +71,7 @@ function renderShoppingList(data, page = 1) {
   if (currentData.length) {
     removeEmptyNotificationContainer();
 
-    const markup = currentData
+    const markup = userShoplist
       .map(
         ({
           _id,

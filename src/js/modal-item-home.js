@@ -1,11 +1,13 @@
-export {modalOpen};
+export { modalOpen };
 
 import { getBooksId } from './api-books';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import {setUserInLS, getUserFromLS} from './auth-modal';
-import {loadLS, saveLS} from './storage';
+import { setUserInLS, getUserFromLS } from './auth-modal';
+import { loadLS, saveLS } from './storage';
 
 const modal = document.querySelector('.backdrop');
+
+const shopUserBooks = JSON.parse(localStorage.getItem('user-shop-list')) || [];
 
 let user = {
   name: '',
@@ -15,41 +17,38 @@ let user = {
   email: '',
   password: '',
   booksArr: [],
-}
+};
 
 function checkAutorization() {
-  if(getUserFromLS()) {
+  if (getUserFromLS()) {
     user = getUserFromLS();
   }
 }
 
 let userBooks;
-if(loadLS('books')) {
+if (loadLS('books')) {
   userBooks = loadLS('books');
 } else userBooks = [];
 
-
-
 let idBook;
+let bookData;
 let btnContainer;
 let flag = true;
 
-function modalOpen (id) {
-  getBooksId(id).then(data => { 
-
+function modalOpen(id) {
+  getBooksId(id).then(data => {
     //   Перевірка чи не пришли пусті дані //
     if (!data) {
-      Notify.failure(
-        'Sorry, an error has occurred'
-      );
+      Notify.failure('Sorry, an error has occurred');
       return;
     }
     idBook = id;
+    bookData = data;
     const modalBody = document.querySelector('.js-modal-body');
-    modalBody.innerHTML = "";
+    modalBody.innerHTML = '';
     modalBody.insertAdjacentHTML('beforeend', createModalMarcup(data));
     const btnMarcup = '<div class = "js-btn-container"></div>';
-    if(flag) {
+    if (flag) {
       modalBody.insertAdjacentHTML('afterend', btnMarcup);
     }
     btnContainer = document.querySelector('.js-btn-container');
@@ -57,7 +56,7 @@ function modalOpen (id) {
     btnContainer.innerHTML = createButtonMarcup(user, id);
     openModalWindow();
 
-    const buttonAdd = document.querySelector('.modal__button'); 
+    const buttonAdd = document.querySelector('.modal__button');
     if (buttonAdd) {
       buttonAdd.addEventListener('click', onButtonAddClick);
     }
@@ -66,13 +65,19 @@ function modalOpen (id) {
     if (buttonRemove) {
       buttonRemove.addEventListener('click', onButtonRemoveClick);
     }
-    
+
     const btnClose = document.querySelector('.js-close');
     btnClose.addEventListener('click', closeModalWindow);
   });
 }
 
-function createModalMarcup({author, book_image, title, description, buy_links}) {
+function createModalMarcup({
+  author,
+  book_image,
+  title,
+  description,
+  buy_links,
+}) {
   if (!book_image) {
     book_image = '../images/book_plug.jpg';
   }
@@ -83,7 +88,7 @@ function createModalMarcup({author, book_image, title, description, buy_links}) 
 
   let amazonLink;
   let appleBooksLink;
-  let bookshopLink
+  let bookshopLink;
 
   buy_links.forEach(element => {
     if (element.name === 'Amazon') {
@@ -98,7 +103,7 @@ function createModalMarcup({author, book_image, title, description, buy_links}) 
       bookshopLink = element.url;
     }
   });
-return `<div class="modal__body">
+  return `<div class="modal__body">
       <img src="${book_image}" alt="${title}" class="modal__img">
       <div class="modal__box">
         <h2 class="modal__title">${title}</h2>
@@ -124,24 +129,23 @@ return `<div class="modal__body">
           </li>
         </ul>
       </div>
-      </div>`
+      </div>`;
 }
 
-function createButtonMarcup({booksArr,isSignedIn} = user, id) {
+function createButtonMarcup({ booksArr, isSignedIn } = user, id) {
   if (!isSignedIn) {
     return `<p class="modal__congratulation">
     Sign in to add the book to your shopping list.
-        </p>`
+        </p>`;
   }
 
   if (userBooks.indexOf(id) === -1) {
-    return `<button class="modal__button">add to shopping list</button>`
+    return `<button class="modal__button">add to shopping list</button>`;
   }
 
   return `<button class="modal__button-remove">
   remove from the shopping list
-</button>`
-
+</button>`;
 }
 
 function openModalWindow() {
@@ -155,20 +159,20 @@ function openModalWindow() {
 
   function onBackdropClick(evt) {
     if (evt.target.classList.contains('backdrop')) {
-        closeModalWindow();
-        backdrop.removeEventListener('click', onBackdropClick);
-      }
-    return
+      closeModalWindow();
+      backdrop.removeEventListener('click', onBackdropClick);
+    }
+    return;
   }
 }
 
 function onEscKeyPress(evt) {
-    if (evt.code !== "Escape") {
-        return;
-    }
+  if (evt.code !== 'Escape') {
+    return;
+  }
 
-    closeModalWindow();
-    document.removeEventListener('keydown', onEscKeyPress);  
+  closeModalWindow();
+  document.removeEventListener('keydown', onEscKeyPress);
 }
 
 function closeModalWindow() {
@@ -177,13 +181,14 @@ function closeModalWindow() {
   document.body.classList.remove('disable-scroll');
 }
 
-function onButtonAddClick () {
-  
+function onButtonAddClick() {
   user.booksArr.push(idBook);
   setUserInLS(user);
 
   userBooks.push(idBook);
   saveLS('books', userBooks);
+  shopUserBooks.push(bookData);
+  localStorage.setItem('user-shop-list', JSON.stringify(shopUserBooks));
 
   btnContainer.innerHTML = createremoveMarcup();
   const buttonRemove = document.querySelector('.modal__button-remove');
@@ -191,7 +196,6 @@ function onButtonAddClick () {
 }
 
 function onButtonRemoveClick() {
-
   user.booksArr.splice(user.booksArr.indexOf(idBook), 1);
   setUserInLS(user);
 
@@ -203,7 +207,7 @@ function onButtonRemoveClick() {
   btnAdd.addEventListener('click', onButtonAddClick);
 }
 
-function createremoveMarcup () {
+function createremoveMarcup() {
   return `<div class="button__wrapper-remove">
   <button class="modal__button-remove">
     remove from the shopping list
@@ -212,15 +216,15 @@ function createremoveMarcup () {
 <p class="modal__congratulation">
   Сongratulations! You have added the book to the shopping list. To
   delete, press the button “Remove from the shopping list”.
-</p>`
+</p>`;
 }
 
-function createAddMarcup () {
+function createAddMarcup() {
   return `<div class="button__wrapper-remove">
   <button class="modal__button">add to shopping list</button>
 </div>
 <p class="modal__congratulation">
   Сongratulations! You have removed the book from the shopping list. To
   add, press the button “Add to shopping list”.
-</p>`
+</p>`;
 }
