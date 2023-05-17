@@ -153,6 +153,10 @@ $fill-logo-dark-theme: #F3F3F3;
   background: rgba(17, 17, 17, 0.6);;
 }
 
+.dark-theme .header-menu-mob-close{
+  stroke: $white-text-color;
+}
+
 // .dark-theme .(class-current-category) {
 //   color: $yellow-accent-color;
 //}
