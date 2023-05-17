@@ -14,6 +14,7 @@ $category-clr: rgba(17, 17, 17, 0.6);
 // ANIMATION
 $animation-fast: 400ms ease;
 $animation-slow: 800ms ease;
+$animation-add: 250ms cubic-bezier(0.47, 0, 0.745, 0.715);
 
 *,
 ::after,

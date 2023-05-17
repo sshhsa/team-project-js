@@ -213,9 +213,7 @@
   mix-blend-mode: normal;
   border-radius: 0px 0px 8px 8px;
 
-  transition-property: opacity;
-  transition-duration: $animation-slow;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity $animation-add;
 }
 
 .port-overlay p {
@@ -238,15 +236,15 @@
   align-items: center;
 
   @media screen and (min-width: 768px) {
-      width: 704px;
-      gap: 25px;
-      flex-direction: row;
-      flex-wrap: wrap;
+    width: 704px;
+    gap: 25px;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   @media screen and (min-width: 1440px) {
-      width: 996px;
-      gap: 24px;
+    width: 996px;
+    gap: 24px;
   }
 }
 
@@ -257,14 +255,14 @@
 .books-gallery__card {
   width: 335px;
 
-  @media  screen and (min-width: 768px) {
-      width: 216px;
-      margin-bottom: 15px;
+  @media screen and (min-width: 768px) {
+    width: 216px;
+    margin-bottom: 15px;
   }
 
-  @media  screen and (min-width: 1440px) {
-      width: 180px;
-      margin-bottom: 16px;
+  @media screen and (min-width: 1440px) {
+    width: 180px;
+    margin-bottom: 16px;
   }
 }
 
@@ -284,14 +282,14 @@
   margin-bottom: 14px;
   border-radius: 8px;
 
-  @media  screen and (min-width: 768px) {
-      width: 218px;
-      height: 316px;
+  @media screen and (min-width: 768px) {
+    width: 218px;
+    height: 316px;
   }
 
-  @media  screen and (min-width: 1440px) {
-      width: 180px;
-      height: 256px;
+  @media screen and (min-width: 1440px) {
+    width: 180px;
+    height: 256px;
   }
 }
 
@@ -318,4 +316,3 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-
