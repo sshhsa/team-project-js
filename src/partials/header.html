@@ -1,8 +1,94 @@
-<header>
-  <ul>
-    <li><a href="./index.html">Home</a></li>
-    <li>
-      <a href="./shop-list.html">shopping list</a>
-    </li>
-  </ul>
+<header class="header">
+  <div class="header-container container">
+    <a class="header-logo" href="./index.html">
+      <svg class="logo-header" width="20" height="20">
+        <use href="./images/svg-sprite/symbol-defs.svg#booklogo-icon"></use>
+      </svg>
+      <span class="web">Book</span>shelf
+    </a>
+    <nav class="page-nav is-visible">
+      <ul class="header-list">
+        <li class="header-list-item">
+          <a class="active" href="./index.html">Home</a>
+        </li>
+        <li class="header-list-item">
+          <a class="header-link" href="./shop-list.html">ShoppingList
+            <svg class="header-link-icon" width="20" height="20">
+              <use href="./images/svg-sprite/symbol-defs.svg#bag"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header-buttons">
+      <button type="button" class="menu-burger-open js-open-menu">
+        <svg class="header-menu-mob" width="28" heigth="28">
+          <use class="mobile-menu" id="menu-icon" href="./images/svg-sprite/symbol-defs.svg#icon-burger"></use>
+        </svg>
+        <svg class="header-menu-mob-close burger-toggle-hidden" width="28" height="28">
+          <use href="./images/svg-sprite/symbol-defs.svg#icon-x-close"></use>
+        </svg>
+      </button>
+
+      <div class="mobile-menu-burger js-menu-container">
+        <div class="modal is-hidden mobile-menu-container">
+          <button type="button" class="btn-mob-signUp js-mobile-signup">
+            Sign up
+            <svg class="sign-up-icon" width="20" height="20">
+              <use href="./images/svg-sprite/symbol-defs.svg#arrow-right-icon"></use>
+            </svg>
+          </button>
+          <div class="js-mobile-menu-logedin is-visible">
+            <div class="user-info-bar">
+              <svg class="header-singin-icon" width="19" height="19">
+                <use href="./images/svg-sprite/symbol-defs.svg#icon-user"></use>
+              </svg>
+              <p class="user-name js-mob-name">Stephen</p>
+            </div>
+            <nav class="nav nav-list-mob-menu">
+              <ul class="list nav-list nav-list-mob-menu">
+                <li class="nav-active nav-item">
+                  <a class="active-mob link nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="link mobile-inactive-link nav-link" href="./shop-list.html">Shopping List
+                    <svg class="header-link-icon-mob" width="20" height="20">
+                      <use href="./images/svg-sprite/symbol-defs.svg#bag"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <button type="button" class="btn-header-mob-logout js-mobile-logout">
+              Log out<svg class="sign-up-icon" width="20" height="20">
+                <use href="./images/svg-sprite/symbol-defs.svg#arrow-right-icon"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="js-sign-toggle-group">
+        <button type="button" class="btn-header js-header-signup">
+          Sign up
+          <svg class="sign-up-icon" width="20" height="20">
+            <use href="./images/svg-sprite/symbol-defs.svg#arrow-right-icon"></use>
+          </svg>
+        </button>
+        <button type="button" class="btn-singin js-header-info is-visible">
+          <svg class="header-singin-icon" width="19" height="19">
+            <use href="./images/svg-sprite/symbol-defs.svg#icon-user"></use>
+          </svg>
+          <span class="js-header-name">Stephen</span>
+          <svg class="header-singin-down-icon" width="23" height="26">
+            <use href="./images/svg-sprite/symbol-defs.svg#icon-arrow-down-icon"></use>
+          </svg>
+        </button>
+        <button type="button" class="btn-header-logout is-visible js-header-logout">
+          Log out<svg class="sign-up-icon" width="20" height="20">
+            <use href="./images/svg-sprite/symbol-defs.svg#arrow-right-icon"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
 </header>

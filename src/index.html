@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
+    <title>Home</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
@@ -17,10 +17,15 @@
     <include src="./partials/header.html"></include>
     <include src="./partials/tumbler-theme.html"></include>
     <include src="./partials/auth-modal.html"></include>
-
-    <include src="./partials/categories.html"></include>
-    <include src="./partials/support-ukraine.html"></include>
-    <include src="./partials/gallery-categories.html"></include>
+    <div class="align-home-sect">
+      <div class="align-left">
+        <include src="./partials/categories.html"></include>
+        <div class="div-support">
+          <include src="./partials/support-ukraine.html"></include>
+        </div>
+      </div>
+      <include src="./partials/gallery-categories.html"></include>
+    </div>
     <include src="./partials/modal-item-home.html"></include>
 
     <include src="./partials/footer.html"></include>

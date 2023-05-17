@@ -11,3 +11,37 @@
 
 @import './footer';
 @import './shoplist-gallery-categories.scss';
+
+.align-home-sect {
+  display: flex;
+  margin: 40px 0px 72px 0px;
+
+  @media screen and (max-width: 1439px) {
+    flex-wrap: wrap;
+
+    .align-left {
+      display: flex;
+      justify-content: center;
+
+      margin-bottom: 100px;
+    }
+  }
+
+  @media screen and (max-width: 688px) {
+    .align-left {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .div-support {
+      margin-top: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .shop-list-none {
+    display: none;
+  }
+}
