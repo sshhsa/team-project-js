@@ -141,6 +141,10 @@ $fill-logo-dark-theme: #F3F3F3;
   color: $white-text-color;
 }
 
+.dark-theme .modal__congratulation {
+  color: rgba(255, 255, 255, 0.5);;
+}
+
 // .dark-theme .(class-current-category) {
 //   color: $yellow-accent-color;
 //}
