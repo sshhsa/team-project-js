@@ -155,6 +155,7 @@ function changeColorTitle(title) {
   });
   console.log(selectedElement);
   selectedElement.classList.add('filter__item--active');
+  
 }
 
 //// Відкриття модального вікна при кліку по картці
