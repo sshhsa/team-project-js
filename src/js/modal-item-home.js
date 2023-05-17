@@ -2,12 +2,33 @@ export {modalOpen};
 
 import { getBooksId } from './api-books';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import {updateUserDatabase, setUserInLS, getUserFromLS} from './auth-modal';
+import {setUserInLS, getUserFromLS} from './auth-modal';
 import {loadLS, saveLS} from './storage';
 
 const modal = document.querySelector('.backdrop');
 
-const user = getUserFromLS();
+let user = {
+  name: '',
+  photoUrl: './images/png/user.png',
+  userId: '',
+  isSignedIn: false,
+  email: '',
+  password: '',
+  booksArr: [],
+}
+
+function checkAutorization() {
+  if(getUserFromLS()) {
+    user = getUserFromLS();
+  }
+}
+
+let userBooks;
+if(loadLS('books')) {
+  userBooks = loadLS('books');
+} else userBooks = [];
+
+
 
 let idBook;
 let btnContainer;
@@ -32,6 +53,7 @@ function modalOpen (id) {
       modalBody.insertAdjacentHTML('afterend', btnMarcup);
     }
     btnContainer = document.querySelector('.js-btn-container');
+    checkAutorization();
     btnContainer.innerHTML = createButtonMarcup(user, id);
     openModalWindow();
 
@@ -105,14 +127,14 @@ return `<div class="modal__body">
       </div>`
 }
 
-function createButtonMarcup({booksArr} = user, id) {
-  if (!loadLS('logged')) {
+function createButtonMarcup({booksArr,isSignedIn} = user, id) {
+  if (!isSignedIn) {
     return `<p class="modal__congratulation">
     Sign in to add the book to your shopping list.
         </p>`
   }
 
-  if (booksArr.indexOf(id) === -1) {
+  if (userBooks.indexOf(id) === -1) {
     return `<button class="modal__button">add to shopping list</button>`
   }
 
@@ -132,7 +154,6 @@ function openModalWindow() {
   backdrop.addEventListener('click', onBackdropClick);
 
   function onBackdropClick(evt) {
-    console.dir(evt);
     if (evt.target.classList.contains('backdrop')) {
         closeModalWindow();
         backdrop.removeEventListener('click', onBackdropClick);
@@ -160,24 +181,26 @@ function onButtonAddClick () {
   
   user.booksArr.push(idBook);
   setUserInLS(user);
-  // updateUserDatabase(user);
+
+  userBooks.push(idBook);
+  saveLS('books', userBooks);
 
   btnContainer.innerHTML = createremoveMarcup();
   const buttonRemove = document.querySelector('.modal__button-remove');
   buttonRemove.addEventListener('click', onButtonRemoveClick);
-  console.log(user.booksArr);
 }
 
 function onButtonRemoveClick() {
 
   user.booksArr.splice(user.booksArr.indexOf(idBook), 1);
   setUserInLS(user);
-  // updateUserDatabase(user);
+
+  userBooks.splice(user.booksArr.indexOf(idBook), 1);
+  saveLS('books', userBooks);
 
   btnContainer.innerHTML = createAddMarcup();
   const btnAdd = document.querySelector('.modal__button');
   btnAdd.addEventListener('click', onButtonAddClick);
-  console.log(user.booksArr);
 }
 
 function createremoveMarcup () {
