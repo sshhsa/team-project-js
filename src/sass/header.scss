@@ -7,26 +7,15 @@
   margin-right: auto;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .header {
-    width: 1440px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .header {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .header {
-    width: 100%;
+    max-width: 1440px;
   }
 }
 
 .header-container {
   display: flex;
+  justify-content: flex-start;
 }
 
 .header-logo {
@@ -44,6 +33,7 @@
 .header-list {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 24px;
 }
 
@@ -61,9 +51,6 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 1.28px;
-  background: $light-clr-2;
-  border-radius: 36px;
-  padding: 8px 16px;
   color: $dark-clr-1;
 }
 
@@ -360,14 +347,8 @@
     top: 58px;
     left: 0;
     transform: translateX(100%);
-    justify-content: flex-end;
-    align-items: flex-start;
-  }
-
-  .lock {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
+    // justify-content: flex-end;
+    // align-items: flex-start;
   }
 
   .mobile-menu-container.is-open {
@@ -469,9 +450,11 @@
     align-items: start;
     margin-top: 15.5vh;
     display: flex;
+    justify-content: center;
+    gap: 8px;
   }
 
-  nav-list .nav-active {
+  .nav-list .nav-active {
     background-color: $light-clr-2;
     border-radius: 36px;
     padding: 8px 16px;
@@ -548,4 +531,65 @@
   .mobile-menu-container {
     display: none;
   }
+}
+
+// --------------------------------------------------------------------------------
+
+.btn-mob-signUp {
+  width: 184px;
+  text-transform: none;
+  letter-spacing: -0.04em;
+  color: #fff;
+  cursor: pointer;
+  background: #4f2ee8;
+  border: 1.5px solid #111;
+  border-radius: 18px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  margin-left: 20px;
+  padding: 13px;
+  font-family: DMSans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+  transition: all 0.3s;
+  display: flex;
+  &:hover,
+  &:focus {
+    color: $dark-clr-1;
+    background: $light-clr-1;
+  }
+}
+
+.mobile-menu-logedin {
+  pointer-events: all;
+  opacity: 1;
+  visibility: visible;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.js-mobile-menu-logedin.is-visible,
+.btn-header.is-visible,
+.btn-singin.is-visible,
+.btn-header-logout.is-visible,
+.btn-mob-signUp.is-visible,
+.page-nav.is-visible,
+.mobile-menu-logedin.is-visible {
+  pointer-events: none;
+  opacity: 0;
+  display: none;
+}
+.btn-mob-signUp {
+  pointer-events: all;
+  opacity: 1;
+  visibility: visible;
+}
+
+.is-active {
+  background: $light-clr-2;
+  border-radius: 36px;
+  padding: 8px 16px;
 }
