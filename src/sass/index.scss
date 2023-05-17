@@ -14,7 +14,14 @@
 
 .align-home-sect {
   display: flex;
-  margin: 40px 0px 72px 0px;
+  margin-top: 40px;
+  margin-bottom: 72px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
 
   @media screen and (max-width: 1439px) {
     flex-wrap: wrap;

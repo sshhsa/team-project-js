@@ -178,6 +178,8 @@
   line-height: 1.29;
   text-transform: uppercase;
 
+  transition: color, background-color $animation-add;
+
   @media screen and (min-width: 768px) {
     margin-top: 20px;
   }

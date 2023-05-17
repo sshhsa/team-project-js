@@ -7,12 +7,6 @@
   margin-right: auto;
 }
 
-@media screen and (min-width: 1440px) {
-  .header {
-    max-width: 1440px;
-  }
-}
-
 .header-container {
   display: flex;
   justify-content: flex-start;
@@ -201,7 +195,7 @@
   color: $dark-clr-1;
   cursor: pointer;
   text-transform: uppercase;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: $dark-clr-1;
   border: 2px solid $accent-clr;
   border-radius: 40px;
   justify-content: center;
@@ -306,7 +300,7 @@
 
   .menu-burger-open {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: $dark-clr-1;
     border: none;
     border-radius: 50%;
     outline: none;
@@ -346,8 +340,6 @@
     top: 58px;
     left: 0;
     transform: translateX(100%);
-    // justify-content: flex-end;
-    // align-items: flex-start;
   }
 
   .mobile-menu-container.is-open {
@@ -359,7 +351,7 @@
 
   .mobile-menu-close-button {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: $dark-clr-1;
     border: none;
     border-radius: 50%;
     outline: none;
@@ -466,7 +458,7 @@
 
   .nav-item {
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: $dark-clr-1;
     padding-top: 16px;
     font-size: 14px;
     font-weight: 500;
@@ -532,16 +524,16 @@
   }
 }
 
-// --------------------------------------------------------------------------------
+// --------------- Authorization (Sign up) ---------------
 
 .btn-mob-signUp {
   width: 184px;
   text-transform: none;
   letter-spacing: -0.04em;
-  color: #fff;
+  color: $light-clr-1;
   cursor: pointer;
-  background: #4f2ee8;
-  border: 1.5px solid #111;
+  background: $accent-clr;
+  border: 1.5px solid $dark-clr-1;
   border-radius: 18px;
   justify-content: space-between;
   align-items: center;
