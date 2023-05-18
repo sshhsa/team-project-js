@@ -3,7 +3,7 @@ export { modalOpen };
 import { getBooksId } from './api-books';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import {
-  user,
+  // user,
   setUserInLS,
   getUserFromLS,
   isUserSet,
@@ -15,7 +15,7 @@ const modal = document.querySelector('.backdrop');
 
 const shopUserBooks = JSON.parse(localStorage.getItem('user-shop-list')) || [];
 
-user = getUserFromLS();
+// user = getUserFromLS();
 
 function checkAutorization() {
   if (isUserSet()) {
