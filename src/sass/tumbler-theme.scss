@@ -97,8 +97,8 @@ $fill-logo-dark-theme: #f3f3f3;
 }
 
 .dark-theme .btn-header-logout {
-  background: $light-clr-1;
-  color: $dark-clr-1;
+  background: $dark-clr-2;
+  color: $light-clr-1;
 }
 
 .dark-theme .modal-auth {
@@ -146,16 +146,13 @@ $fill-logo-dark-theme: #f3f3f3;
 }
 
 .dark-theme .filter__list::-webkit-scrollbar-thumb {
-  background: rgba(17, 17, 17, 0.6);
+  background: $category-clr;
 }
 
 .dark-theme .header-menu-mob-close {
   stroke: $white-text-color;
 }
 
-// .dark-theme .(class-current-category) {
-//   color: $yellow-accent-color;
-//}
 .dark-theme {
   & .modal-text {
     color: $light-clr-1;
@@ -285,8 +282,7 @@ $fill-logo-dark-theme: #f3f3f3;
   & .btn-signup {
     background-color: #f6f6f6;
     overflow: hidden;
-    // border: 1px solid white;
-    color: #202024;
+    color: $dark-clr-2;
     &:hover {
       background-color: $accent-clr;
       border: 1px solid transparent;
