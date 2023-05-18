@@ -2,25 +2,23 @@ export { modalOpen };
 
 import { getBooksId } from './api-books';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { setUserInLS, getUserFromLS } from './auth-modal';
+import {
+  // user,
+  setUserInLS,
+  getUserFromLS,
+  isUserSet,
+  updateUserDatabase,
+} from './auth-modal';
 import { loadLS, saveLS } from './storage';
 
 const modal = document.querySelector('.backdrop');
 
 const shopUserBooks = JSON.parse(localStorage.getItem('user-shop-list')) || [];
 
-let user = {
-  name: '',
-  photoUrl: './images/png/user.png',
-  userId: '',
-  isSignedIn: false,
-  email: '',
-  password: '',
-  booksArr: [],
-};
+user = getUserFromLS();
 
 function checkAutorization() {
-  if (getUserFromLS()) {
+  if (isUserSet()) {
     user = getUserFromLS();
   }
 }
@@ -132,8 +130,8 @@ function createModalMarcup({
       </div>`;
 }
 
-function createButtonMarcup({ booksArr, isSignedIn } = user, id) {
-  if (!isSignedIn) {
+function createButtonMarcup({ booksArr } = user, id) {
+  if (!isUserSet()) {
     return `<p class="modal__congratulation">
     Sign in to add the book to your shopping list.
         </p>`;
@@ -184,6 +182,7 @@ function closeModalWindow() {
 function onButtonAddClick() {
   user.booksArr.push(idBook);
   setUserInLS(user);
+  updateUserDatabase(user);
 
   userBooks.push(idBook);
   saveLS('books', userBooks);
@@ -198,6 +197,7 @@ function onButtonAddClick() {
 function onButtonRemoveClick() {
   user.booksArr.splice(user.booksArr.indexOf(idBook), 1);
   setUserInLS(user);
+  updateUserDatabase(user);
 
   userBooks.splice(user.booksArr.indexOf(idBook), 1);
   saveLS('books', userBooks);
