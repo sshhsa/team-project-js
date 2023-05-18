@@ -136,14 +136,13 @@ function onSubmitAuthForm(event) {
   } = event.currentTarget;
   user.name = name.value;
   user.email = email.value;
-  user.password = password.value;
   if (inputName.style.display === 'none') {
     // Check for empty fields
     if (!user.email.trim() || !user.password.trim) {
       Notify.failure(`Please complete all fields!`, notifyOptions);
     }
     // Sign in
-    signInUser(user);
+    signInUser(user, password.value);
     // Reset authentication form
     authForm.reset();
     backDropClosing();
@@ -155,7 +154,7 @@ function onSubmitAuthForm(event) {
     return;
   }
   // Sign up
-  createUser(user);
+  createUser(user, password.value);
   // Reset authentication form
   authForm.reset();
   backDropClosing();
@@ -171,6 +170,10 @@ function onClickHeaderSignOutUser() {
   headerInfoBtn.nextElementSibling.classList.toggle('is-visible');
   signOutUser(user);
   authForm.reset();
+
+  setTimeout(() => {
+    window.location.href = './index.html';
+  }, 500);
 }
 
 //==================================================================

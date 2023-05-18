@@ -13,3 +13,5 @@ import './js/api-books';
 
 import './js/modal_footer';
 import './js/footer';
+import './js/storage-methods';
+import './js/pagination';
