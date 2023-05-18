@@ -21,6 +21,7 @@ const toggleMenuBtnHeader = document.querySelector('.js-open-menu');
 const mobileMenuContainerHeader = document.querySelector(
   '.mobile-menu-container'
 );
+
 toggleMenuBtnHeader.addEventListener('click', function () {
   mobileMenuContainerHeader.classList.toggle('is-open');
   toggleMenuBtnHeader.firstElementChild.classList.toggle(
@@ -170,6 +171,9 @@ function onClickHeaderSignOutUser() {
   headerInfoBtn.classList.toggle('is-visible');
   headerInfoBtn.nextElementSibling.classList.toggle('is-visible');
   signOutUser(user);
+  setTimeout(() => {
+    window.location.href = './index.html';
+  }, 500);
   authForm.reset();
 }
 
