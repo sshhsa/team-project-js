@@ -3,6 +3,7 @@ import {
   createUser,
   signInUser,
   signOutUser,
+  setUserInLS,
   isUserSet,
   getUserFromLS,
 } from './auth-modal';
