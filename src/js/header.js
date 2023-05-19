@@ -85,6 +85,9 @@ function menusToggleOnAuth() {
 }
 // инициализация ДОМа
 menusToggleOnAuth();
+if (!localStorage.getItem('user')) {
+  setUserInLS(user);
+}
 
 //==================================================================
 // Функции авторизации пользователя
