@@ -1,7 +1,7 @@
 import { getBooksId } from './api-books';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import {
-  user,
+  // user,
   setUserInLS,
   getUserFromLS,
   isUserSet,
@@ -43,9 +43,9 @@ function modalOpen(id) {
     const modalBody = document.querySelector('.js-modal-body');
     modalBody.innerHTML = '';
     modalBody.insertAdjacentHTML('beforeend', createModalMarcup(data));
-    const btnMarcup = '<div class = "js-btn-container"></div>';
+    const btnMarkup = '<div class = "js-btn-container"></div>';
     if (flag) {
-      modalBody.insertAdjacentHTML('afterend', btnMarcup);
+      modalBody.insertAdjacentHTML('afterend', btnMarkup);
     }
     btnContainer = document.querySelector('.js-btn-container');
     checkAutorization();
