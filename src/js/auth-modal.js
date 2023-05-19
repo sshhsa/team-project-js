@@ -1,5 +1,6 @@
 import { saveLS, loadLS, removeLS } from './storage';
 import { menusToggleOnAuth } from './header';
+
 // Import needed function from Firebase Authentication SDK and RealTime Database
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, set, child, get } from 'firebase/database';
@@ -22,7 +23,7 @@ const notifyOptions = {
   position: 'center-top',
 };
 
-// Initialasing Firebase Database instances
+// Initialasing Firebase Auth and Database instances
 const firebaseConfig = {
   apiKey: 'AIzaSyCzgSViH35dPAT3x6h1gt7sQXiu6qtVk-A',
   authDomain: 'book-store-a441d.firebaseapp.com',
@@ -32,28 +33,26 @@ const firebaseConfig = {
   appId: '1:10647209917:web:07621d52f96a30e76ef4d4',
 };
 const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const database = getDatabase(
+  app,
+  'https://book-store-a441d-default-rtdb.europe-west1.firebasedatabase.app/'
+);
+const dbRef = ref(
+  getDatabase(
+    app,
+    'https://book-store-a441d-default-rtdb.europe-west1.firebasedatabase.app/'
+  )
+);
 
 // Объект пользователя. В переменной user.booksArr храним массив айдишников книг.
 let user = {
   name: '',
-  photoUrl: './images/png/user.png',
-  userId: '',
-  isSignedIn: false,
   email: '',
   password: '',
+  photoUrl: './images/png/user.png',
+  isSignedIn: false,
   booksArr: [],
-  // Initialasing Firebase Auth
-  auth: getAuth(),
-  database: getDatabase(
-    app,
-    'https://book-store-a441d-default-rtdb.europe-west1.firebasedatabase.app/'
-  ),
-  dbRef: ref(
-    getDatabase(
-      app,
-      'https://book-store-a441d-default-rtdb.europe-west1.firebasedatabase.app/'
-    )
-  ),
 };
 
 //--- ключи для локального хранилища.
@@ -73,10 +72,15 @@ function getUserFromLS() {
 function isUserSet() {
   return !!loadLS(LOGINKEY);
 }
+
+if (isUserSet()) {
+  user = getUserFromLS();
+}
+
 //-------------------------------------------------------------------
 
 // sign up user
-async function createUser({ email, password, auth }) {
+async function createUser({ email } = user, password) {
   await createUserWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       // Signed in
@@ -105,7 +109,7 @@ async function createUser({ email, password, auth }) {
 }
 
 // Sign in user
-async function signInUser({ email, password, auth }) {
+async function signInUser({ email } = user, password) {
   await signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       const userCur = userCredential.user;
@@ -140,8 +144,7 @@ async function signInUser({ email, password, auth }) {
 }
 
 // sign out user
-function signOutUser({ auth, booksArr }) {
-  updateUserDatabase(user);
+function signOutUser() {
   signOut(auth)
     .then(() => {
       user.isSignedIn = false;
@@ -161,7 +164,7 @@ function signOutUser({ auth, booksArr }) {
 }
 
 // Firebase realtime database update
-async function updateUserDatabase({ booksArr, database }) {
+async function updateUserDatabase({ booksArr }) {
   await set(ref(database, `users/${user.userId}`), booksArr)
     .then(() => {
       Notify.success(`DataBase updated!`, notifyOptions);
@@ -176,7 +179,7 @@ async function updateUserDatabase({ booksArr, database }) {
 }
 
 // Get firebase realtime database data
-async function getUserData({ userId, dbRef }) {
+async function getUserData({ userId }) {
   await get(child(dbRef, `users/${userId}`))
     .then(snapshot => {
       if (!snapshot.exists()) {

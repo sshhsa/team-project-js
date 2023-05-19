@@ -195,7 +195,7 @@
   color: $dark-clr-1;
   cursor: pointer;
   text-transform: uppercase;
-  background-color: $dark-clr-1;
+  background-color: $light-clr-1;
   border: 2px solid $accent-clr;
   border-radius: 40px;
   justify-content: center;
@@ -458,7 +458,6 @@
 
   .nav-item {
     z-index: 10;
-    background-color: $dark-clr-1;
     padding-top: 16px;
     font-size: 14px;
     font-weight: 500;
@@ -477,13 +476,13 @@
     border-radius: 18px;
     gap: 4px;
     margin-left: 20px;
-    margin-top: auto;
     padding: 13px 17px;
     font-size: 14px;
     line-height: 1.28;
     transition: all 0.3s;
     display: flex;
     margin-bottom: 20px;
+    margin-top: auto;
   }
 
   .btn-header-mob-logout:hover,
@@ -562,6 +561,7 @@
   justify-content: flex-end;
   align-items: flex-start;
 }
+
 .js-mobile-menu-logedin.is-visible,
 .btn-header.is-visible,
 .btn-singin.is-visible,
