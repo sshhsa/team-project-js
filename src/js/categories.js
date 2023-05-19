@@ -2,12 +2,11 @@ import { getCategoryList, getBooksCategory } from './api-books';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { modalOpen } from './modal-item-home';
 
-
 const filterListEl = document.querySelector('.filter__list');
 let varWithActiveValueFilter = document.querySelector('.filter__item--active');
 const booksList = document.querySelector('.js-gallery-best-books');
 const galleryTitle = document.querySelector('.gallery-title');
-const allCategories = document.querySelector('.filter__item')
+const allCategories = document.querySelector('.filter__item');
 
 let varWithCurrentCategoryValue = 'ALL CATEGORIES';
 const bookApi = getCategoryList();
@@ -34,7 +33,7 @@ allCategories.addEventListener('click', event => {
     location.reload();
     return;
   }
-})
+});
 
 filterListEl.addEventListener('click', event => {
   if (
@@ -42,7 +41,7 @@ filterListEl.addEventListener('click', event => {
     varWithCurrentCategoryValue.toLowerCase()
   ) {
     return;
-  } 
+  }
 
   varWithCurrentCategoryValue = event.target.outerText;
 
@@ -52,36 +51,31 @@ filterListEl.addEventListener('click', event => {
     location.reload();
     return;
   }
-  
+
   addCardsByCategory();
 });
-
-
 
 function addGalleryMarkupAndChangeFilter() {
   const targetEl = document.querySelector(
     `[data-mark-active="${varWithCurrentCategoryValue}"]`
   );
-  
+
   const activeElement = document.querySelector('.filter__item--active');
   if (activeElement) {
-  activeElement.classList.remove('filter__item--active');
+    activeElement.classList.remove('filter__item--active');
   }
-  
-  
+
   varWithActiveValueFilter.classList.remove('filter__item--active');
 
   targetEl.classList.add('filter__item--active');
 
   varWithActiveValueFilter = targetEl;
-
 }
 console.log(varWithActiveValueFilter);
 
-//// Рендер карток книжок по категоріям
+// Рендер карток книжок по категоріям
 function addCardsByCategory() {
   const categoryValue = varWithActiveValueFilter.innerHTML;
-  console.log(categoryValue);
   getBooksCategory(categoryValue).then(booksArr => {
     if (!booksArr.length) {
       Notify.failure(
@@ -96,16 +90,16 @@ function addCardsByCategory() {
     addColorToTitle();
     addModal();
 
-    //  bookGalleryCard.forEach((book) => {
-    //    book.addEventListener('click', (e) => {
-    //      const bookId = e.currentTarget.id;
-    //      modalOpen(bookId);
-    //    })
-    //  })
+    // bookGalleryCard.forEach(book => {
+    //   book.addEventListener('click', e => {
+    //     const bookId = e.currentTarget.id;
+    //     modalOpen(bookId);
+    //   });
+    // });
   });
 }
 
-//// Створення карток книжок по категоріям
+// Створення карток книжок по категоріям
 function createMoreBooks(booksArr) {
   const bookCard = booksArr
     .map(({ _id, book_image, title, author }) => {
@@ -130,9 +124,8 @@ function createMoreBooks(booksArr) {
   return bookCard;
 }
 
-//// Додавання акцентного кольолру до заголовку з назвою категорії списку книг
+// Додавання акцентного кольолру до заголовку з назвою категорії списку книг
 function addColorToTitle() {
-  // const textgalleryTitle = galleryTitle.innerHTML;
   const categoryValue = varWithActiveValueFilter.innerHTML;
 
   let wordsArray = categoryValue.split(' ');
@@ -147,10 +140,7 @@ function onBtnOpen(evt) {
   modalOpen(bookId);
 }
 
-
-
-
-//// Відкриття модального вікна при кліку по картці
+// Відкриття модального вікна при кліку по картці
 function addModal() {
   const booksGalleryCards = document.querySelectorAll('.books-gallery__card');
 
