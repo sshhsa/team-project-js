@@ -73,24 +73,23 @@ function onBtnOpen(evt) {
   modalOpen(bookId);
 }
 
-/////=================== ВІДОБРАЖЕННЯ КНИГ ПО КАТЕГОРІЯМ =============================////
+//=================== ВІДОБРАЖЕННЯ КНИГ ПО КАТЕГОРІЯМ =============================
 
 const eventLister = document.querySelector('.books-gallery');
 let categoryValue = 'ALL CATEGORIES';
 
-//// Рендер списку книг по категорії при кліку на "see more" кнопці
+// Рендер списку книг по категорії при кліку на "see more" кнопці
 eventLister.addEventListener('click', onMoreBtnClick);
 function onMoreBtnClick(e) {
   if (e.target.localName === 'button') {
     categoryValue = e.target.getAttribute('id');
 
     addCardsByCategory();
-    // addColorToCategory();
     changeColorTitle(categoryValue);
   }
 }
 
-//// Рендер карток книжок по категоріям
+// Рендер карток книжок по категоріям
 function addCardsByCategory() {
   getBooksCategory(categoryValue).then(booksArr => {
     if (!booksArr.length) {
@@ -108,7 +107,7 @@ function addCardsByCategory() {
   });
 }
 
-//// Створення карток книжок по категоріям
+// Створення карток книжок по категоріям
 function createMoreBooks(booksArr) {
   const bookCard = booksArr
     .map(({ _id, book_image, title, author }) => {
@@ -133,7 +132,7 @@ function createMoreBooks(booksArr) {
   return bookCard;
 }
 
-//// Додавання акцентного кольолру до заголовку з назвою категорії списку книг
+// Додавання акцентного кольолру до заголовку з назвою категорії списку книг
 function addColorToTitle() {
   const textgalleryTitle = galleryTitle.innerHTML;
 
@@ -148,17 +147,15 @@ function changeColorTitle(title) {
   const labelCategories = document.querySelectorAll('.filter__item');
   const activeElement = document.querySelector('.filter__item--active');
 
-  
   activeElement.classList.remove('filter__item--active');
   const selectedElement = [...labelCategories].find(({ textContent }) => {
     return textContent === title;
   });
   console.log(selectedElement);
   selectedElement.classList.add('filter__item--active');
-  
 }
 
-//// Відкриття модального вікна при кліку по картці
+// Відкриття модального вікна при кліку по картці
 function addModal() {
   const booksGalleryCards = document.querySelectorAll('.books-gallery__card');
 
@@ -166,5 +163,3 @@ function addModal() {
     card.addEventListener('click', onBtnOpen);
   });
 }
-
-
