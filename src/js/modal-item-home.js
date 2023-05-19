@@ -1,7 +1,7 @@
 import { getBooksId } from './api-books';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import {
-  // currentUser,
+  // user,
   setUserInLS,
   getUserFromLS,
   isUserSet,
@@ -13,11 +13,11 @@ const modal = document.querySelector('.backdrop');
 
 const shopUserBooks = JSON.parse(localStorage.getItem('user-shop-list')) || [];
 
-let currentUser = getUserFromLS();
+let user = getUserFromLS();
 
 function checkAutorization() {
   if (isUserSet()) {
-    currentUser = getUserFromLS();
+    user = getUserFromLS();
   }
 }
 
@@ -49,7 +49,7 @@ function modalOpen(id) {
     }
     btnContainer = document.querySelector('.js-btn-container');
     checkAutorization();
-    btnContainer.innerHTML = createButtonMarcup(currentUser, id);
+    btnContainer.innerHTML = createButtonMarcup(user, id);
     openModalWindow();
 
     const buttonAdd = document.querySelector('.modal__button');
@@ -128,7 +128,7 @@ function createModalMarcup({
   </div>`;
 }
 
-function createButtonMarcup({ booksArr } = currentUser, id) {
+function createButtonMarcup({ booksArr } = user, id) {
   if (!isUserSet()) {
     return `<p class="modal__congratulation">
     Sign in to add the book to your shopping list.
@@ -179,8 +179,8 @@ function closeModalWindow() {
 
 function onButtonAddClick() {
   user.booksArr.push(idBook);
-  setUserInLS(currentUser);
-  updateUserDatabase(currentUser);
+  setUserInLS(user);
+  updateUserDatabase(user);
 
   userBooks.push(idBook);
   saveLS('books', userBooks);
@@ -193,11 +193,11 @@ function onButtonAddClick() {
 }
 
 function onButtonRemoveClick() {
-  user.booksArr.splice(currentUser.booksArr.indexOf(idBook), 1);
-  setUserInLS(currentUser);
-  updateUserDatabase(currentUser);
+  user.booksArr.splice(user.booksArr.indexOf(idBook), 1);
+  setUserInLS(user);
+  updateUserDatabase(user);
 
-  userBooks.splice(currentUser.booksArr.indexOf(idBook), 1);
+  userBooks.splice(user.booksArr.indexOf(idBook), 1);
   saveLS('books', userBooks);
 
   btnContainer.innerHTML = createAddMarcup();

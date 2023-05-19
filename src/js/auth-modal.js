@@ -46,7 +46,7 @@ const dbRef = ref(
 );
 
 // Объект пользователя. В переменной user.booksArr храним массив айдишников книг.
-let currentUser = {
+let user = {
   name: '',
   email: '',
   password: '',
@@ -56,7 +56,7 @@ let currentUser = {
 };
 
 //--- ключи для локального хранилища.
-const LOCALKEY = 'currentUser';
+const LOCALKEY = 'user';
 const LOGINKEY = 'logged';
 //-------------------------------------------------------------------
 //Local storage engine ---------
@@ -74,28 +74,28 @@ function isUserSet() {
 }
 
 if (isUserSet()) {
-  currentUser = getUserFromLS();
+  user = getUserFromLS();
 }
 
 //-------------------------------------------------------------------
 
 // sign up user
-async function createUser({ email } = currentUser, password) {
+async function createUser({ email } = user, password) {
   await createUserWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       // Signed in
-      const userCur = userCredential.currentUser;
+      const userCur = userCredential.user;
       // Update profile!!!
       updateProfile(auth.currentUser, {
-        displayName: currentUser.name,
-        photoURL: currentUser.photoUrl,
+        displayName: user.name,
+        photoURL: user.photoUrl,
       }).then(() => {
         // Profile update success...
       });
-      currentUser.userId = userCur.uid;
-      currentUser.isSignedIn = true;
-      setUserInLS(currentUser);
-      Notify.success(`New user ${currentUser.name} created`, notifyOptions);
+      user.userId = userCur.uid;
+      user.isSignedIn = true;
+      setUserInLS(user);
+      Notify.success(`New user ${user.name} created`, notifyOptions);
       menusToggleOnAuth();
       return true;
     })
@@ -109,18 +109,18 @@ async function createUser({ email } = currentUser, password) {
 }
 
 // Sign in user
-async function signInUser({ email } = currentUser, password) {
+async function signInUser({ email } = user, password) {
   await signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
-      const userCur = userCredential.currentUser;
-      currentUser.name = userCur.displayName;
-      currentUser.photoUrl = userCur.photoURL;
-      currentUser.userId = userCur.uid;
-      currentUser.isSignedIn = true;
-      getUserData(currentUser);
+      const userCur = userCredential.user;
+      user.name = userCur.displayName;
+      user.photoUrl = userCur.photoURL;
+      user.userId = userCur.uid;
+      user.isSignedIn = true;
+      getUserData(user);
       Notify.success(`Sign-in successful`, notifyOptions);
       // Get data from the database
-      setUserInLS(currentUser);
+      setUserInLS(user);
       menusToggleOnAuth();
       return true;
     })
@@ -147,7 +147,7 @@ async function signInUser({ email } = currentUser, password) {
 function signOutUser() {
   signOut(auth)
     .then(() => {
-      currentUser.isSignedIn = false;
+      user.isSignedIn = false;
       menusToggleOnAuth();
       removeLS(LOGINKEY);
       removeLS(LOCALKEY);
@@ -165,7 +165,7 @@ function signOutUser() {
 
 // Firebase realtime database update
 async function updateUserDatabase({ booksArr }) {
-  await set(ref(database, `users/${currentUser.userId}`), booksArr)
+  await set(ref(database, `users/${user.userId}`), booksArr)
     .then(() => {
       Notify.success(`DataBase updated!`, notifyOptions);
     })
@@ -186,7 +186,7 @@ async function getUserData({ userId }) {
         return true;
       }
       user.booksArr = snapshot.val();
-      setUserInLS(currentUser);
+      setUserInLS(user);
       Notify.success(`Shoplist downloaded from DataBase!`, notifyOptions);
       return false;
     })
@@ -207,7 +207,7 @@ async function getUserData({ userId }) {
 //'getUserData(user)' получение данных из облака в массив - ('user.booksArr')
 
 export {
-  currentUser,
+  user,
   createUser,
   signInUser,
   signOutUser,
