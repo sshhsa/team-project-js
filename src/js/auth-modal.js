@@ -1,5 +1,5 @@
-import { saveLS, loadLS, removeLS } from './storage';
-import { menusToggleOnAuth } from './header';
+import { saveLS, loadLS, removeLS } from './storage.js';
+import { menusToggleOnAuth } from './header.js';
 
 // Import needed function from Firebase Authentication SDK and RealTime Database
 import { initializeApp } from 'firebase/app';
@@ -62,7 +62,6 @@ const LOGINKEY = 'logged';
 //Local storage engine ---------
 function setUserInLS(object) {
   saveLS(LOCALKEY, object);
-  saveLS(LOGINKEY, 'true');
 }
 
 function getUserFromLS() {
@@ -73,9 +72,9 @@ function isUserSet() {
   return !!loadLS(LOGINKEY);
 }
 
-if (isUserSet()) {
-  user = getUserFromLS();
-}
+// if (isUserSet()) {
+//   user = getUserFromLS();
+// }
 
 //-------------------------------------------------------------------
 
@@ -92,8 +91,10 @@ async function createUser({ email } = user, password) {
       }).then(() => {
         // Profile update success...
       });
+
       user.userId = userCur.uid;
       user.isSignedIn = true;
+      saveLS(LOGINKEY, 'true');
       setUserInLS(user);
       Notify.success(`New user ${user.name} created`, notifyOptions);
       menusToggleOnAuth();
@@ -117,6 +118,8 @@ async function signInUser({ email } = user, password) {
       user.photoUrl = userCur.photoURL;
       user.userId = userCur.uid;
       user.isSignedIn = true;
+      saveLS(LOGINKEY, 'true');
+
       getUserData(user);
       Notify.success(`Sign-in successful`, notifyOptions);
       // Get data from the database

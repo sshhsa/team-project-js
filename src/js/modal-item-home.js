@@ -1,24 +1,21 @@
-import { getBooksId } from './api-books';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import {
   user,
   setUserInLS,
   getUserFromLS,
   isUserSet,
   updateUserDatabase,
-} from './auth-modal';
-import { loadLS, saveLS } from './storage';
+} from './auth-modal.js';
+import { getBooksId } from './api-books.js';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { loadLS, saveLS } from './storage.js';
 
 const modal = document.querySelector('.backdrop');
 
 const shopUserBooks = JSON.parse(localStorage.getItem('user-shop-list')) || [];
 
-user = getUserFromLS();
-
-function checkAutorization() {
-  if (isUserSet()) {
-    user = getUserFromLS();
-  }
+let currUser;
+if (localStorage.getItem('user')) {
+  currUser = getUserFromLS();
 }
 
 let userBooks;
@@ -43,13 +40,12 @@ function modalOpen(id) {
     const modalBody = document.querySelector('.js-modal-body');
     modalBody.innerHTML = '';
     modalBody.insertAdjacentHTML('beforeend', createModalMarcup(data));
-    const btnMarkup = '<div class = "js-btn-container"></div>';
+    const btnMarcup = '<div class = "js-btn-container"></div>';
     if (flag) {
-      modalBody.insertAdjacentHTML('afterend', btnMarkup);
+      modalBody.insertAdjacentHTML('afterend', btnMarcup);
     }
     btnContainer = document.querySelector('.js-btn-container');
-    checkAutorization();
-    btnContainer.innerHTML = createButtonMarcup(user, id);
+    btnContainer.innerHTML = createButtonMarcup(id);
     openModalWindow();
 
     const buttonAdd = document.querySelector('.modal__button');
@@ -100,39 +96,39 @@ function createModalMarcup({
     }
   });
   return `<div class="modal__body">
-  <img src="${book_image}" alt="${title}" class="modal__img">
-  <div class="modal__box">
-  <h2 class="modal__title">${title}</h2>
-  <h3 class="modal__subtitle">${author}</h3>
-  <p class="modal__text">${description}</p>
-  <ul class="modal__social-list">
-  <li class="modal__social-amazon">
-  <a class="modal__link-social-amazon" href="${amazonLink}" target="_blank"></a>
-  </li>
-  <li class="modal__social-open-book">
-  <a
-  class="modal__link-social-open-book"
-  href="${appleBooksLink}"
-  target="_blank"
-  ></a>
-  </li>
-  <li class="modal__social-book-shop">
-  <a
-  class="modal__link-social-book-shop"
-  href="${bookshopLink}"
-  target="_blank"
-  ></a>
-  </li>
-  </ul>
-  </div>
-  </div>`;
+      <img src="${book_image}" alt="${title}" class="modal__img">
+      <div class="modal__box">
+      <h2 class="modal__title">${title}</h2>
+      <h3 class="modal__subtitle">${author}</h3>
+      <p class="modal__text">${description}</p>
+      <ul class="modal__social-list">
+          <li class="modal__social-amazon">
+            <a class="modal__link-social-amazon" href="${amazonLink}" target="_blank"></a>
+          </li>
+          <li class="modal__social-open-book">
+          <a
+          class="modal__link-social-open-book"
+          href="${appleBooksLink}"
+          target="_blank"
+          ></a>
+          </li>
+          <li class="modal__social-book-shop">
+          <a
+          class="modal__link-social-book-shop"
+          href="${bookshopLink}"
+          target="_blank"
+          ></a>
+          </li>
+          </ul>
+          </div>
+          </div>`;
 }
 
-function createButtonMarcup({ booksArr } = user, id) {
+function createButtonMarcup(id) {
   if (!isUserSet()) {
     return `<p class="modal__congratulation">
-    Sign in to add the book to your shopping list.
-        </p>`;
+            Sign in to add the book to your shopping list.
+            </p>`;
   }
 
   if (userBooks.indexOf(id) === -1) {
@@ -140,8 +136,8 @@ function createButtonMarcup({ booksArr } = user, id) {
   }
 
   return `<button class="modal__button-remove">
-  remove from the shopping list
-  </button>`;
+          remove from the shopping list
+          </button>`;
 }
 
 function openModalWindow() {
@@ -178,9 +174,9 @@ function closeModalWindow() {
 }
 
 function onButtonAddClick() {
-  user.booksArr.push(idBook);
-  setUserInLS(user);
-  updateUserDatabase(user);
+  currUser.booksArr.push(idBook);
+  setUserInLS(currUser);
+  updateUserDatabase(currUser);
 
   userBooks.push(idBook);
   saveLS('books', userBooks);
@@ -193,11 +189,11 @@ function onButtonAddClick() {
 }
 
 function onButtonRemoveClick() {
-  user.booksArr.splice(user.booksArr.indexOf(idBook), 1);
-  setUserInLS(user);
-  updateUserDatabase(user);
+  currUser.booksArr.splice(currUser.booksArr.indexOf(idBook), 1);
+  setUserInLS(currUser);
+  updateUserDatabase(currUser);
 
-  userBooks.splice(user.booksArr.indexOf(idBook), 1);
+  userBooks.splice(currUser.booksArr.indexOf(idBook), 1);
   saveLS('books', userBooks);
 
   btnContainer.innerHTML = createAddMarcup();
@@ -211,7 +207,7 @@ function createremoveMarcup() {
   remove from the shopping list
   </button>
   </div>
-<p class="modal__congratulation">
+  <p class="modal__congratulation">
   Сongratulations! You have added the book to the shopping list. To
   delete, press the button “Remove from the shopping list”.
   </p>`;
