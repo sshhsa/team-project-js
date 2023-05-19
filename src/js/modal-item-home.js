@@ -13,7 +13,7 @@ const modal = document.querySelector('.backdrop');
 
 const shopUserBooks = JSON.parse(localStorage.getItem('user-shop-list')) || [];
 
-user = getUserFromLS();
+let user = getUserFromLS();
 
 function checkAutorization() {
   if (isUserSet()) {
