@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 
 const themeSwitch = document.querySelector('.theme-switch');
+=======
+const themeSwitch = document.querySelector('#chk');
+>>>>>>> Stashed changes
 const body = document.querySelector('body');
 
 
