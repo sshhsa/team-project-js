@@ -10,6 +10,9 @@
 }
 
 .shopping {
+  margin-left: 40px;
+  background-color: $light-clr-1;
+
   @media screen and (min-width: 1200px) {
     flex-grow: 1;
   }
@@ -20,7 +23,7 @@
 
   font-family: 'DM Sans';
   font-weight: 700;
-  font-size: 32px;
+  font-size: 48px;
   line-height: 1.19;
   letter-spacing: -0.04em;
   color: $dark-clr-1;
@@ -40,7 +43,7 @@
   position: relative;
   padding: 19px;
   background-color: $light-clr-1;
-  border: 2px solid rgba(79, 46, 232, 0.4);
+  border: 2px solid rgba(79, 46, 232, 0.7);
   border-radius: 16px;
   width: 100%;
 
@@ -124,7 +127,7 @@
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.03em;
-  color: #b4afaf;
+  color: $add-text-clr;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 14px;
@@ -161,7 +164,6 @@
 
 .shopping__shop-img {
   filter: grayscale(1);
-  // @include transition(filter);
 
   &:hover,
   &:focus {
@@ -184,6 +186,10 @@
 
 .shopping__book-author--tablet {
   display: none;
+  font-size: 12px;
+  font-style: italic;
+
+  color: $bck-clr-home;
 
   @media screen and (min-width: 768px) {
     display: block;
@@ -219,8 +225,6 @@
     height: 34px;
   }
 
-  // @include transition(background-color);
-
   &:hover,
   &:focus {
     background-color: $light-clr-2;
@@ -230,7 +234,6 @@
 .shopping__btn-icon {
   stroke: $light-clr-1;
   fill: transparent;
-  // @include transition(background-color);
 
   @media screen and (min-width: 768px) {
     width: 18px;
@@ -312,12 +315,12 @@
   width: 25px !important;
   height: 25px !important;
   border-radius: 50%;
-  border: 0.1px solid gray !important;
+  border: 0.1px solid $add-text-clr !important;
   margin-bottom: 40px;
   margin-right: 5px;
   padding: 5px 0 14px !important;
   font-size: 12px !important;
-  background: white;
+  background: $light-clr-1;
 
   & .tui-next-is-ellip {
     margin-right: 8px !important;
@@ -329,14 +332,14 @@
     margin-right: 8px;
     font-size: 16px !important;
     padding: 12px 0 18px !important;
-    border: 0.5px solid gray !important;
+    border: 0.5px solid $add-text-clr !important;
   }
 }
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
   background: $dark-clr-1 !important;
-  border-color: gray !important;
+  border-color: $add-text-clr !important;
   margin-right: 5px;
   padding: 5px 0 15px !important;
 
