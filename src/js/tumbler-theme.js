@@ -1,4 +1,4 @@
-const themeSwitch = document.querySelector('.theme-switch');
+const themeSwitch = document.querySelector('#chk');
 const body = document.querySelector('body');
 
 themeSwitch.addEventListener('change', e => {
