@@ -1,459 +1,459 @@
 .shopping-container {
-    padding-top: 40px;
-    padding-bottom: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 
-    @media screen and (min-width: 1200px) {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-    }
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
 }
 
 .shopping {
-    @media screen and (min-width: 1200px) {
-        flex-grow: 1;
-    }
+  @media screen and (min-width: 1200px) {
+    flex-grow: 1;
+  }
 }
 
 .shopping__heading {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 
-    font-family: 'DM Sans';
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 1.19;
-    letter-spacing: -0.04em;
-    color: #111111;
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.19;
+  letter-spacing: -0.04em;
+  color: $dark-clr-1;
 
-    &--color {
-        color: #4f2ee8;
-    }
+  &--color {
+    color: $accent-clr;
+  }
 
-    &.empty-js {
-        margin-bottom: 140px;
-    }
+  &.empty-js {
+    margin-bottom: 140px;
+  }
 }
 
 // Card
 
 .shopping__card {
-    position: relative;
-    padding: 19px;
-    background-color: #ffffff;
-    border: 2px solid rgba(79, 46, 232, 0.4);
-    border-radius: 16px;
-    width: 100%;
+  position: relative;
+  padding: 19px;
+  background-color: $light-clr-1;
+  border: 2px solid rgba(79, 46, 232, 0.4);
+  border-radius: 16px;
+  width: 100%;
 
-    @media screen and (min-width: 768px) {
-        padding: 23px;
-    }
+  @media screen and (min-width: 768px) {
+    padding: 23px;
+  }
 }
 
 .shopping__card:not(:last-child) {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .shopping__block {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 
-    margin-bottom: 28px;
+  margin-bottom: 28px;
 
-    @media screen and (min-width: 768px) {
-        gap: 24px;
-        margin-bottom: 0;
-    }
+  @media screen and (min-width: 768px) {
+    gap: 24px;
+    margin-bottom: 0;
+  }
 
-    @media screen and (min-width: 1200px) {
-        flex-grow: 1;
-    }
+  @media screen and (min-width: 1200px) {
+    flex-grow: 1;
+  }
 }
 
 .shopping__thumb {
-    width: 98px;
-    height: 139px;
-    overflow: hidden;
-    border-radius: 8px;
+  width: 98px;
+  height: 139px;
+  overflow: hidden;
+  border-radius: 8px;
 
-    @media screen and (min-width: 768px) {
-        width: 116px;
-        height: 165px;
-    }
+  @media screen and (min-width: 768px) {
+    width: 116px;
+    height: 165px;
+  }
 }
 
-.shopping__thumb>.shopping__book-img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.shopping__thumb > .shopping__book-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 
-    @media screen and (max-width: 374px) {
-        margin-bottom: 4px;
-    }
+  @media screen and (max-width: 374px) {
+    margin-bottom: 4px;
+  }
 }
 
 .shopping__wrap {
-    @media screen and (min-width: 768px) {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-    }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
 }
 
 .shopping__title {
-    @media screen and (max-width: 374px) {
-        font-size: calc(14px + 2 * ((100vw - 320px) / (374 - 320)));
-        max-width: calc(100px + 44 * ((100vw - 320px) / (374 - 320)));
-    }
+  @media screen and (max-width: 374px) {
+    font-size: calc(14px + 2 * ((100vw - 320px) / (374 - 320)));
+    max-width: calc(100px + 44 * ((100vw - 320px) / (374 - 320)));
+  }
 
-    margin-bottom: 4px;
-    max-width: 144px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.12;
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
-    color: #111111;
+  margin-bottom: 4px;
+  max-width: 144px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: $dark-clr-1;
 
-    @media screen and (min-width: 768px) {
-        max-width: 808px;
-    }
+  @media screen and (min-width: 768px) {
+    max-width: 808px;
+  }
 }
 
 .shopping__category {
-    margin-bottom: 24px;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: 0.03em;
-    color: #b4afaf;
+  margin-bottom: 24px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  color: #b4afaf;
 
-    @media screen and (min-width: 768px) {
-        margin-bottom: 14px;
-    }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 14px;
+  }
 }
 
 .shopping__wrap-shops--tablet {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
 }
 
 .shopping__shops {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 
-    @media screen and (min-width: 768px) {
-        display: none;
-    }
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
 
 .shopping__shops--tablet {
-    display: none;
+  display: none;
 
-    @media screen and (min-width: 768px) {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 14px;
-        margin-left: auto;
-    }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 14px;
+    margin-left: auto;
+  }
 }
 
 .shopping__shop-img {
-    filter: grayscale(1);
-    // @include transition(filter);
+  filter: grayscale(1);
+  // @include transition(filter);
 
-    &:hover,
-    &:focus {
-        filter: grayscale(1) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
-    }
+  &:hover,
+  &:focus {
+    filter: grayscale(1) drop-shadow(0px 3px 3px $category-clr);
+  }
 }
 
 .shopping__book-author {
-    font-style: italic;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: -0.04em;
-    max-width: 98px;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.04em;
+  max-width: 98px;
 
-    @media screen and (min-width: 768px) {
-        display: none;
-        max-width: 116px;
-    }
+  @media screen and (min-width: 768px) {
+    display: none;
+    max-width: 116px;
+  }
 }
 
 .shopping__book-author--tablet {
-    display: none;
+  display: none;
 
-    @media screen and (min-width: 768px) {
-        display: block;
-    }
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 }
 
 .shopping__btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    @media screen and (max-width: 374px) {
-        right: calc(10px + 4 * ((100vw - 320px) / (374 - 320)));
-        top: calc(10px + 4 * ((100vw - 320px) / (374 - 320)));
-        width: calc(25px + 3 * ((100vw - 320px) / (374 - 320)));
-        height: calc(25px + 3 * ((100vw - 320px) / (374 - 320)));
-    }
+  @media screen and (max-width: 374px) {
+    right: calc(10px + 4 * ((100vw - 320px) / (374 - 320)));
+    top: calc(10px + 4 * ((100vw - 320px) / (374 - 320)));
+    width: calc(25px + 3 * ((100vw - 320px) / (374 - 320)));
+    height: calc(25px + 3 * ((100vw - 320px) / (374 - 320)));
+  }
 
-    position: absolute;
-    top: 13px;
-    right: 13px;
-    width: 28px;
-    height: 28px;
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  width: 28px;
+  height: 28px;
 
-    background-color: #4f2ee8;
-    border-radius: 50%;
-    border: none;
+  background-color: $accent-clr;
+  border-radius: 50%;
+  border: none;
 
-    @media screen and (min-width: 768px) {
-        top: 23px;
-        right: 23px;
-        width: 34px;
-        height: 34px;
-    }
+  @media screen and (min-width: 768px) {
+    top: 23px;
+    right: 23px;
+    width: 34px;
+    height: 34px;
+  }
 
-    // @include transition(background-color);
+  // @include transition(background-color);
 
-    &:hover,
-    &:focus {
-        background-color: #eac645;
-    }
+  &:hover,
+  &:focus {
+    background-color: $light-clr-2;
+  }
 }
 
 .shopping__btn-icon {
-    stroke: white;
-    fill: transparent;
-    // @include transition(background-color);
+  stroke: $light-clr-1;
+  fill: transparent;
+  // @include transition(background-color);
 
-    @media screen and (min-width: 768px) {
-        width: 18px;
-        height: 18px;
-    }
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .shopping__btn:hover .shopping__btn-icon,
 .shopping__btn:focus .shopping__btn-icon {
-    stroke: #111111;
+  stroke: $dark-clr-1;
 }
 
 .shopping__book-description {
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.04em;
-    color: #111111;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.04em;
+  color: $dark-clr-1;
 
-    @media screen and (min-width: 768px) {
-        display: none;
-    }
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }
 
 .shopping__book-description--tablet {
-    display: none;
+  display: none;
 
-    @media screen and (min-width: 768px) {
-        flex-grow: 1;
-        display: block;
-        width: 516px;
-        font-size: 14px;
-        line-height: 1.29;
-        letter-spacing: -0.04em;
-        color: #111111;
-    }
+  @media screen and (min-width: 768px) {
+    flex-grow: 1;
+    display: block;
+    width: 516px;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.04em;
+    color: $dark-clr-1;
+  }
 
-    @media screen and (min-width: 1200px) {
-        width: calc(516px + (804 - 516) * (100vw - 1200px) / (1440 - 1200));
-    }
+  @media screen and (min-width: 1200px) {
+    width: calc(516px + (804 - 516) * (100vw - 1200px) / (1440 - 1200));
+  }
 
-    @media screen and (min-width: 1440px) {
-        width: 804px;
-    }
+  @media screen and (min-width: 1440px) {
+    width: 804px;
+  }
 }
 
 // Notification
 
 .shopping__storage {
-    display: none;
+  display: none;
 }
 
 .shopping__storage-notification {
-    margin-bottom: 14px;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.02em;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 14px;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: $category-clr;
 }
 
 .shopping__storage.empty-js {
-    display: block;
-    margin: 0 auto;
-    width: 265px;
+  display: block;
+  margin: 0 auto;
+  width: 265px;
 }
 
 .shopping__shop-img {
-    filter: invert(0);
-    transition: 0.5s;
+  filter: invert(0);
+  transition: 0.5s;
 }
 
 .shopping__shop-img:hover {
-    transform: translateY(-7);
+  transform: translateY(-7);
 }
 
 // --------pagination------
 
 .tui-pagination .tui-page-btn {
-    width: 25px !important;
-    height: 25px !important;
-    border-radius: 50%;
-    border: 0.1px solid gray !important;
-    margin-bottom: 40px;
-    margin-right: 5px;
-    padding: 5px 0 14px !important;
-    font-size: 12px !important;
-    background: white;
+  width: 25px !important;
+  height: 25px !important;
+  border-radius: 50%;
+  border: 0.1px solid gray !important;
+  margin-bottom: 40px;
+  margin-right: 5px;
+  padding: 5px 0 14px !important;
+  font-size: 12px !important;
+  background: white;
 
-    & .tui-next-is-ellip {
-        margin-right: 8px !important;
-    }
+  & .tui-next-is-ellip {
+    margin-right: 8px !important;
+  }
 
-    @media screen and (min-width: 768px) {
-        width: 44px !important;
-        height: 44px !important;
-        margin-right: 8px;
-        font-size: 16px !important;
-        padding: 12px 0 18px !important;
-        border: 0.5px solid gray !important;
-    }
+  @media screen and (min-width: 768px) {
+    width: 44px !important;
+    height: 44px !important;
+    margin-right: 8px;
+    font-size: 16px !important;
+    padding: 12px 0 18px !important;
+    border: 0.5px solid gray !important;
+  }
 }
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-    background: #111111 !important;
-    border-color: gray !important;
-    margin-right: 5px;
-    padding: 5px 0 15px !important;
+  background: $dark-clr-1 !important;
+  border-color: gray !important;
+  margin-right: 5px;
+  padding: 5px 0 15px !important;
 
-    @media screen and (min-width: 768px) {
-        padding: 12px 0 18px !important;
-        margin-right: 8px;
-    }
+  @media screen and (min-width: 768px) {
+    padding: 12px 0 18px !important;
+    margin-right: 8px;
+  }
 }
 
 .tui-pagination {
-    position: relative;
+  position: relative;
 
-    & .tui-last,
-    .tui-next,
-    .tui-prev,
-    .tui-first {
-        background: #eac645;
-        margin-right: 4px;
+  & .tui-last,
+  .tui-next,
+  .tui-prev,
+  .tui-first {
+    background: $light-clr-2;
+    margin-right: 4px;
 
-        @media screen and (min-width: 768px) {
-            margin-right: 6px;
-        }
+    @media screen and (min-width: 768px) {
+      margin-right: 6px;
     }
+  }
 
-    & .tui-last {
-        margin-right: 0;
+  & .tui-last {
+    margin-right: 0;
+  }
+
+  & .tui-prev {
+    margin-right: 8px !important;
+  }
+
+  & .tui-next {
+    margin-left: 0 !important;
+  }
+
+  & .tui-ico-last,
+  .tui-ico-prev,
+  .tui-ico-next,
+  .tui-ico-first {
+    position: absolute;
+    top: 30%;
+    right: 30%;
+    width: 12px !important;
+    height: 10px !important;
+
+    @media screen and (min-width: 768px) {
+      top: 35%;
+      right: 35%;
+      width: 14px !important;
+      height: 12px !important;
     }
+  }
 
-    & .tui-prev {
-        margin-right: 8px !important;
+  & .tui-ico-last {
+    background-position: 0 -12px;
+    right: 20%;
+
+    @media screen and (min-width: 768px) {
+      right: 30%;
     }
+  }
 
-    & .tui-next {
-        margin-left: 0 !important;
+  & .tui-ico-prev,
+  .tui-ico-next {
+    top: 30%;
+    right: 40%;
+    width: 6px !important;
+    height: 10px !important;
+
+    @media screen and (min-width: 768px) {
+      top: 35%;
+      right: 40%;
+      width: 8px !important;
+      height: 12px !important;
     }
+  }
 
-    & .tui-ico-last,
-    .tui-ico-prev,
-    .tui-ico-next,
-    .tui-ico-first {
-        position: absolute;
-        top: 30%;
-        right: 30%;
-        width: 12px !important;
-        height: 10px !important;
+  & .tui-ico-next {
+    right: 35%;
 
-        @media screen and (min-width: 768px) {
-            top: 35%;
-            right: 35%;
-            width: 14px !important;
-            height: 12px !important;
-        }
+    @media screen and (min-width: 768px) {
+      right: 35%;
     }
+  }
 
-    & .tui-ico-last {
-        background-position: 0 -12px;
-        right: 20%;
+  & .tui-ico-ellip {
+    position: absolute;
+    right: 25%;
+    width: 10px !important;
+    height: 1.5px !important;
+    margin-top: 9px !important;
 
-        @media screen and (min-width: 768px) {
-            right: 30%;
-        }
+    @media screen and (min-width: 768px) {
+      right: 37%;
+      height: 2px !important;
+      margin-top: 15px !important;
     }
-
-    & .tui-ico-prev,
-    .tui-ico-next {
-        top: 30%;
-        right: 40%;
-        width: 6px !important;
-        height: 10px !important;
-
-        @media screen and (min-width: 768px) {
-            top: 35%;
-            right: 40%;
-            width: 8px !important;
-            height: 12px !important;
-        }
-    }
-
-    & .tui-ico-next {
-        right: 35%;
-
-        @media screen and (min-width: 768px) {
-            right: 35%;
-        }
-    }
-
-    & .tui-ico-ellip {
-        position: absolute;
-        right: 25%;
-        width: 10px !important;
-        height: 1.5px !important;
-        margin-top: 9px !important;
-
-        @media screen and (min-width: 768px) {
-            right: 37%;
-            height: 2px !important;
-            margin-top: 15px !important;
-        }
-    }
+  }
 }
 
 .tui-page-btn.tui-prev {
-    margin-right: 8px;
+  margin-right: 8px;
 
-    @media screen and (min-width: 768px) {
-        margin-right: 10px !important;
-    }
+  @media screen and (min-width: 768px) {
+    margin-right: 10px !important;
+  }
 }
 
 .tui-page-btn.tui-next-is-ellip.pagination__last-item {
-    margin-right: 8px;
+  margin-right: 8px;
 
-    @media screen and (min-width: 768px) {
-        margin-right: 10px;
-    }
+  @media screen and (min-width: 768px) {
+    margin-right: 10px;
+  }
 }
 
 .tui-is-disabled {
-    background: #111111 !important;
+  background: $dark-clr-1 !important;
 }

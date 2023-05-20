@@ -75,7 +75,8 @@ function createModalMarcup({
   }
 
   if (!description) {
-    description = 'There is no description';
+    description =
+      'Discover a captivating tale that transports you to a world of imagination and wonder. Dive into the pages of this enchanting book, where compelling characters and thrilling plot twists await.';
   }
 
   let amazonLink;
@@ -183,7 +184,7 @@ function onButtonAddClick() {
   shopUserBooks.push(bookData);
   localStorage.setItem('user-shop-list', JSON.stringify(shopUserBooks));
 
-  btnContainer.innerHTML = createremoveMarcup();
+  btnContainer.innerHTML = createremoveMarkup();
   const buttonRemove = document.querySelector('.modal__button-remove');
   buttonRemove.addEventListener('click', onButtonRemoveClick);
 }
@@ -196,12 +197,12 @@ function onButtonRemoveClick() {
   userBooks.splice(currUser.booksArr.indexOf(idBook), 1);
   saveLS('books', userBooks);
 
-  btnContainer.innerHTML = createAddMarcup();
+  btnContainer.innerHTML = createAddMarkup();
   const btnAdd = document.querySelector('.modal__button');
   btnAdd.addEventListener('click', onButtonAddClick);
 }
 
-function createremoveMarcup() {
+function createremoveMarkup() {
   return `<div class="button__wrapper-remove">
   <button class="modal__button-remove">
   remove from the shopping list
@@ -213,7 +214,7 @@ function createremoveMarcup() {
   </p>`;
 }
 
-function createAddMarcup() {
+function createAddMarkup() {
   return `<div class="button__wrapper-remove">
   <button class="modal__button">add to shopping list</button>
   </div>

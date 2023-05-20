@@ -10,8 +10,8 @@ import './js/auth-modal';
 import './js/support-ukraine';
 import './js/shoplist-gallery-categories';
 
-import './js/pagination';
 import './js/storage-methods';
+import './js/pagination';
 
 import './js/footer';
 import './js/modal_footer';
