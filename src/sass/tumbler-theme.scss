@@ -1,3 +1,5 @@
+@import './common';
+
 .theme-switch {
   appearance: none;
   position: relative;
@@ -47,33 +49,22 @@
   }
 }
 
-$main-text-color: $category-clr;
-$grey-text-color: $category-clr;
-$white-text-color: $light-clr-1;
-$captions-text-color: #b4afaf;
 $header-border: 1.5px solid $category-clr;
-$scrollbar-color-light: #e0e0e0;
-$body-bg-color-light: #f6f6f6;
-$blue-accent-color: $accent-clr;
-$yellow-accent-color: #eac645;
-$body-bg-color-dark: $dark-clr-2;
-$gray-text-dark-theme: #ffffff99;
+$scrollbar-color-light: $add-light-clr-1;
 $header-border-dark: 1.5px solid $light-clr-1;
-$scrollbar-color-dark: $category-clr;
-$fill-logo-dark-theme: #f3f3f3;
 
 .dark-theme {
-  background-color: $body-bg-color-dark;
-  color: $gray-text-dark-theme;
+  background-color: $dark-clr-2;
+  color: $add-text-clr;
 }
 
 .dark-theme header {
   border: $header-border-dark;
-  background-color: $body-bg-color-dark;
+  background-color: $dark-clr-2;
 }
 
 .dark-theme .header-logo {
-  color: #f3f3f3;
+  color: $add-light-clr-1;
 }
 
 .dark-theme .book-class-more {
@@ -81,19 +72,19 @@ $fill-logo-dark-theme: #f3f3f3;
 }
 
 .dark-theme .filter__item {
-  color: $gray-text-dark-theme;
+  color: $add-text-clr;
 }
 
 .dark-theme .filter__item--active {
-  color: $yellow-accent-color;
+  color: $light-clr-2;
 }
 
 .dark-theme .gallery-title {
-  color: $white-text-color;
+  color: $light-clr-1;
 }
 
 .dark-theme .filter__list::-webkit-scrollbar-thumb {
-  border: 12px solid $scrollbar-color-dark;
+  border: 12px solid $category-clr;
 }
 
 .dark-theme .btn-header-logout {
@@ -102,8 +93,8 @@ $fill-logo-dark-theme: #f3f3f3;
 }
 
 .dark-theme .modal-auth {
-  background-color: $body-bg-color-dark;
-  border: 2px solid $body-bg-color-light;
+  background-color: $dark-clr-2;
+  border: 2px solid $add-light-clr-1;
 }
 
 .dark-theme .modal-cross {
@@ -115,7 +106,7 @@ $fill-logo-dark-theme: #f3f3f3;
 }
 
 .dark-theme .auth-input {
-  background-color: $body-bg-color-dark;
+  background-color: $dark-clr-2;
   outline: 3px solid $scrollbar-color-light;
   color: $scrollbar-color-light;
 }
@@ -125,24 +116,24 @@ $fill-logo-dark-theme: #f3f3f3;
 }
 
 .dark-theme .button-submit {
-  background-color: $body-bg-color-light;
-  color: $body-bg-color-dark;
+  background-color: $add-light-clr-1;
+  color: $dark-clr-2;
 }
 
 .dark-theme .auth-link {
-  color: rgba(246, 246, 246, 0.5);
+  color: $add-light-clr-2;
 }
 
 .dark-theme .book-cards h2 {
-  color: $white-text-color;
+  color: $light-clr-1;
 }
 
 .dark-theme .modal__congratulation {
-  color: rgba(255, 255, 255, 0.5);
+  color: $add-light-clr-2;
 }
 
 .dark-theme .filter__list::-webkit-scrollbar-track {
-  background: $body-bg-color-dark;
+  background: $dark-clr-2;
 }
 
 .dark-theme .filter__list::-webkit-scrollbar-thumb {
@@ -150,7 +141,7 @@ $fill-logo-dark-theme: #f3f3f3;
 }
 
 .dark-theme .header-menu-mob-close {
-  stroke: $white-text-color;
+  stroke: $light-clr-1;
 }
 
 .dark-theme {
@@ -159,7 +150,7 @@ $fill-logo-dark-theme: #f3f3f3;
   }
 
   & .modal__container {
-    background: $body-bg-color-dark;
+    background: $dark-clr-2;
     border-color: $light-clr-1;
   }
 
@@ -171,7 +162,7 @@ $fill-logo-dark-theme: #f3f3f3;
     color: $light-clr-1;
   }
   & .modal-congratulation {
-    color: rgba(255, 255, 255, 0.5);
+    color: $add-light-clr-2;
   }
   & .modal__button {
     background: none;
@@ -184,7 +175,7 @@ $fill-logo-dark-theme: #f3f3f3;
   & .modal__link-social-amazon {
     filter: grayscale(100%) invert(1);
     &:hover {
-      filter: invert(0) grayscale(0) drop-shadow(2px 0px 6px white);
+      filter: invert(0) grayscale(0) drop-shadow(2px 0px 6px $light-clr-1);
     }
   }
   & .modal__social-book-shop {
@@ -222,7 +213,7 @@ $fill-logo-dark-theme: #f3f3f3;
   }
 
   & .header-singin-icon {
-    background: $blue-accent-color;
+    background: $accent-clr;
     stroke: $light-clr-1;
     fill: $light-clr-1;
   }
@@ -238,7 +229,7 @@ $fill-logo-dark-theme: #f3f3f3;
   & .header-menu-mob {
     stroke: $light-clr-1;
     &:hover {
-      stroke: $blue-accent-color;
+      stroke: $accent-clr;
     }
   }
 }
@@ -246,7 +237,7 @@ $fill-logo-dark-theme: #f3f3f3;
 .dark-theme {
   & .shopping-list__card {
     background-color: $dark-clr-1;
-    border-color: $blue-accent-color;
+    border-color: $accent-clr;
   }
   & .shopping-list__description {
     color: $light-clr-1;
@@ -255,15 +246,15 @@ $fill-logo-dark-theme: #f3f3f3;
 
 .dark-theme {
   & .form-container {
-    background-color: $main-text-color;
-    border-color: $white-text-color;
+    background-color: $category-clr;
+    border-color: $light-clr-1;
   }
   & .modal__closeIcon {
-    stroke: $white-text-color;
+    stroke: $light-clr-1;
   }
   & .form-input {
-    background-color: $main-text-color;
-    outline-color: $white-text-color;
+    background-color: $category-clr;
+    outline-color: $light-clr-1;
     font-family: 'DMSans';
     font-style: normal;
     font-weight: 700;
@@ -272,15 +263,15 @@ $fill-logo-dark-theme: #f3f3f3;
     letter-spacing: -0.01em;
     color: $light-clr-1;
     &::placeholder {
-      color: $white-text-color;
+      color: $light-clr-1;
     }
   }
   & .modal__input-icon {
-    stroke: $white-text-color;
-    fill: $main-text-color;
+    stroke: $light-clr-1;
+    fill: $category-clr;
   }
   & .btn-signup {
-    background-color: #f6f6f6;
+    background-color: $add-light-clr-1;
     overflow: hidden;
     color: $dark-clr-2;
     &:hover {
@@ -290,6 +281,28 @@ $fill-logo-dark-theme: #f3f3f3;
     }
   }
   & .modal__btn {
-    color: rgba(246, 246, 246, 0.5);
+    color: $add-light-clr-2;
+  }
+}
+
+.dark-theme {
+  & .shopping {
+    background-color: $dark-clr-2;
+  }
+
+  & .shopping__heading {
+    color: $light-clr-1;
+  }
+
+  & .shopping__card {
+    background-color: $dark-clr-1;
+  }
+
+  & .shopping__title {
+    color: $light-clr-1;
+  }
+
+  & .shopping__book-description {
+    color: $light-clr-1;
   }
 }
