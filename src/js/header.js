@@ -37,7 +37,8 @@ toggleMenuBtnHeader.addEventListener('click', function () {
   }
 });
 
-//список элементов меню, которые появляются при авторизации
+// список елементів меню, котрі з'являються під час авторизації
+// list-elements of the menu, whose appear during authorization
 const toggleHeaderMenuAuth = document.querySelector('.page-nav'); // header menu
 const togglemobileMenuAuth = document.querySelector('.js-mobile-menu-logedin'); // mobile menu items
 const toggleHeaderSignUp = document.querySelector('.js-header-signup'); // header signUp btn
@@ -53,7 +54,7 @@ const mobNavItems = document.querySelector('.nav-list');
 signOutHeaderBtn.addEventListener('click', onClickHeaderSignOutUser);
 signOutMobile.addEventListener('click', onClickSignOutUser);
 headerInfoBtn.addEventListener('click', onClickInfoButton);
-// переключение видимости по условиям
+// перемикання видимості за уомвами
 function onClickInfoButton() {
   headerInfoBtn.classList.toggle('is-visible');
   headerInfoBtn.nextElementSibling.classList.toggle('is-visible');
@@ -84,14 +85,15 @@ function menusToggleOnAuth() {
     headerName.textContent = name;
   }
 }
-// инициализация ДОМа
+// ініціалізація DOMа
+// initialization of the DOM
 menusToggleOnAuth();
 if (!localStorage.getItem('user')) {
   setUserInLS(user);
 }
 
 //==================================================================
-// Функции авторизации пользователя
+// Функції авторизації користувача || user`s functions for authorization
 //==================================================================
 
 // Handle Authentication form Modal window
@@ -102,7 +104,7 @@ const buttonChooseForm = document.querySelector('.button-form-choose');
 authForm.addEventListener('submit', onSubmitAuthForm);
 buttonChooseForm.addEventListener('click', onClickButtonChooseForm);
 
-//Choosing SignUp or SignIn method autorization
+// Choosing SignUp or SignIn method autorization
 function onClickButtonChooseForm(event) {
   if (
     !event.target.classList.contains('auth-link') ||
@@ -132,7 +134,7 @@ function onClickButtonChooseForm(event) {
   authForm.lastElementChild.textContent = 'sign up';
 }
 
-//Submit authentication form
+// Submit authentication form
 function onSubmitAuthForm(event) {
   event.preventDefault();
   const {
@@ -163,12 +165,12 @@ function onSubmitAuthForm(event) {
   authForm.reset();
   backDropClosing();
 }
-//LogOut function
+// LogOut function
 function onClickSignOutUser() {
   signOutUser(user);
   authForm.reset();
 }
-//LogOUT from header desktop button
+// LogOUT from header desktop button
 function onClickHeaderSignOutUser() {
   headerInfoBtn.classList.toggle('is-visible');
   headerInfoBtn.nextElementSibling.classList.toggle('is-visible');
@@ -180,11 +182,11 @@ function onClickHeaderSignOutUser() {
   }, 500);
 }
 
-//==================================================================
+// ==================================================================
 // Открытие и закрытие модального окна авторизации.
 // Закрытие по клику на бэкдропе, на "крестике", нажатию "ESC"
 // и отправке формы.
-//==================================================================
+// ==================================================================
 const refs = {
   backDropAuth: document.querySelector('.js-overlay-modal'),
   authModalClose: document.querySelector('.js-modal-close'),

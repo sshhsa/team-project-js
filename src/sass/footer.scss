@@ -436,21 +436,3 @@ body.modal-open {
   justify-content: center;
   padding-top: 8px;
 }
-
-@media screen and (max-width: 1440px) {
-  .footer {
-    width: 1440px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .footer {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .footer {
-    width: 100%;
-  }
-}
