@@ -5,7 +5,7 @@
   background: $light-clr-1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #e0e0e0;
+  background: $light-clr-1;
   border-radius: 12px;
 }
 .backdrop {
@@ -16,19 +16,18 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(17, 17, 17, 0.4);
+  background-color: $category-clr;
 
   opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity $animation-add;
   user-select: none;
 }
-
 .modal-window {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform $animation-add;
 }
 .modul__icon-cross {
   width: 28px;
@@ -38,7 +37,7 @@
   right: 10px;
   cursor: pointer;
   stroke: $dark-clr-1;
-  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: stroke $animation-add;
   &:hover {
     stroke: $accent-clr;
   }
@@ -51,7 +50,7 @@
   background: $light-clr-1;
   border: 2px solid $dark-clr-1;
   border-radius: 18px;
-  color: rgba(0, 0, 0, 0.6);
+  color: $category-clr;
 }
 .modal__img {
   margin-bottom: 14px;
