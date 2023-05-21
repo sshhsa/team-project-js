@@ -1,51 +1,48 @@
 @import './common';
 
 .checkbox {
-	opacity: 0;
-	position: absolute;
+  opacity: 0;
+  position: absolute;
 }
 
 .label-mode {
-	background: linear-gradient(180deg, #4F2EE8 0%, #DCDCDC 100%);
-	border-radius: 20px;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	position: relative;
-	height: 13px;
-	width: 26.7px;
-	transform: scale(1.5);
+  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  height: 13px;
+  width: 26.7px;
+  transform: scale(1.5);
 }
 
 .label-mode .ball {
-	background: linear-gradient(180deg, #FFFFFF 0%, #F7F7F7 100%);
-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1), 1px 2px 4px rgba(0, 0, 0, 0.1);
-	border-radius: 50%;
-	position: absolute;
-	height: 12px;
-	width: 12px;
-	transform: translateX(0px);
-	transition: transform 0.2s linear;
-	/* top: 1px; */
-    left: 0.5px;
+  background: linear-gradient(180deg, $light-clr-1 0%, $add-light-clr-1 100%);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1),
+    1px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  transform: translateX(0px);
+  transition: transform $animation-fast;
+  top: 0;
+  left: 0;
 }
 
 .checkbox:checked + .label-mode .ball {
-	transform: translateX(13.5px);
+  transform: translateX(14px);
 }
 
 .checkbox:checked + .label-mode {
-	background: linear-gradient(180deg, #4F2EE8 0%, #686868 100%);
+  background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
 }
 
-
+.sun,
 .moon {
-	fill: #202024;
-}
-
-.sun {
-	fill: #EAC645;;
+  fill: $add-light-clr-1;
 }
 
 $header-border: 1.5px solid $category-clr;
@@ -55,11 +52,15 @@ $header-border-dark: 1.5px solid $light-clr-1;
 .dark-theme {
   background-color: $dark-clr-2;
   color: $add-text-clr;
+
+  transition: background-color $animation-fast;
 }
 
 .dark-theme header {
   border: $header-border-dark;
   background-color: $dark-clr-2;
+
+  transition: background-color $animation-fast;
 }
 
 .dark-theme .header-logo {
@@ -287,21 +288,21 @@ $header-border-dark: 1.5px solid $light-clr-1;
 .dark-theme {
   & .shopping {
     background-color: $dark-clr-2;
+
+    transition: background-color $animation-fast;
   }
 
-  & .shopping__heading {
+  & .shopping__heading,
+  & .shopping__title,
+  & .shopping__book-description {
     color: $light-clr-1;
+
+    transition: background-color $animation-fast;
   }
 
   & .shopping__card {
     background-color: $dark-clr-1;
-  }
 
-  & .shopping__title {
-    color: $light-clr-1;
-  }
-
-  & .shopping__book-description {
-    color: $light-clr-1;
+    transition: background-color $animation-fast;
   }
 }
