@@ -291,6 +291,7 @@
     transition: all 0.3s;
     width: 28px;
     height: 28px;
+    background-color: $light-clr-1;
   }
   .header-menu-mob:hover {
     stroke: $accent-clr;
@@ -320,6 +321,7 @@
 
   .menu-burger-open .header-menu-mob-close {
     transition: opacity 0.3s ease;
+    background-color: $light-clr-1;
   }
 
   .mobile-menu-container {

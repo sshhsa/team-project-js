@@ -142,6 +142,9 @@ $header-border-dark: 1.5px solid $light-clr-1;
 
 .dark-theme .header-menu-mob-close {
   stroke: $light-clr-1;
+  background-color: $dark-clr-2;
+
+  transition: $animation-fast;
 }
 
 .dark-theme {
@@ -228,6 +231,9 @@ $header-border-dark: 1.5px solid $light-clr-1;
   }
   & .header-menu-mob {
     stroke: $light-clr-1;
+    background-color: $dark-clr-2;
+
+    transition: $animation-fast;
     &:hover {
       stroke: $accent-clr;
     }
