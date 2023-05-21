@@ -15,3 +15,10 @@ import './js/pagination';
 
 import './js/footer';
 import './js/modal_footer';
+
+window.addEventListener('load', function () {
+  const conatinerAnimation = document.querySelector('.animation');
+  setTimeout(() => {
+    conatinerAnimation.style.display = 'none';
+  }, 300);
+});

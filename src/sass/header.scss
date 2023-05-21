@@ -11,18 +11,23 @@
   display: flex;
   justify-content: space-evenly;
   max-width: 1392px !important;
+
+  padding-top: 19px;
+  padding-bottom: 19px;
 }
 
 .header-logo {
-  font-family: 'DM Sans';
-  text-decoration: none;
-  color: $dark-clr-1;
-  height: 13.27px;
-  margin-left: 24px;
-  margin-top: 22px;
-  margin-bottom: 22px;
-  font-weight: 700;
   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  // margin-left: 24px;
+  // margin-top: 22px;
+  // margin-bottom: 22px;
+  color: $dark-clr-1;
 }
 
 .header-list {
@@ -34,6 +39,7 @@
 
 .header-buttons {
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
   margin-left: auto;
 }
@@ -86,8 +92,8 @@
 
 .logo-header {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   stroke-width: 0;
   color: $dark-clr-1;
   fill: currentColor;
@@ -213,7 +219,7 @@
   align-items: center;
   width: 184px;
   height: 48px;
-  margin-left: 10px;
+  margin-left: 24px;
   justify-content: space-between;
 }
 

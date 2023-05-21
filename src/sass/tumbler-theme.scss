@@ -312,3 +312,9 @@ $header-border-dark: 1.5px solid $light-clr-1;
     transition: background-color $animation-fast;
   }
 }
+
+.dark-theme {
+  & .shopping__shop-img {
+    color: $add-text-clr;
+  }
+}
