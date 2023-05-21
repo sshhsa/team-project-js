@@ -311,10 +311,23 @@ $header-border-dark: 1.5px solid $light-clr-1;
 
     transition: background-color $animation-fast;
   }
+
+  & .shopping__shop-img {
+    color: $add-text-clr;
+  }
 }
 
 .dark-theme {
-  & .shopping__shop-img {
-    color: $add-text-clr;
+  & .footer,
+  .footer__wrapper {
+    background-color: $dark-clr-2;
+  }
+
+  & .footer__text {
+    color: $light-clr-1;
+  }
+
+  & .footer__link {
+    color: $light-clr-2;
   }
 }

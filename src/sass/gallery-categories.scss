@@ -95,6 +95,8 @@
   position: relative;
 
   overflow: hidden;
+
+  margin-bottom: 14px;
 }
 
 .book-cards:hover {
@@ -102,8 +104,10 @@
 }
 
 .book-cards:hover .port-overlay,
-.book-cards:focus .port-overlay {
-  opacity: 1;
+.book-cards:focus .port-overlay,
+.books-gallery__card:hover .port-overlay,
+.books-gallery__card:focus .port-overlay {
+  transform: translateY(0);
 }
 
 .book-cards img {
@@ -208,20 +212,22 @@
 
 .port-overlay {
   position: absolute;
-  opacity: 0;
-
   bottom: 0;
   left: 0;
+  padding: 26px;
+
   width: 100%;
   height: 70px;
-  padding: 26px;
+
   text-align: center;
-  background-color: $light-clr-2;
   background-blend-mode: soft-light;
   mix-blend-mode: normal;
   border-radius: 0px 0px 8px 8px;
+  background-color: $light-clr-2;
 
-  transition: opacity $animation-add-2;
+  transform: translateY(100%);
+
+  transition: opacity, transform $animation-add-2;
 }
 
 .port-overlay p {
@@ -290,9 +296,8 @@
 
 .books-gallery__card-img {
   width: 335px;
-  height: 485px;
+  height: 400px;
 
-  margin-bottom: 14px;
   border-radius: 8px;
 
   @media screen and (min-width: 768px) {

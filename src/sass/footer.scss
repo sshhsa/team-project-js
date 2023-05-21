@@ -1,8 +1,5 @@
 .footer {
-  padding: 29px 0;
-  position: sticky;
-  box-shadow: 0 2px 8px #5f41af80, inset 0 1px #ffffff4d, inset 0 10px #fff3,
-    inset 0 10px 20px #ffffff40, inset 0 -15px 30px #7e35d34d;
+  padding: 29px 0px;
 }
 
 .footer__wrapper {
@@ -14,6 +11,7 @@
   text-align: center;
 
   color: #6f4bca;
+  background-color: $light-clr-1;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -22,7 +20,8 @@
 }
 
 .footer__text {
-  font-family: 'DM Sans';
+  font-family: inherit;
+  color: $dark-clr-1;
   @media screen and (min-width: 768px) {
     display: inline-block;
   }
@@ -97,7 +96,8 @@
   }
 }
 
-//---- притискання футера до низа екрану----
+// ---- притискання футера до низа екрану ----
+// ---- squeezing footer to the screen-floor ----
 
 html,
 body {
@@ -108,7 +108,7 @@ body {
 .wrapper--body {
   display: flex;
   flex-direction: column;
-  min-height: 100svh;
+  min-height: 100vh;
 }
 
 .main--wrapper {
@@ -132,7 +132,7 @@ body {
   align-items: center;
 
   backdrop-filter: blur(10px);
-  background-color: #4848481a;
+  background-color: $dark-clr-2;
 
   opacity: 1;
 
@@ -150,7 +150,7 @@ body {
 
     .footer-modal {
       transform: scale(1.5);
-      background-color: rgba(255, 255, 255, 0.788);
+      background-color: $add-light-clr-1;
     }
   }
 }
@@ -168,7 +168,7 @@ body {
   z-index: 1;
   width: 300px;
 
-  background-color: rgb(177, 176, 176);
+  background-color: $bck-clr-home;
   padding-top: 15px;
   border-radius: 10px;
 
@@ -177,8 +177,9 @@ body {
   background-size: cover;
   transform: scale(1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 8px #b9b1cf80, inset 0 1px #ffffff4d, inset 0 10px #fff3,
-    inset 0 10px 20px #ffffff40, inset 0 -15px 30px #e8d9f84d;
+  box-shadow: 0 2px 8px $add-light-clr-2, inset 0 1px $add-light-clr-2,
+    inset 0 10px $add-light-clr-2, inset 0 10px 20px $add-light-clr-2,
+    inset 0 -15px 30px $add-light-clr-2;
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -189,7 +190,7 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(253, 254, 255, 0.2);
+    background-color: $add-light-clr-2;
     outline: none;
     border-radius: 10px;
   }
@@ -214,7 +215,7 @@ body.modal-open {
 }
 
 .glide__slide {
-  color: #ffff;
+  color: $light-clr-1;
 
   @media screen and(min-width:768px) {
     width: 350px;
@@ -224,7 +225,6 @@ body.modal-open {
 .footer__sociallink {
   margin-top: 2px;
   margin-bottom: 10px;
-  // padding-left: 0;
   margin-top: 2px;
 
   @media screen and(min-width:768px) {
@@ -253,8 +253,9 @@ body.modal-open {
 }
 
 .student-foto {
-  box-shadow: 0 2px 8px #b9b1cf80, inset 0 1px #ffffff4d, inset 0 10px #fff3,
-    inset 0 10px 20px #ffffff40, inset 0 -15px 30px #e8d9f84d;
+  box-shadow: 0 2px 8px $add-light-clr-2, inset 0 1px $add-light-clr-2,
+    inset 0 10px $add-light-clr-2, inset 0 10px 20px $add-light-clr-2,
+    inset 0 -15px 30px $add-light-clr-2;
   width: 100px;
   height: auto;
   border-radius: 50%;
@@ -268,8 +269,9 @@ body.modal-open {
   margin: 0 auto;
   width: 100px;
   border-radius: 50%;
-  box-shadow: 0 2px 8px #b9b1cf80, inset 0 1px #ffffff4d, inset 0 10px #fff3,
-    inset 0 10px 20px #ffffff40, inset 0 -15px 30px #e8d9f84d;
+  box-shadow: 0 2px 8px $add-light-clr-2, inset 0 1px $add-light-clr-2,
+    inset 0 10px $add-light-clr-2, inset 0 10px 20px $add-light-clr-2,
+    inset 0 -15px 30px $add-light-clr-2;
   margin-bottom: 10px;
   @media screen and(min-width:768px) {
     width: 250px;
@@ -284,7 +286,7 @@ body.modal-open {
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: 0.04em;
-  color: #ffffff;
+  color: $light-clr-1;
   text-shadow: 0 4px 4px rgb(0 0 0 / 64%);
 
   @media screen and(min-width:768px) {
@@ -311,8 +313,8 @@ body.modal-open {
   line-height: 1.15;
   letter-spacing: 0.04em;
   text-shadow: 0 4px 4px rgb(0 0 0 / 64%);
-  color: #4f2ee8;
-  font-family: 'Rubik Moonrocks', cursive;
+  color: $accent-clr;
+  font-family: inherit;
   text-align: center;
 
   @media screen and(min-width:768px) {
@@ -336,10 +338,10 @@ body.modal-open {
   width: 25px;
   position: absolute;
   margin-top: 24px;
-  background-color: #ffffff;
+  background-color: $light-clr-1;
   border-radius: 2px;
   transform: rotate(45deg);
-  transition: all 0.3s ease-in;
+  transition: all $animation-fast;
 }
 
 .rightleft {
@@ -347,7 +349,7 @@ body.modal-open {
   width: 25px;
   position: absolute;
   margin-top: 24px;
-  background-color: #ffffff;
+  background-color: $light-clr-1;
   border-radius: 2px;
   transform: rotate(-45deg);
   transition: all 0.3s ease-in;
@@ -361,15 +363,17 @@ body.modal-open {
 .close-container:hover .leftright {
   transform: rotate(-45deg);
   transition: all 0.5s;
-  box-shadow: 0 2px 8px #b9b1cf80, inset 0 1px #ffffff4d, inset 0 10px #fff3,
-    inset 0 10px 20px #ffffff40, inset 0 -15px 30px #e8d9f84d;
+  box-shadow: 0 2px 8px $add-light-clr-2, inset 0 1px $add-light-clr-2,
+    inset 0 10px $add-light-clr-2, inset 0 10px 20px $add-light-clr-2,
+    inset 0 -15px 30px $add-light-clr-2;
 }
 
 .close-container:hover .rightleft {
   transform: rotate(45deg);
   transition: all 0.5s;
-  box-shadow: 0 2px 8px #b9b1cf80, inset 0 1px #ffffff4d, inset 0 10px #fff3,
-    inset 0 10px 20px #ffffff40, inset 0 -15px 30px #e8d9f84d;
+  box-shadow: 0 2px 8px $add-light-clr-2, inset 0 1px $add-light-clr-2,
+    inset 0 10px $add-light-clr-2, inset 0 10px 20px $add-light-clr-2,
+    inset 0 -15px 30px $add-light-clr-2;
 }
 
 .close-container:hover {
@@ -383,31 +387,33 @@ body.modal-open {
 }
 
 .glide__arrows .glide__arrow {
-  box-shadow: 0 2px 8px #b9b1cf80, inset 0 1px #ffffff4d, inset 0 10px #fff3,
-    inset 0 10px 20px #ffffff40, inset 0 -15px 30px #e8d9f84d;
+  box-shadow: 0 2px 8px $add-light-clr-2, inset 0 1px $add-light-clr-2,
+    inset 0 10px $add-light-clr-2, inset 0 10px 20px $add-light-clr-2,
+    inset 0 -15px 30px $add-light-clr-2;
 }
 
 .glide__slide {
   padding-top: 33px;
 }
+
 .glide__arrow {
   z-index: 2;
-  color: #fff;
+  color: $light-clr-1;
   text-transform: uppercase;
-  text-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+  text-shadow: 0 0.25em 0.5em $dark-clr-2;
   opacity: 1;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
+  background-color: $dark-clr-1;
+  border: transparent;
+  border-radius: 50%;
   padding: 9px 12px;
   line-height: 1;
-  transition: opacity 0.15s, border 0.3s ease-in-out;
+  transition: opacity 0.15s, border $animation-slow;
   display: block;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25em 0.5em $dark-clr-2;
 }
 
 .glide__track {
@@ -435,4 +441,23 @@ body.modal-open {
   display: flex;
   justify-content: center;
   padding-top: 8px;
+}
+
+.footer {
+  background-color: $light-clr-1;
+}
+
+// Fixed footer
+
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity $animation-add;
+}
+
+.footer-fixed.visible {
+  opacity: 1;
 }
