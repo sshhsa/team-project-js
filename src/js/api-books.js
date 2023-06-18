@@ -1,5 +1,3 @@
-export { getCategoryList, getBooksCategory, getTopBooks, getBooksId };
-
 import axios from 'axios';
 
 const BASE_URL = 'https://books-backend.p.goit.global';
@@ -33,3 +31,5 @@ async function getBooksId(id) {
   const { data } = await axios.get(`${BOOKS_ID}/${id}`);
   return data;
 }
+
+export { getCategoryList, getBooksCategory, getTopBooks, getBooksId };

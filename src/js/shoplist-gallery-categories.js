@@ -1,5 +1,5 @@
 import { getPagination } from './pagination';
-import localStoragemethod from './storage-methods';
+import { loadLS } from './storage';
 
 import amazonImage1 from '../images/png/amazon-shop-1x.png';
 import amazonImage2 from '../images/png/amazon-shop-2x.png';
@@ -9,10 +9,10 @@ import bookshopImage1 from '../images/png/bookshop-1x.png';
 import bookshopImage2 from '../images/png/bookshop-2x.png';
 
 const refs = {
-  //Header
+  // Header
   navlinks: document.querySelectorAll('.active'),
 
-  //Shopping-list
+  // Shopping-list
   shoppingListEl: document.querySelector('.shopping__cards'),
   notificationContainerEl: document.querySelector('.shopping__storage'),
   shoppingHeadingEl: document.querySelector('.shopping__heading'),
@@ -22,7 +22,7 @@ const refs = {
   ),
   SHOP_LIST_KEY: 'selected-books',
 
-  //Pagination
+  // Pagination
   paginationEl: document.querySelector('#tui-pagination-container'),
 };
 
@@ -47,7 +47,7 @@ function setActiveState(elements) {
 }
 
 setActiveState(refs.navlinks);
-let bookList = localStoragemethod.load(refs.SHOP_LIST_KEY);
+let bookList = loadLS(refs.SHOP_LIST_KEY);
 
 const userShoplist = JSON.parse(localStorage.getItem('user-shop-list')) || [];
 

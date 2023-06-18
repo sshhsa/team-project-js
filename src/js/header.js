@@ -3,9 +3,9 @@ import {
   createUser,
   signInUser,
   signOutUser,
-  setUserInLS,
   isUserSet,
   getUserFromLS,
+  setUserInLS,
 } from './auth-modal';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -37,7 +37,6 @@ toggleMenuBtnHeader.addEventListener('click', function () {
   }
 });
 
-// список елементів меню, котрі з'являються під час авторизації
 // list-elements of the menu, whose appear during authorization
 const toggleHeaderMenuAuth = document.querySelector('.page-nav'); // header menu
 const togglemobileMenuAuth = document.querySelector('.js-mobile-menu-logedin'); // mobile menu items
@@ -54,7 +53,7 @@ const mobNavItems = document.querySelector('.nav-list');
 signOutHeaderBtn.addEventListener('click', onClickHeaderSignOutUser);
 signOutMobile.addEventListener('click', onClickSignOutUser);
 headerInfoBtn.addEventListener('click', onClickInfoButton);
-// перемикання видимості за уомвами
+// toggle opacity by requirement
 function onClickInfoButton() {
   headerInfoBtn.classList.toggle('is-visible');
   headerInfoBtn.nextElementSibling.classList.toggle('is-visible');
@@ -85,15 +84,21 @@ function menusToggleOnAuth() {
     headerName.textContent = name;
   }
 }
-// ініціалізація DOMа
-// initialization of the DOM
-menusToggleOnAuth();
+// initialization DOM
 if (!localStorage.getItem('user')) {
   setUserInLS(user);
+} else {
+  const tempUser = getUserFromLS();
+  for (let key in tempUser) {
+    user[key] =
+      tempUser[key] === 'Object'
+        ? JSON.parse(JSON.stringify(tempUser[key]))
+        : tempUser[key];
+  }
 }
-
+menusToggleOnAuth();
 //==================================================================
-// Функції авторизації користувача || user`s functions for authorization
+// User`s functions for authorization
 //==================================================================
 
 // Handle Authentication form Modal window
@@ -182,11 +187,11 @@ function onClickHeaderSignOutUser() {
   }, 500);
 }
 
-// ==================================================================
+//==================================================================
 // Открытие и закрытие модального окна авторизации.
 // Закрытие по клику на бэкдропе, на "крестике", нажатию "ESC"
 // и отправке формы.
-// ==================================================================
+//==================================================================
 const refs = {
   backDropAuth: document.querySelector('.js-overlay-modal'),
   authModalClose: document.querySelector('.js-modal-close'),

@@ -12,7 +12,7 @@ import './js/gallery-categories';
 import './js/modal-item-home';
 import './js/support-ukraine';
 
-import './js/storage-methods';
+import './js/storage';
 import './js/pagination';
 
 import './js/footer';

@@ -11,10 +11,10 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
+import { getBooksId } from './api-books.js';
 
 // Import notification service
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
 // Notify Options
 const notifyOptions = {
   fontFamily: 'DM Sans',
@@ -53,6 +53,7 @@ let user = {
   photoUrl: './images/png/user.png',
   isSignedIn: false,
   booksArr: [],
+  bookDataArr: [],
 };
 
 //--- ключи для локального хранилища.
@@ -72,11 +73,10 @@ function isUserSet() {
   return !!loadLS(LOGINKEY);
 }
 
-// if (isUserSet()) {
-//   user = getUserFromLS();
-// }
-
 //-------------------------------------------------------------------
+
+// set vars after login
+// function setUserVar(uid) {}
 
 // sign up user
 async function createUser({ email } = user, password) {
@@ -91,13 +91,12 @@ async function createUser({ email } = user, password) {
       }).then(() => {
         // Profile update success...
       });
-
       user.userId = userCur.uid;
       user.isSignedIn = true;
       saveLS(LOGINKEY, 'true');
       setUserInLS(user);
-      Notify.success(`New user ${user.name} created`, notifyOptions);
       menusToggleOnAuth();
+      Notify.success(`New user ${user.name} created`, notifyOptions);
       return true;
     })
     .catch(error => {
@@ -119,12 +118,10 @@ async function signInUser({ email } = user, password) {
       user.userId = userCur.uid;
       user.isSignedIn = true;
       saveLS(LOGINKEY, 'true');
-
       getUserData(user);
-      Notify.success(`Sign-in successful`, notifyOptions);
-      // Get data from the database
       setUserInLS(user);
       menusToggleOnAuth();
+      Notify.success(`Sign-in successful`, notifyOptions);
       return true;
     })
     .catch(error => {
@@ -167,8 +164,8 @@ function signOutUser() {
 }
 
 // Firebase realtime database update
-async function updateUserDatabase({ booksArr }) {
-  await set(ref(database, `users/${user.userId}`), booksArr)
+async function updateUserDatabase({ booksArr, userId }) {
+  await set(ref(database, `users/${userId}`), booksArr)
     .then(() => {
       Notify.success(`DataBase updated!`, notifyOptions);
     })
@@ -186,12 +183,18 @@ async function getUserData({ userId }) {
   await get(child(dbRef, `users/${userId}`))
     .then(snapshot => {
       if (!snapshot.exists()) {
-        return true;
+        return;
       }
       user.booksArr = snapshot.val();
+      if (user.bookDataArr.length !== user.booksArr.length) {
+        for (let i = 0; i < user.booksArr.length; i++) {
+          getBooksId(user.booksArr[i]).then(data => {
+            user.bookDataArr[i] = data;
+            setUserInLS(user);
+          });
+        }
+      }
       setUserInLS(user);
-      Notify.success(`Shoplist downloaded from DataBase!`, notifyOptions);
-      return false;
     })
     .catch(error => {
       Notify.warning('Error getting data from DataBase', notifyOptions);
@@ -201,13 +204,6 @@ async function getUserData({ userId }) {
       console.log(errorMessage);
     });
 }
-
-//Импорт для хидера - объект User (используется его поля 'user.isSignedIn' (булеан)-
-//проверка на залогиненность, 'user.name' (строка) - имя пользователя) и функция 'signOutUser(user)'
-
-//Импорт для шоп-листа - объект 'User' (поле 'user.isSignedIn' - проверка на залогиненность) и
-//функции: 'updateUserDatabase(user)' - обновление базы в облаке (из массива - ('user.booksArr')),
-//'getUserData(user)' получение данных из облака в массив - ('user.booksArr')
 
 export {
   user,

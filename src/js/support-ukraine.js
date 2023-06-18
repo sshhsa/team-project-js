@@ -112,7 +112,6 @@ function renderLogos() {
 
 renderLogos();
 
-
 // slider
 
 const swiperOverflowContainerEl = document.querySelector('.swiper-container');
@@ -150,7 +149,6 @@ function onMoveDownClick() {
     btnDownIconEl.style.transform = '';
   }
 }
-
 
 // scroll
 
