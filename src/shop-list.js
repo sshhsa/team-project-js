@@ -15,7 +15,10 @@ import './js/modal_footer';
 
 window.addEventListener('load', function () {
   const conatinerAnimation = document.querySelector('.animation');
+  const body = document.querySelector('body');
   setTimeout(() => {
     conatinerAnimation.style.display = 'none';
-  }, 500);
+    body.classList.remove('overlay');
+  }, 2000);
+  body.classList.add('overlay');
 });

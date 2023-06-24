@@ -233,4 +233,13 @@ function backDropClosing() {
   authForm.lastElementChild.textContent = 'sign up';
 }
 
+// Add active style for HOME
+
+const homeLink = document.querySelector(
+  '.header-list-item a[href="./index.html"]'
+);
+if (homeLink) {
+  homeLink.classList.add('active');
+}
+
 export { menusToggleOnAuth };
