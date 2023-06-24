@@ -205,4 +205,23 @@ function createAddMarcup() {
   </p>`;
 }
 
+const modalWindow = document.querySelector('.modal-window');
+const modalBody = document.querySelector('.modal__body');
+
+function openModal() {
+  modalWindow.classList.add('is-block');
+  modalBody.classList.add('modal__body-scrollable');
+  document.body.classList.add('disable-scroll');
+}
+
+function closeModal() {
+  modalWindow.classList.remove('is-block');
+  modalBody.classList.remove('modal__body-scrollable');
+  document.body.classList.remove('disable-scroll');
+}
+
+// Виклик функцій для відкриття та закриття модального вікна
+openModal(); // Викликайте цю функцію при відкритті модального вікна
+closeModal(); // Викликайте цю функцію при закритті модального вікна
+
 export { modalOpen };

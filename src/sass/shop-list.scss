@@ -12,6 +12,17 @@
 
 // Animation during load site
 
+@media screen and (max-width: 1090px) {
+  .shop-list-none {
+    display: none;
+  }
+}
+
+.align-home-sect {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .animation {
   position: fixed;
   top: 0;
