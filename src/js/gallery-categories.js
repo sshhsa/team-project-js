@@ -6,7 +6,7 @@ const booksList = document.querySelector('.js-gallery-best-books');
 const galleryTitle = document.querySelector('.gallery-title');
 
 getTopBooks().then(data => {
-  if (!data.length) {
+  if (data.length === 0) {
     Notify.failure(
       'Sorry, there are no best sellers books. Please choose a category.'
     );
