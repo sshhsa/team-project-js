@@ -419,31 +419,3 @@ const options = {
 };
 
 const glideFooter = new Glide('.glide_footer', options);
-
-// Fixed footer
-const footer = document.querySelector('.footer');
-const supportUkraine = document.querySelector('.support-container');
-const footerHeight = footer.offsetHeight;
-let lastScrollTop = 0;
-
-window.addEventListener('scroll', onScrollEventWindow);
-
-function onScrollEventWindow() {
-  let scrollDistance = window.scrollY;
-
-  if (scrollDistance < lastScrollTop || scrollDistance === 0) {
-    setTimeout(function () {
-      footer.classList.remove('visible');
-    }, 250);
-    footer.classList.remove('footer-fixed');
-    supportUkraine.style.marginTop = null;
-  } else {
-    setTimeout(function () {
-      footer.classList.add('visible');
-    }, 250);
-    footer.classList.add('footer-fixed');
-    supportUkraine.style.marginTop = `${footerHeight}px`;
-  }
-
-  lastScrollTop = scrollDistance;
-}

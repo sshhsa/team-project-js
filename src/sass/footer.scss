@@ -446,18 +446,3 @@ body.modal-open {
 .footer {
   background-color: $light-clr-1;
 }
-
-// Fixed footer
-
-.footer-fixed {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  transition: opacity $animation-add;
-}
-
-.footer-fixed.visible {
-  opacity: 1;
-}

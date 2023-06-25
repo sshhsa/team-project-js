@@ -1,5 +1,8 @@
-import { getPagination } from './pagination';
-import { loadLS } from './storage';
+import {
+  setUserInLS,
+  getUserFromLS,
+  updateUserDatabase,
+} from './auth-modal.js';
 
 import amazonImage1 from '../images/png/amazon-shop-1x.png';
 import amazonImage2 from '../images/png/amazon-shop-2x.png';
@@ -9,68 +12,49 @@ import bookshopImage1 from '../images/png/bookshop-1x.png';
 import bookshopImage2 from '../images/png/bookshop-2x.png';
 
 const refs = {
-  // Header
   navlinks: document.querySelectorAll('.active'),
-
-  // Shopping-list
   shoppingListEl: document.querySelector('.shopping__cards'),
   notificationContainerEl: document.querySelector('.shopping__storage'),
   shoppingHeadingEl: document.querySelector('.shopping__heading'),
+  jsGuard: document.querySelector('.js-guard'),
   logoTrashPath: new URL(
     '../images/svg-sprite/symbol-defs.svg',
     import.meta.url
   ),
-  SHOP_LIST_KEY: 'selected-books',
-
-  // Pagination
-  paginationEl: document.querySelector('#tui-pagination-container'),
 };
 
-function setActiveState(elements) {
-  elements.forEach((item, index) => {
-    const href = item.getAttribute('href').match(/\/[a-z-]*.html/g);
-    const windowHref = window.location.href.match(/team-proj-js-book-app\/$/g);
-    const windowHrefAfterRegistration = window.location.href.match(
-      /team-proj-js-book-app\/#$/g
-    );
-    const reg = window.location.href.match(/1234\/#$/g);
-    if (
-      window.location.href.includes(href) ||
-      (window.location.href.includes(windowHref) && index === 0) ||
-      (window.location.href.includes(windowHrefAfterRegistration) &&
-        index === 0) ||
-      (window.location.href.includes(reg) && index === 0)
-    ) {
-      item.classList.add('is-activ');
-    }
-  });
-}
-
-setActiveState(refs.navlinks);
-let bookList = loadLS(refs.SHOP_LIST_KEY);
-
-const userShoplist = JSON.parse(localStorage.getItem('user-shop-list')) || [];
+let currUser = localStorage.getItem('user') ? getUserFromLS() : [];
+let bookList = currUser.booksArr;
+let userShoplist = currUser.bookDataArr;
 
 let currentPage = 1;
-let itemsPerPage = 3;
-let bookCount = bookList.length;
-
-let pagination = getPagination(bookCount, itemsPerPage);
-pagination.on('beforeMove', event => {
-  currentPage = event.page;
-  renderShoppingList(userShoplist, event.page);
-});
+let itemsPerPage = 5;
+// let bookCount = bookList.length;
 
 renderShoppingList(userShoplist, currentPage);
 
-function renderShoppingList(data, page = 1) {
+// let optionsObserver = {
+//   root: null,
+//   rootMargin: '600px',
+//   threshold: 1.0,
+// };
+// let observer = new IntersectionObserver(onLoad, optionsObserver);
+// function onLoad(entries) {
+//   entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+//       currentPage++;
+//       renderShoppingList(userShoplist, currentPage);
+//     }
+//   });
+// }
+
+function renderShoppingList(data, page) {
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   let currentData = data.slice(startIndex, endIndex);
 
   if (currentData.length) {
     removeEmptyNotificationContainer();
-
     const markup = userShoplist
       .map(
         ({
@@ -159,7 +143,7 @@ function renderShoppingList(data, page = 1) {
       </div>
       </div>
   </div>
-  <button type="button" class="shopping__btn" aria-label="Delete the book from shopping list">
+  <button type="button" class="shopping__btn" aria-label="Delete the book from shopping list" data-id="${_id}">
     <svg class="shopping__btn-icon" width="18" height="18">
       <use href="${refs.logoTrashPath}#icon-trash"></use>
     </svg>
@@ -171,6 +155,10 @@ function renderShoppingList(data, page = 1) {
       .join('');
     refs.shoppingListEl.innerHTML = markup;
     refs.shoppingListEl.addEventListener('click', onTrashClick);
+    // observer.observe(refs.jsGuard);
+    // if (currentPage === Math.ceil(bookCount / itemsPerPage)) {
+    //   observer.unobserve(refs.jsGuard);
+    // }
   } else {
     pasteEmptyNotificationContainer();
   }
@@ -180,14 +168,12 @@ function pasteEmptyNotificationContainer() {
   refs.shoppingListEl.innerHTML = '';
   refs.notificationContainerEl.classList.add('empty-js');
   refs.shoppingHeadingEl.style.marginBottom = '140px';
-  refs.paginationEl.style.display = 'none';
 }
 
 function removeEmptyNotificationContainer() {
   refs.notificationContainerEl.classList.remove('empty-js');
   refs.shoppingHeadingEl.style.marginBottom = '';
   removeEventListener('click', onTrashClick);
-  refs.paginationEl.style.display = 'block';
 }
 
 function cutNameCategory(name) {
@@ -201,31 +187,27 @@ function cutNameCategory(name) {
 }
 
 function onTrashClick(e) {
-  const target = e.target.closest('.shopping__btn');
-  const page = pagination.getCurrentPage();
-
-  if (!target) {
+  const isButton = e.target
+    .closest('.shopping__btn')
+    .classList.contains('shopping__btn');
+  if (!isButton) {
     return;
   }
-  const bookEl = target.closest('.shopping__btn').closest('.shopping__card');
-  const seekedId = bookEl.dataset.id.trim();
 
+  // const bookEl = target.closest('.shopping__btn').closest('.shopping__card');
+  const idToDelete = e.target.closest('.shopping__btn').dataset.id.trim();
   const removedElIndexFromStorage = bookList.findIndex(
-    item => item._id === seekedId
+    item => item === idToDelete
   );
 
   bookList.splice(removedElIndexFromStorage, 1);
-  localStoragemethod.save(refs.SHOP_LIST_KEY, bookList);
+  userShoplist.splice(removedElIndexFromStorage, 1);
+  // let currUser = localStorage.getItem('user') ? getUserFromLS() : [];
+  currUser.booksArr = bookList;
+  currUser.bookDataArr = userShoplist;
+  setUserInLS(currUser);
+  updateUserDatabase(currUser);
 
-  bookCount = bookList.length;
-  pagination.setTotalItems(bookCount);
-  pagination.movePageTo(page);
-
-  if (refs.shoppingListEl.childNodes.length === 0) {
-    pagination.movePageTo(currentPage - 1);
-
-    if (!bookList.length) {
-      refs.paginationEl.style.display = 'none';
-    }
-  }
+  // bookCount = bookList.length;
+  renderShoppingList(userShoplist, currentPage);
 }

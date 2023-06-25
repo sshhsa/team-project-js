@@ -12,9 +12,23 @@
 
 // Animation during load site
 
-@media screen and (max-width: 1090px) {
+@media screen and (max-width: 1300px) {
   .shop-list-none {
     display: none;
+  }
+
+  .align-home-sect {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .align-home-sect {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    margin-top: 40px;
   }
 }
 
